@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct Algorithm: Identifiable {
-    let id = UUID()
+struct Algorithm: Identifiable, Codable {
+    var id = UUID()
     var name: String
     var algorithm: String
     var note: String
     var hasVid: Bool = false
+    var seen: Bool = false
 }
 
 struct Category {

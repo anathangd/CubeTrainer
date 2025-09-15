@@ -17,10 +17,15 @@ struct IndividualCategoryView: View {
     @State private var showVideo = false
     @State private var playTrigger = true
     @State private var count = 0
+    @State private var needsWorkArray: [Algorithm] = []
     
     init(category: Category) {
         self.category = category
         _algorithms = State(initialValue: category.algorithms)
+        if let data = UserDefaults.standard.data(forKey: "needsWork"),
+           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+            _needsWorkArray = State(initialValue: decoded)
+        }
     }
 
     var body: some View {
@@ -141,17 +146,38 @@ struct IndividualCategoryView: View {
     }
     
     private func markCorrect() {
+        // if I haven't seen it, take it out of the needsWorkArray
+        if !algorithms[currentIndex].seen {
+            if let index = needsWorkArray.firstIndex(where: { $0.id == algorithms[currentIndex].id }) {
+                needsWorkArray.remove(at: index)
+                saveNeedsWork()
+            }
+        }
         showAll = false
         count += 1
         algorithms.remove(at: 0)
     }
     
     private func markIncorrect() {
+        if !algorithms[currentIndex].seen {
+            algorithms[currentIndex].seen = true
+            // Only append if it's not already in needsWorkArray
+            if !needsWorkArray.contains(where: { $0.id == algorithms[currentIndex].id }) {
+                needsWorkArray.append(algorithms[currentIndex])
+                saveNeedsWork()
+            }
+        }
         showAll = false
         count += 1
         let current = algorithms[currentIndex]
         algorithms.remove(at: 0)
         algorithms.append(current)
+    }
+    
+    private func saveNeedsWork() {
+        if let encoded = try? JSONEncoder().encode(needsWorkArray) {
+            UserDefaults.standard.set(encoded, forKey: "needsWork")
+        }
     }
 }
 

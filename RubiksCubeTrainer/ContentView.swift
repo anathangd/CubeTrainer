@@ -11,7 +11,16 @@ struct ContentView: View {
     let color = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     @EnvironmentObject var solveCountModel: SolveCountModel
     @State var editCount = false
-    let categories: [Category] = [
+    // Start with empty array; load from UserDefaults if available
+    @State private var needsWorkArrayMain: [Algorithm] = []
+    var categories: [Category] = []
+
+    init() {
+        if let data = UserDefaults.standard.data(forKey: "needsWork"),
+           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+            _needsWorkArrayMain = State(initialValue: decoded)
+        }
+        categories = [
             Category(name: "Simple OLL", algorithms: [
                 Algorithm(name: "Lshape", algorithm: "F U R U' R' F'", note: "6 times"),
                 Algorithm(name: "line", algorithm: "F R U R' U' F'", note: "6 times"),
@@ -110,8 +119,10 @@ struct ContentView: View {
                 Algorithm(name: "single edge", algorithm: "r' U2 l F2 l' F2 r2 U2\nr U2 r' U2 F2 r2 F2", note: "2 times"), //verified
                 Algorithm(name: "opposite edges", algorithm: "r2 U2 r2 Uw2 r2 u2", note: "2 times"), //verified
                 Algorithm(name: "adjacent edges", algorithm: "(R' U R U') r2 U2 r2 Uw2\nr2 u2 (U R' U' R)", note: "2 times"), //verified
-            ])
+            ]),
+            Category(name: "Needs Work", algorithms: needsWorkArrayMain)
         ]
+    }
     var body: some View {
         NavigationStack {
             ZStack {
@@ -164,6 +175,13 @@ struct ContentView: View {
                                     .capsuleButtonStyle(color: .red)
                             }
                             
+                            if !needsWorkArrayMain.isEmpty {
+                                NavigationLink(destination: ListView(category: categories.first { $0.name == "Needs Work" }!)) {
+                                    Text("Weak Algorithms (\(needsWorkArrayMain.count))")
+                                        .capsuleButtonStyle()
+                                }
+                            }
+                            
                             NavigationLink(destination: FullOLLView()) {
                                 Text("Full OLL")
                                     .capsuleButtonStyle(color: .red)
@@ -204,6 +222,12 @@ struct ContentView: View {
                 .padding()
                 SolveCountButton(model: solveCountModel, editCount: $editCount)
                     .padding(.top, 15)
+            }
+            .onAppear {
+                if let data = UserDefaults.standard.data(forKey: "needsWork"),
+                   let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+                    needsWorkArrayMain = decoded
+                }
             }
         }
     }
