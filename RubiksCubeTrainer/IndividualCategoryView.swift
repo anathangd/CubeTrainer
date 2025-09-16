@@ -141,6 +141,9 @@ struct IndividualCategoryView: View {
         }
         .background(.yellow)
         .onAppear {
+            for i in algorithms.indices {
+                algorithms[i].seen = false
+            }
             algorithms.shuffle()
         }
     }
@@ -148,9 +151,12 @@ struct IndividualCategoryView: View {
     private func markCorrect() {
         // if I haven't seen it, take it out of the needsWorkArray
         if !algorithms[currentIndex].seen {
-            if let index = needsWorkArray.firstIndex(where: { $0.id == algorithms[currentIndex].id }) {
+            print("\(algorithms[currentIndex].name)")
+            if let index = needsWorkArray.firstIndex(where: { $0.name == algorithms[currentIndex].name }) {
+                print("removing \(algorithms[currentIndex].name) from needsWorkArray...")
                 needsWorkArray.remove(at: index)
                 saveNeedsWork()
+                print("needsWork array count: \(needsWorkArray.count)")
             }
         }
         showAll = false
@@ -162,9 +168,11 @@ struct IndividualCategoryView: View {
         if !algorithms[currentIndex].seen {
             algorithms[currentIndex].seen = true
             // Only append if it's not already in needsWorkArray
-            if !needsWorkArray.contains(where: { $0.id == algorithms[currentIndex].id }) {
+            if !needsWorkArray.contains(where: { $0.name == algorithms[currentIndex].name }) {
+                print("adding \(algorithms[currentIndex].name) to needsWorkArray...")
                 needsWorkArray.append(algorithms[currentIndex])
                 saveNeedsWork()
+                print("needsWork array count: \(needsWorkArray.count)")
             }
         }
         showAll = false

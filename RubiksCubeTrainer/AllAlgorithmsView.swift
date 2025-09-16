@@ -135,6 +135,9 @@ struct AllAlgorithmsView: View {
         }
         .background(.yellow)
         .onAppear {
+            for i in allAlgorithms.indices {
+                allAlgorithms[i].seen = false
+            }
             allAlgorithms.shuffle()
         }
     }
@@ -142,9 +145,11 @@ struct AllAlgorithmsView: View {
     private func markCorrect() {
         // if I haven't seen it, take it out of the needsWorkArray
         if !allAlgorithms[currentIndex].seen {
-            if let index = needsWorkArray.firstIndex(where: { $0.id == allAlgorithms[currentIndex].id }) {
+            if let index = needsWorkArray.firstIndex(where: { $0.name == allAlgorithms[currentIndex].name }) {
+                print("removing \(allAlgorithms[currentIndex].name) from needsWorkArray...")
                 needsWorkArray.remove(at: index)
                 saveNeedsWork()
+                print("needsWork array count: \(needsWorkArray.count)")
             }
         }
         showAll = false
@@ -156,9 +161,11 @@ struct AllAlgorithmsView: View {
         if !allAlgorithms[currentIndex].seen {
             allAlgorithms[currentIndex].seen = true
             // Only append if it's not already in needsWorkArray
-            if !needsWorkArray.contains(where: { $0.id == allAlgorithms[currentIndex].id }) {
+            if !needsWorkArray.contains(where: { $0.name == allAlgorithms[currentIndex].name }) {
+                print("adding \(allAlgorithms[currentIndex].name) to needsWorkArray...")
                 needsWorkArray.append(allAlgorithms[currentIndex])
                 saveNeedsWork()
+                print("needsWork array count: \(needsWorkArray.count)")
             }
         }
         showAll = false

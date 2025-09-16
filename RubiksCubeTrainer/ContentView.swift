@@ -176,7 +176,11 @@ struct ContentView: View {
                             }
                             
                             if !needsWorkArrayMain.isEmpty {
-                                NavigationLink(destination: ListView(category: categories.first { $0.name == "Needs Work" }!)) {
+                                NavigationLink(
+                                        destination: IndividualCategoryView(
+                                            category: Category(name: "Needs Work", algorithms: needsWorkArrayMain)
+                                        )
+                                    ) {
                                     Text("Weak Algorithms (\(needsWorkArrayMain.count))")
                                         .capsuleButtonStyle()
                                 }
