@@ -39,7 +39,7 @@ struct ListView: View {
             .scrollContentBackground(.hidden) // Hide default background
             .background(Color.yellow) // Set entire view background to yellow
             .navigationTitle(category.name)
-            SolveCountButton(model: solveCountModel, editCount: $editCount)
+            SolveCountButton(editCount: $editCount)
         }
     }
 }

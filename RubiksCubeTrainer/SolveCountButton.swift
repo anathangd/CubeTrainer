@@ -7,9 +7,11 @@
 
 import Foundation
 import SwiftUI
+import WatchConnectivity
 
 struct SolveCountButton: View {
-    @ObservedObject var model: SolveCountModel
+    @EnvironmentObject var connectivity: PhoneConnectivity
+    @EnvironmentObject var model: SolveCountModel
     @Binding var editCount: Bool
 
     var body: some View {
@@ -31,6 +33,16 @@ struct SolveCountButton: View {
                         .onTapGesture {
                             model.count += 1
                             editCount = false
+                            if WCSession.default.isReachable {
+                                let solveCount = model.count
+                                WCSession.default.sendMessage(["solveCount": solveCount]) { response in
+                                    print("✅ Watch responded: \(response)")
+                                } errorHandler: { error in
+                                    print("❌ Failed to send message: \(error.localizedDescription)")
+                                }
+                            } else {
+                                print("⚠️ Watch not reachable right now")
+                            }
                         }
                         .sensoryFeedback(.increase, trigger: model.count)
                         .sensoryFeedback(.impact(weight: .heavy), trigger: model.count)
@@ -43,6 +55,16 @@ struct SolveCountButton: View {
                             Button {
                                 if model.count > 0 {
                                     model.count -= 1
+                                    if WCSession.default.isReachable {
+                                        let solveCount = model.count
+                                        WCSession.default.sendMessage(["solveCount": solveCount]) { response in
+                                            print("✅ Watch responded: \(response)")
+                                        } errorHandler: { error in
+                                            print("❌ Failed to send message: \(error.localizedDescription)")
+                                        }
+                                    } else {
+                                        print("⚠️ Watch not reachable right now")
+                                    }
                                     if model.count == 0 {
                                         editCount = false
                                     }

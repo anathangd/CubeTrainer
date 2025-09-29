@@ -182,7 +182,7 @@ struct FullOLLView: View {
                 }
             }
             .padding()
-            SolveCountButton(model: solveCountModel, editCount: $editCount)
+            SolveCountButton(editCount: $editCount)
                 .padding(.top, 15)
         }
     }

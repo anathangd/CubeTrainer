@@ -136,7 +136,7 @@ struct CFOPStepTimerView: View {
                     editCount = false
                 }
             if !isInspecting && !isSolving {
-                SolveCountButton(model: solveCountModel, editCount: $editCount)
+                SolveCountButton(editCount: $editCount)
             }
 //            VStack {
 //                Text("\(thumbLeft), \(thumbRight)")

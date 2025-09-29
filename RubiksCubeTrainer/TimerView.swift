@@ -84,7 +84,7 @@ struct TimerView: View {
                     }
                 }
             if !isInspecting && !isSolving {
-                SolveCountButton(model: solveCountModel, editCount: $editCount)
+                SolveCountButton(editCount: $editCount)
             }
             
             VStack {

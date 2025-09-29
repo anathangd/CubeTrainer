@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ContentView: View {
-    let color = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     @EnvironmentObject var solveCountModel: SolveCountModel
+    @EnvironmentObject var connectivity: PhoneConnectivity
+    let color = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
     @State var editCount = false
     // Start with empty array; load from UserDefaults if available
     @State private var needsWorkArrayMain: [Algorithm] = []
@@ -42,12 +44,16 @@ struct ContentView: View {
                 Algorithm(name: "swapAdj", algorithm: "M' U' M2 U' M2\nU' M' U2 M2 U", note: "2 times")
             ]),
             Category(name: "Full PLL", algorithms: [
-                Algorithm(name: "F", algorithm: "U' (gR' U R U') R2 (F' U' F gU) x (gR U R' U') R2 x'", note: "2 times"),
-                Algorithm(name: "F mirrored", algorithm: "U (gL U' L' U) L2 (F U F' gU') x (gL' U' L U) L2 x'", note: "2 times"),
-                Algorithm(name: "Ga", algorithm: "y R2' u (gR' U R' U') (R u' R2) y' (gR' U R)", note: "3 times"),
-                Algorithm(name: "Gb", algorithm: "(R' U' R) y R2 u (gR' U R U') (gR u' R2)", note: "4 times"),
-                Algorithm(name: "Gc", algorithm: "y' L2 u' (gL U' L U) (L' u L2) y (gL U' L')", note: "3 times"),
-                Algorithm(name: "Gd", algorithm: "(L U L') y' L2 u' (gL U' L' U) (gL' u L2)", note: "4 times"),
+                Algorithm(name: "F", algorithm: "R' U' F' R U R' U' R' F\nR2 U' R' U' R U R' U R", note: "2 times"),
+                Algorithm(name: "F mirrored", algorithm: "L U F L' U' L U L F'\nL2 U L U L' U' L U' L'", note: "2 times"),
+                Algorithm(name: "Ga", algorithm: "D' R2 U R' U R' U' R U' R2 (U' D) R' U R", note: "4 times"),
+                Algorithm(name: "Gb", algorithm: "R' U' R (U D') R2 U R' U R U' R U' R2 D", note: "4 times"),
+                Algorithm(name: "Gc", algorithm: "D L2 U' L U' L U L' U L2 (U D') L U' L'", note: "4 times"),
+                Algorithm(name: "Gd", algorithm: "L U L' (U' D) L2 U' L U' L' U L' U L2 D'", note: "4 times"),
+                // Algorithm(name: "Ga", algorithm: "y R2' u (gR' U R' U') (R u' R2) y' (gR' U R)", note: "3 times"),
+                // Algorithm(name: "Gb", algorithm: "(R' U' R) y R2 u (gR' U R U') (gR u' R2)", note: "4 times"),
+                // Algorithm(name: "Gc", algorithm: "y' L2 u' (gL U' L U) (L' u L2) y (gL U' L')", note: "3 times"),
+                // Algorithm(name: "Gd", algorithm: "(L U L') y' L2 u' (gL U' L' U) (gL' u L2)", note: "4 times"),
                 Algorithm(name: "H", algorithm: "(M2 U' M2) U2\n(M2 U' M2)", note: "2 times"),
                 Algorithm(name: "Z", algorithm: "M' U' M2 U' M2\nU' M' U2 M2 U", note: "2 times"),
                 Algorithm(name: "Z mirrored", algorithm: "M' U M2 U M2\nU M' U2 M2 U'", note: "2 times"),
@@ -224,13 +230,23 @@ struct ContentView: View {
                     Spacer()
                 }
                 .padding()
-                SolveCountButton(model: solveCountModel, editCount: $editCount)
+                SolveCountButton(editCount: $editCount)
                     .padding(.top, 15)
             }
             .onAppear {
                 if let data = UserDefaults.standard.data(forKey: "needsWork"),
                    let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
                     needsWorkArrayMain = decoded
+                }
+                if WCSession.default.isReachable {
+                    let solveCount = solveCountModel.count
+                    WCSession.default.sendMessage(["solveCount": solveCount]) { response in
+                        print("✅ Watch responded: \(response)")
+                    } errorHandler: { error in
+                        print("❌ Failed to send message: \(error.localizedDescription)")
+                    }
+                } else {
+                    print("⚠️ Watch not reachable right now")
                 }
             }
         }

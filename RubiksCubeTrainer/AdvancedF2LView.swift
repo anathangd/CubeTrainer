@@ -183,7 +183,7 @@ var body: some View {
                 Spacer()
             }
             .padding()
-            SolveCountButton(model: solveCountModel, editCount: $editCount)
+            SolveCountButton(editCount: $editCount)
                 .padding(.top, 15)
         }
         .navigationDestination(isPresented: $showIndividualView) {
