@@ -41,16 +41,20 @@ class PhoneConnectivity: NSObject, WCSessionDelegate, ObservableObject {
         }
     }
     
-    // MARK: - Receive messages (for request current count)
+    // MARK: - Receive messages (for request current count and full solveCount updates)
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         DispatchQueue.main.async {
-            if let _ = message["requestSolveCount"] as? Bool {
-                print("request received")
-                // send current count immediately if reachable
+            if let newCount = message["solveCount"] as? Int {
+                print("📥 Received full solveCount from watch: \(newCount)")
+                self.solveCountModel?.count = newCount
+                UserDefaults.standard.set(newCount, forKey: "solveCount")
+            } else if let _ = message["requestSolveCount"] as? Bool {
+                print("📥 Received requestSolveCount")
                 let currentCount = self.solveCountModel?.count ?? 0
                 try? session.updateApplicationContext(["solveCount": currentCount])
+            } else {
+                print("⚠️ Unrecognized message: \(message)")
             }
-            
         }
     }
     

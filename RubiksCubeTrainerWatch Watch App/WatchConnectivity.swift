@@ -31,6 +31,7 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         UserDefaults.standard.set(solveCount, forKey: "solveCount")
         print("incrementSolve called, local solveCount: \(solveCount)")
         
+        
         // Queue increment to phone for delivery even if app is asleep
         WCSession.default.transferUserInfo(["incrementSolve": 1])
         print("transferUserInfo sent: incrementSolve = 1")
@@ -70,6 +71,10 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
                 self.solveCount += increment
                 UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
                 print("didReceiveUserInfo received, increment: \(increment), new solveCount: \(self.solveCount)")
+            } else if let count = userInfo["solveCount"] as? Int {
+                self.solveCount = count
+                UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
+                print("📥 Received full solveCount: \(count)")
             } else if let _ = userInfo["requestSolveCount"] as? Bool {
                 print("didReceiveUserInfo received requestSolveCount")
             } else {

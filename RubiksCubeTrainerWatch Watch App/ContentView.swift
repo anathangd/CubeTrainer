@@ -6,28 +6,56 @@
 //
 
 import SwiftUI
+import WatchConnectivity
 
 struct ContentView: View {
     @ObservedObject private var watchManager = WatchConnectivityManager.shared
+//    var isConnected: Bool {
+//        WCSession.default.isReachable
+//    }
+    
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("\(watchManager.solveCount)")
-                .font(.system(size: 50))
-            
-            Button("+") {
-                watchManager.incrementSolve()
+        ZStack {
+            Rectangle()
+                .ignoresSafeArea()
+                .foregroundStyle(.yellow)
+//            VStack {
+//                HStack {
+//                    Spacer()
+//                    Text(isConnected ? "✅" : "⚠️")
+//                        .font(.footnote)
+//                        .padding(.horizontal, 10)
+//                }
+//                Spacer()
+//            }
+            VStack {
+                Spacer()
+                Button(action: {
+                    watchManager.incrementSolve()
+                }) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 40))
+                        .padding(20)
+                        .padding(.horizontal, 40)
+                        .background(.blue)
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .padding(.bottom, -10)
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .font(.title)
+            VStack(spacing: 10) {
+                Text("\(watchManager.solveCount)")
+                    .font(.system(size: 60))
+                    .foregroundStyle(.black)
+                    .padding(.bottom, 65)
+            }
             .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .clipShape(Capsule())
-        }
-        .padding()
-        .onAppear {
-            print("requesting solve count")
-            watchManager.requestCurrentSolveCount()
+            .onAppear {
+                print("requesting solve count")
+                watchManager.requestCurrentSolveCount()
+            }
         }
     }
 }

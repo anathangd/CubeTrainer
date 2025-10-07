@@ -41,7 +41,8 @@ struct SolveCountButton: View {
                                     print("❌ Failed to send message: \(error.localizedDescription)")
                                 }
                             } else {
-                                print("⚠️ Watch not reachable right now")
+                                print("⚠️ Watch not reachable right now, queuing solve count update.")
+                                WCSession.default.transferUserInfo(["solveCount": model.count])
                             }
                         }
                         .sensoryFeedback(.increase, trigger: model.count)
@@ -63,7 +64,8 @@ struct SolveCountButton: View {
                                             print("❌ Failed to send message: \(error.localizedDescription)")
                                         }
                                     } else {
-                                        print("⚠️ Watch not reachable right now")
+                                        print("⚠️ Watch not reachable right now, queuing solve count update.")
+                                        WCSession.default.transferUserInfo(["solveCount": model.count])
                                     }
                                     if model.count == 0 {
                                         editCount = false
@@ -75,6 +77,7 @@ struct SolveCountButton: View {
                                 Text("-")
                             }
                             .frame(width: 35, height: 30)
+                            .contentShape(Rectangle())
                             .foregroundStyle(.white)
                             .background(model.count != 0 ? .blue : .gray)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -84,6 +87,18 @@ struct SolveCountButton: View {
                     }
                 }
                 Spacer()
+            }
+        }
+        .onAppear {
+            if WCSession.default.isReachable {
+                let solveCount = model.count
+                WCSession.default.sendMessage(["solveCount": solveCount]) { response in
+                    print("✅ Watch responded: \(response)")
+                } errorHandler: { error in
+                    print("❌ Failed to send message: \(error.localizedDescription)")
+                }
+            } else {
+                print("⚠️ Watch not reachable right now")
             }
         }
     }
