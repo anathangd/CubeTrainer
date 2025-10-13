@@ -134,6 +134,7 @@ struct FullOLLView: View {
                 Text("Full OLL!")
                     .font(.system(size: 30))
                     .fontWeight(.bold)
+                    .padding(.top, 65)
                 Spacer()
                 ScrollView(showsIndicators: false) {
                     VStack {
@@ -181,7 +182,7 @@ struct FullOLLView: View {
                     }
                 }
             }
-            .padding()
+            .ignoresSafeArea()
             SolveCountButton(editCount: $editCount)
                 .padding(.top, 15)
         }

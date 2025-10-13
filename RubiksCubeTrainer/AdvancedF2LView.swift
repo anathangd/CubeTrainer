@@ -50,7 +50,7 @@ struct AdvancedF2LView: View {
         ]),
         Category(name: "Corner left", algorithms: [
             Algorithm(name: "corner left 1", algorithm: "(R U2 R') U (R' U' R)", note: "", hasVid: true), // redone
-            Algorithm(name: "corner left 2", algorithm: "y U' (L' U L) (R U' R')", note: "", hasVid: true), // redone
+            Algorithm(name: "corner left 2", algorithm: "U' (R' F R F') U' f R f'", note: "", hasVid: true), // redone
             Algorithm(name: "corner left 3", algorithm: "y U (L' U' L) y (L' U' L)", note: "", hasVid: true), // redone
             Algorithm(name: "corner left 4", algorithm: "y L' (R U' R') L", note: "also S R' S'", hasVid: true), // redone
             Algorithm(name: "corner left 5", algorithm: "U R U R2' U2 R", note: "", hasVid: true), // redone
@@ -58,7 +58,7 @@ struct AdvancedF2LView: View {
         ]),
         Category(name: "Corner back", algorithms: [
             Algorithm(name: "corner back 1", algorithm: "U' (R' F R F') U2 (L U L')", note: "", hasVid: true), // redone
-            Algorithm(name: "corner back 2", algorithm: "U (R U' R') y (R' U2 R)", note: "", hasVid: true), // redone
+            Algorithm(name: "corner back 2", algorithm: "U R U' R' U f' L f", note: "", hasVid: true), // redone
             Algorithm(name: "corner back 3", algorithm: "(R U' R') (L U2 L')", note: "", hasVid: true), // redone
             Algorithm(name: "corner back 4", algorithm: "y L' U' L U' R' U' R", note: "", hasVid: true), // redone
             Algorithm(name: "corner back 5", algorithm: "R U R' U L U L'", note: "", hasVid: true), // redone
@@ -126,7 +126,7 @@ struct AdvancedF2LView: View {
             Algorithm(name: "opposite 14", algorithm: "y L' U L U' L' U2 L R' U2' R", note: "", hasVid: true),
             Algorithm(name: "opposite 15", algorithm: "R U' R' U' R U' R' d' R' U' R", note: "", hasVid: true),
             Algorithm(name: "opposite 16", algorithm: "R U' R' U R U2' R' L U2 L'", note: "", hasVid: true),
-            Algorithm(name: "opposite 17", algorithm: "y L' U L U L' U L d L U L'", note: "", hasVid: true)
+            Algorithm(name: "opposite 17", algorithm: "R U R' U' R U' R' f' L' f", note: "", hasVid: true)
         ])
     ]
     var allAlgorithmsCategory: Category {
@@ -146,6 +146,7 @@ var body: some View {
                 Text("Advanced F2L")
                     .font(.system(size: 30))
                     .fontWeight(.bold)
+                    .padding(.top, 65)
                 Spacer()
                 ScrollView(showsIndicators: false) {
                     VStack {
@@ -182,7 +183,7 @@ var body: some View {
                 }
                 Spacer()
             }
-            .padding()
+            .ignoresSafeArea()
             SolveCountButton(editCount: $editCount)
                 .padding(.top, 15)
         }
