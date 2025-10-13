@@ -729,6 +729,16 @@ struct ContentView: View {
             .navigationDestination(isPresented: $showListView) {
                 ListView(category: selectedCategoryForList ?? categories.first!)
             }
+            .onAppear {
+                if let data = UserDefaults.standard.data(forKey: "needsWork"),
+                   let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+                    needsWorkArrayMain = decoded
+                    print("✅ Refreshed needsWorkArrayMain: \(decoded.count) items")
+                } else {
+                    needsWorkArrayMain = []
+                    print("⚠️ No needsWork data found")
+                }
+            }
         }
     }
 }
