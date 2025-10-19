@@ -19,6 +19,7 @@ struct IndividualCategoryView: View {
     @State private var playTrigger = true
     @State private var count = 0
     @State private var needsWorkArray: [Algorithm] = []
+    @State private var mirroring: Bool = false
     
     init(category: Category) {
         self.category = category
@@ -49,7 +50,7 @@ struct IndividualCategoryView: View {
                         .padding(.top, 10)
                     
                     if showVideo {
-                        F2LVideoView(videoName: algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
+                        F2LVideoView(videoName: mirroring ? algorithms[currentIndex].name + " mirrored" : algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
                             .frame(width: 450, height: 450)
                             .cornerRadius(12)
                             .shadow(radius: 4)
@@ -61,18 +62,30 @@ struct IndividualCategoryView: View {
                                 playTrigger = true
                             }
                     } else {
-                        Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .onTapGesture {
-                                if algorithms[currentIndex].hasVid {
-                                    showVideo = true       
+                        if mirroring {
+                            Image(algorithms[currentIndex].name + " mirrored")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .onTapGesture {
+                                    if algorithms[currentIndex].hasVid {
+                                        showVideo = true
+                                    }
+                                    showAll = true
                                 }
-                                if algorithms[currentIndex].answer != "" {
-                                    showAnswerImage.toggle()
+                        } else {
+                            Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .onTapGesture {
+                                    if algorithms[currentIndex].hasVid {
+                                        showVideo = true
+                                    }
+                                    if algorithms[currentIndex].answer != "" {
+                                        showAnswerImage.toggle()
+                                    }
+                                    showAll = true
                                 }
-                                showAll = true
-                            }
+                        }
                     }
                     
                     if algorithms[currentIndex].note != "" {
@@ -82,7 +95,7 @@ struct IndividualCategoryView: View {
                         
                     
                     if showAll {
-                        Text(algorithms[currentIndex].algorithm)
+                        Text(mirroring ? algorithmMirrorer(alg: algorithms[currentIndex].algorithm) :  algorithms[currentIndex].algorithm)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .multilineTextAlignment(.center)
                             .font(.largeTitle)
@@ -114,6 +127,15 @@ struct IndividualCategoryView: View {
             if !algorithms.isEmpty {
                 VStack {
                     Spacer()
+                    if imageExists(named: algorithms[currentIndex].name + " mirrored") {
+                        Image(systemName: "arrow.left.and.right.circle.fill")
+                            .font(.system(size: 40))
+                            .foregroundStyle(Color.indigo)
+                            .onTapGesture {
+                                showVideo = false
+                                mirroring.toggle()
+                            }
+                    }
                     HStack {
                         Button { //right
                             showVideo = false
@@ -165,6 +187,7 @@ struct IndividualCategoryView: View {
         }
         showAll = false
         showAnswerImage = false
+        mirroring = false
         count += 1
         algorithms.remove(at: 0)
     }
@@ -182,6 +205,7 @@ struct IndividualCategoryView: View {
         }
         showAll = false
         showAnswerImage = false
+        mirroring = false
         count += 1
         let current = algorithms[currentIndex]
         algorithms.remove(at: 0)
@@ -193,10 +217,83 @@ struct IndividualCategoryView: View {
             UserDefaults.standard.set(encoded, forKey: "needsWork")
         }
     }
+    
+    private func imageExists(named name: String) -> Bool {
+        print("\(name) mirrored exists!")
+        return UIImage(named: name) != nil
+    }
+    
+    private func algorithmMirrorer(alg: String) -> String {
+        var ogAlgorithm = alg
+
+        ogAlgorithm = ogAlgorithm.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
+            
+        let moves = ogAlgorithm.split(separator: " ")
+
+        var mirroredAlgorithm = ""
+
+        // Loop through each move
+        for move in moves {
+            switch move {
+            case "R":
+                mirroredAlgorithm.append("L' ")
+                break
+            case "R'":
+                mirroredAlgorithm.append("L ")
+                break
+            case "U":
+                mirroredAlgorithm.append("U' ")
+                break
+            case "U'":
+                mirroredAlgorithm.append("U ")
+                break
+            case "L":
+                mirroredAlgorithm.append("R' ")
+                break
+            case "L'":
+                mirroredAlgorithm.append("R ")
+                break
+            case "d":
+                mirroredAlgorithm.append("d' ")
+                break
+            case "d'":
+                mirroredAlgorithm.append("d ")
+                break
+            case "2R":
+                mirroredAlgorithm.append("2L' ")
+                break
+            case "2L":
+                mirroredAlgorithm.append("2R' ")
+                break
+            case "f":
+                mirroredAlgorithm.append("f' ")
+                break
+            case "f'":
+                mirroredAlgorithm.append("f ")
+                break
+            case "y":
+                mirroredAlgorithm.append("y' ")
+                break
+                case "y'":
+                mirroredAlgorithm.append("y ")
+                break
+            default:
+                mirroredAlgorithm.append("? ")
+                print("case not found: \(move)")
+            }
+        }
+
+        print(ogAlgorithm.replacingOccurrences(of: " ", with: "\t"))
+        print(mirroredAlgorithm.replacingOccurrences(of: " ", with: "\t"))
+
+        print("\n\(mirroredAlgorithm)")
+        return mirroredAlgorithm
+    }
 }
 
 #Preview {
     IndividualCategoryView(category: Category(name: "Simple OLL", algorithms: [
+        Algorithm(name: "corner edge top 1", algorithm: "(U' R U') (R' U R) U R'", note: "", hasVid: true),
         Algorithm(name: "corner top edge middle 1", algorithm: "(U F' U F) (U F' U2 F)", note: "", hasVid: true),
         Algorithm(name: "corner top edge middle 2", algorithm: "(U' R U' R') (U' R U2 R')", note: "", hasVid: true),
         Algorithm(name: "corner top edge middle 3", algorithm: "(U F' U' F) (U' R U R')", note: "", hasVid: true),

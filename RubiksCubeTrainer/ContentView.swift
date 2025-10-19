@@ -233,6 +233,11 @@ struct ContentView: View {
                                 Text("Megaminx >")
                                     .capsuleButtonStyle()
                             }
+                            
+                            NavigationLink(destination: RoofpigTestView()) {
+                                Text("Roofpig Test >")
+                                    .capsuleButtonStyle(color: .red)
+                            }
                         }
                         .frame(maxWidth: .infinity)
                     }
