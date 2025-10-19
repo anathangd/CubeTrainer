@@ -15,6 +15,7 @@ struct IndividualCategoryView: View {
     @State private var currentIndex = 0
     @State var showAll = false
     @State private var showVideo = false
+    @State private var showAnswerImage = false
     @State private var playTrigger = true
     @State private var count = 0
     @State private var needsWorkArray: [Algorithm] = []
@@ -60,12 +61,15 @@ struct IndividualCategoryView: View {
                                 playTrigger = true
                             }
                     } else {
-                        Image(algorithms[currentIndex].name)
+                        Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .onTapGesture {
                                 if algorithms[currentIndex].hasVid {
                                     showVideo = true       
+                                }
+                                if algorithms[currentIndex].answer != "" {
+                                    showAnswerImage.toggle()
                                 }
                                 showAll = true
                             }
@@ -160,6 +164,7 @@ struct IndividualCategoryView: View {
             }
         }
         showAll = false
+        showAnswerImage = false
         count += 1
         algorithms.remove(at: 0)
     }
@@ -176,6 +181,7 @@ struct IndividualCategoryView: View {
             }
         }
         showAll = false
+        showAnswerImage = false
         count += 1
         let current = algorithms[currentIndex]
         algorithms.remove(at: 0)

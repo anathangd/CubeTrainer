@@ -14,6 +14,7 @@ struct Algorithm: Identifiable, Codable {
     var note: String
     var hasVid: Bool = false
     var seen: Bool = false
+    var answer: String = ""
 }
 
 struct Category {

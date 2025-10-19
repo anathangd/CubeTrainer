@@ -46,7 +46,7 @@ struct MegaminxView: View {
             Algorithm(name: "position corners 6", algorithm: "R2 U R' U' y (R U R' U') (R U R' U') (R U R') y' R U' R2'", note: ""),
             Algorithm(name: "position corners 7", algorithm: "(R U R' U) (R' U' R F') (R U R' U') (R' F R2 U')\n(R2' U R U')", note: ""),
             Algorithm(name: "position corners 8", algorithm: "[(R U R' U) (R' U' R2 U')\n(R' U R' U R) U] * 2", note: ""),
-            Algorithm(name: "position corners 9", algorithm: "F (R U2 R' U' R U' R')\nF R' y' (R' U' R U' R' U2 R BR) U'", note: ""),
+            Algorithm(name: "position corners 9", algorithm: "F (R U2 R' U' R U' R')\nF' R' y' (R' U' R U' R' U2 R BR) U'", note: "5 times"),
             Algorithm(name: "position corners 10", algorithm: "R2 U2 R2' U' R2 U'\nR2' y' R2' U' R2\nU' R2' U2 R2 U'", note: ""),
             Algorithm(name: "position corners 11", algorithm: "R2' U2' R2 U R2' U R2 y R2 U R2' U R2 U2' R2' U", note: ""),
             Algorithm(name: "position corners 12", algorithm: "R2 U2' R2' U R2 U2'\n(R' U R' U') (R' F R2 U')\n(R' U' R U) R' F'", note: ""),
