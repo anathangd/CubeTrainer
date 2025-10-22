@@ -90,6 +90,7 @@ struct SolveCountButton: View {
             }
         }
         .onAppear {
+            editCount = false
             if WCSession.default.isReachable {
                 let solveCount = model.count
                 WCSession.default.sendMessage(["solveCount": solveCount]) { response in

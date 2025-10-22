@@ -15,6 +15,9 @@ struct Algorithm: Identifiable, Codable {
     var hasVid: Bool = false
     var seen: Bool = false
     var answer: String = ""
+    var roofpig: Bool = false
+    var setupMoves: String = ""
+    var type: String = ""
 }
 
 struct Category {

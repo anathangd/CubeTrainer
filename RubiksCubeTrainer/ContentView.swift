@@ -234,10 +234,10 @@ struct ContentView: View {
                                     .capsuleButtonStyle()
                             }
                             
-                            NavigationLink(destination: RoofpigTestView()) {
-                                Text("Roofpig Test >")
-                                    .capsuleButtonStyle(color: .red)
-                            }
+//                            NavigationLink(destination: RoofpigTestView()) {
+//                                Text("Roofpig Test >")
+//                                    .capsuleButtonStyle(color: .red)
+//                            }
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -264,6 +264,16 @@ struct ContentView: View {
                 } else {
                     needsWorkArrayMain = []
                     print("⚠️ No needsWork data found")
+                }
+                if WCSession.default.isReachable {
+                    let solveCount = solveCountModel.count
+                    WCSession.default.sendMessage(["solveCount": solveCount]) { response in
+                        print("✅ Watch responded: \(response)")
+                    } errorHandler: { error in
+                        print("❌ Failed to send message: \(error.localizedDescription)")
+                    }
+                } else {
+                    print("⚠️ Watch not reachable right now")
                 }
             }
         }

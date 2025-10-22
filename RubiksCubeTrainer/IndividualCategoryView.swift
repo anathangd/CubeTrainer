@@ -29,6 +29,8 @@ struct IndividualCategoryView: View {
             _needsWorkArray = State(initialValue: decoded)
         }
     }
+    
+    @State private var initialized = false
 
     var body: some View {
         ZStack {
@@ -49,7 +51,11 @@ struct IndividualCategoryView: View {
                     Text(algorithms[currentIndex].name)
                         .padding(.top, 10)
                     
-                    if showVideo {
+                    if initialized && algorithms[currentIndex].roofpig {
+                        RoofPigView(algorithm: mirroring ? algorithmStripper(alg: algMirrorerWithParens(alg: algorithms[currentIndex].algorithm)) : algorithmStripper(alg: algorithms[currentIndex].algorithm), setup: mirroring ? setupMirrorer(setup: algorithms[currentIndex].setupMoves) : algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring)
+                            .frame(width: 400, height: 450)
+                            .id("\(mirroring)-\(currentIndex)-\(count)")
+                    } else if showVideo {
                         F2LVideoView(videoName: mirroring ? algorithms[currentIndex].name + " mirrored" : algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
                             .frame(width: 450, height: 450)
                             .cornerRadius(12)
@@ -95,7 +101,7 @@ struct IndividualCategoryView: View {
                         
                     
                     if showAll {
-                        Text(mirroring ? algorithmMirrorer(alg: algorithms[currentIndex].algorithm) :  algorithms[currentIndex].algorithm)
+                        Text(mirroring ? algMirrorerWithParens(alg:  algorithms[currentIndex].algorithm)  :  algorithms[currentIndex].algorithm)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .multilineTextAlignment(.center)
                             .font(.largeTitle)
@@ -124,17 +130,21 @@ struct IndividualCategoryView: View {
             .navigationTitle(category.name)
             .padding()
             
+            // buttons
             if !algorithms.isEmpty {
                 VStack {
                     Spacer()
-                    if imageExists(named: algorithms[currentIndex].name + " mirrored") {
-                        Image(systemName: "arrow.left.and.right.circle.fill")
-                            .font(.system(size: 40))
-                            .foregroundStyle(Color.indigo)
-                            .onTapGesture {
-                                showVideo = false
-                                mirroring.toggle()
-                            }
+                    // Mirror button
+                    if algorithms[currentIndex].roofpig {
+                        Button {
+                            showVideo = false
+                            mirroring.toggle()
+                        } label: {
+                            Image(systemName: "arrow.left.and.right.circle.fill")
+                                .font(.system(size: 40))
+                                .foregroundStyle(Color.indigo)
+                        }
+                        
                     }
                     HStack {
                         Button { //right
@@ -171,6 +181,9 @@ struct IndividualCategoryView: View {
                 algorithms[i].seen = false
             }
             algorithms.shuffle()
+            DispatchQueue.main.async {
+                initialized = true
+            }
         }
     }
     
@@ -218,76 +231,10 @@ struct IndividualCategoryView: View {
         }
     }
     
+    // do I need this?
     private func imageExists(named name: String) -> Bool {
         print("\(name) mirrored exists!")
         return UIImage(named: name) != nil
-    }
-    
-    private func algorithmMirrorer(alg: String) -> String {
-        var ogAlgorithm = alg
-
-        ogAlgorithm = ogAlgorithm.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
-            
-        let moves = ogAlgorithm.split(separator: " ")
-
-        var mirroredAlgorithm = ""
-
-        // Loop through each move
-        for move in moves {
-            switch move {
-            case "R":
-                mirroredAlgorithm.append("L' ")
-                break
-            case "R'":
-                mirroredAlgorithm.append("L ")
-                break
-            case "U":
-                mirroredAlgorithm.append("U' ")
-                break
-            case "U'":
-                mirroredAlgorithm.append("U ")
-                break
-            case "L":
-                mirroredAlgorithm.append("R' ")
-                break
-            case "L'":
-                mirroredAlgorithm.append("R ")
-                break
-            case "d":
-                mirroredAlgorithm.append("d' ")
-                break
-            case "d'":
-                mirroredAlgorithm.append("d ")
-                break
-            case "2R":
-                mirroredAlgorithm.append("2L' ")
-                break
-            case "2L":
-                mirroredAlgorithm.append("2R' ")
-                break
-            case "f":
-                mirroredAlgorithm.append("f' ")
-                break
-            case "f'":
-                mirroredAlgorithm.append("f ")
-                break
-            case "y":
-                mirroredAlgorithm.append("y' ")
-                break
-                case "y'":
-                mirroredAlgorithm.append("y ")
-                break
-            default:
-                mirroredAlgorithm.append("? ")
-                print("case not found: \(move)")
-            }
-        }
-
-        print(ogAlgorithm.replacingOccurrences(of: " ", with: "\t"))
-        print(mirroredAlgorithm.replacingOccurrences(of: " ", with: "\t"))
-
-        print("\n\(mirroredAlgorithm)")
-        return mirroredAlgorithm
     }
 }
 
