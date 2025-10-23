@@ -55,6 +55,13 @@ struct MegaminxView: View {
             Algorithm(name: "position corners 15", algorithm: "(R2 U2 R2' U) (R2\nU' R2' U) (R2 U' R2' U)\n(R2 U2 R2')", note: ""),
         ])
     ]
+    var allAlgorithmsCategory: Category {
+        Category(
+            name: "All Algorithms",
+            algorithms: categories.flatMap { $0.algorithms }
+        )
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -66,7 +73,7 @@ struct MegaminxView: View {
                     .fontWeight(.bold)
                 Spacer()
                 ScrollView(showsIndicators: false) {
-                    NavigationLink(destination: AllAlgorithmsView(categories: categories)) {
+                    NavigationLink(destination: IndividualCategoryView(category: allAlgorithmsCategory)) {
                         Text("All Algorithms")
                             .capsuleButtonStyle()
                     }

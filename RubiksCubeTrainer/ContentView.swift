@@ -95,11 +95,6 @@ struct ContentView: View {
                                     .capsuleButtonStyle()
                             }
                             
-                            //                        NavigationLink(destination: AllAlgorithmsView(categories: categories)) {
-                            //                            Text("All Algorithms")
-                            //                                .capsuleButtonStyle()
-                            //                        }
-                            
                             //                        NavigationLink(destination: IndividualCategoryView(category: categories.first { $0.name == "Simple OLL" }!)) {
                             //                            Text("Simple OLL")
                             //                                .capsuleButtonStyle()

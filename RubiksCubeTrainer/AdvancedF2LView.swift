@@ -161,7 +161,7 @@ var body: some View {
                 Spacer()
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        NavigationLink(destination: AllAlgorithmsView(categories: categories)) {
+                        NavigationLink(destination: IndividualCategoryView(category: allAlgorithmsCategory)) {
                             Text("All Algorithms (\(totalAlgorithmCount))")
                                 .capsuleButtonStyle()
                         }

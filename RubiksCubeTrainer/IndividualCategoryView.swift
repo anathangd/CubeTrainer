@@ -56,7 +56,7 @@ struct IndividualCategoryView: View {
                             .frame(width: 400, height: 450)
                             .id("\(mirroring)-\(currentIndex)-\(count)")
                     } else if showVideo {
-                        F2LVideoView(videoName: mirroring ? algorithms[currentIndex].name + " mirrored" : algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
+                        F2LVideoView(videoName: algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
                             .frame(width: 450, height: 450)
                             .cornerRadius(12)
                             .shadow(radius: 4)
@@ -68,38 +68,27 @@ struct IndividualCategoryView: View {
                                 playTrigger = true
                             }
                     } else {
-                        if mirroring {
-                            Image(algorithms[currentIndex].name + " mirrored")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .onTapGesture {
-                                    if algorithms[currentIndex].hasVid {
-                                        showVideo = true
-                                    }
-                                    showAll = true
+                        Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .onTapGesture {
+                                if algorithms[currentIndex].hasVid {
+                                    showVideo = true
                                 }
-                        } else {
-                            Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .onTapGesture {
-                                    if algorithms[currentIndex].hasVid {
-                                        showVideo = true
-                                    }
-                                    if algorithms[currentIndex].answer != "" {
-                                        showAnswerImage.toggle()
-                                    }
-                                    showAll = true
+                                if algorithms[currentIndex].answer != "" {
+                                    showAnswerImage.toggle()
                                 }
-                        }
+                                showAll = true
+                            }
                     }
                     
+                    // algorithm note
                     if algorithms[currentIndex].note != "" {
                         Text("(\(algorithms[currentIndex].note))")
                             .font(.subheadline)
                     }
                         
-                    
+                    // answer display
                     if showAll {
                         Text(mirroring ? algMirrorerWithParens(alg:  algorithms[currentIndex].algorithm)  :  algorithms[currentIndex].algorithm)
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -114,6 +103,7 @@ struct IndividualCategoryView: View {
                     }
                     
                     Spacer()
+                    // clear screen
                 } else {
                     ZStack {
                         Rectangle()
@@ -229,12 +219,6 @@ struct IndividualCategoryView: View {
         if let encoded = try? JSONEncoder().encode(needsWorkArray) {
             UserDefaults.standard.set(encoded, forKey: "needsWork")
         }
-    }
-    
-    // do I need this?
-    private func imageExists(named name: String) -> Bool {
-        print("\(name) mirrored exists!")
-        return UIImage(named: name) != nil
     }
 }
 
