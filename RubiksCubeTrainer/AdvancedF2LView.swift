@@ -134,7 +134,7 @@ struct AdvancedF2LView: View {
             Algorithm(name: "opposite 11", algorithm: "(R U R') (L U2 L') (U L U L')", note: "oriented edge", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
             Algorithm(name: "opposite 12", algorithm: "y L' U2 L y R U' R' d R' U R", note: "edge opposite", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
             Algorithm(name: "opposite 13", algorithm: "(R U' R') d' (R' U2' R U R' U2' R)", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
-            Algorithm(name: "opposite 14", algorithm: "y (L' U L U' L' U2 L) (R' U2' R)", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
+            Algorithm(name: "opposite 14", algorithm: "(R U' R' U' R U R') (L U' L')", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
             Algorithm(name: "opposite 15", algorithm: "(R U' R' U' R U' R') d' R' U' R", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
             Algorithm(name: "opposite 16", algorithm: "(R U' R' U R U2' R') (L U2' L')", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L"),
             Algorithm(name: "opposite 17", algorithm: "(R U R') (U' R U' R') f' L' f", note: "", hasVid: true, roofpig: true, setupMoves: "y2", type: "AdvF2L")

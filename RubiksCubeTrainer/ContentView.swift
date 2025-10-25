@@ -158,7 +158,7 @@ struct ContentView: View {
                                     }
                                 )
                             
-                            let pllabridged = Category(name: "PLL Abridged", algorithms: PLLRecognitionAbridgedCases.cases)
+                            let pllabridged = Category(name: "PLL Rec Abridged", algorithms: PLLRecognitionAbridgedCases.cases)
                                 Button(action: {
                                     selectedCategoryForIndividual = pllabridged
                                     showIndividualView = true
