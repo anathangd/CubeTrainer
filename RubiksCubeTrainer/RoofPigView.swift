@@ -13,10 +13,15 @@ struct RoofPigView: UIViewRepresentable {
     let setup: String
     let type: String
     let mirrored: Bool
+    let rotated: Bool
 
     func makeUIView(context: Context) -> WKWebView {
         var colored: String
-        if type == "AdvF2L" && mirrored {
+        if type == "AdvF2L" && mirrored && rotated {
+            colored = "U D F FD R RD B L LD BD BR BDR"
+        } else if type == "AdvF2L" && rotated {
+            colored = "U D F FD R RD B L LD BD BL BDL"
+        } else if type == "AdvF2L" && mirrored {
             colored = "U D DFL FL F FD R RD B L LD BD"
         } else if type == "AdvF2L" {
             colored = "U D DFR F FD FR R RD B L LD BD"
@@ -146,6 +151,51 @@ func algMirrorerWithParens(alg: String) -> String {
     print("\n\(mirrored)")
 
     return mirrored.trimmingCharacters(in: .whitespaces)
+}
+
+func algRotator(alg: String) -> String {
+    let moves = alg.split(separator: " ")
+    var rotated: String = ""
+    
+    for moveSub in moves {
+        var move = String(moveSub)
+        var prefix = ""
+        var suffix = ""
+        
+        if move.contains("(") {
+            prefix = "("
+            move = move.replacingOccurrences(of: "(", with: "")
+        }
+        if move.contains(")") {
+            suffix = ")"
+            move = move.replacingOccurrences(of: ")", with: "")
+        }
+        var rotatedMove: String
+        switch move {
+        case "R": rotatedMove = "L"
+        case "L": rotatedMove = "R"
+        case "R'": rotatedMove = "L'"
+        case "L'": rotatedMove = "R'"
+        case "R2": rotatedMove = "L2"
+        case "R2'": rotatedMove = "L2'"
+        case "L2": rotatedMove = "R2"
+        case "L2'": rotatedMove = "R2'"
+        case "F": rotatedMove = "B"
+        case "F'": rotatedMove = "B'"
+        case "B": rotatedMove = "F"
+        case "B'": rotatedMove = "F'"
+        case "f": rotatedMove = "b"
+        case "f'": rotatedMove = "b'"
+        case "b": rotatedMove = "f"
+        case "b'": rotatedMove = "f'"
+        case "S": rotatedMove = "S'"
+        case "S'": rotatedMove = "S"
+        
+        default: rotatedMove = move
+        }
+        rotated += "\(prefix)\(rotatedMove)\(suffix) "
+    }
+    return rotated.trimmingCharacters(in: .whitespaces)
 }
 
 func setupMirrorer(setup: String) -> String {

@@ -20,6 +20,7 @@ struct IndividualCategoryView: View {
     @State private var count = 0
     @State private var needsWorkArray: [Algorithm] = []
     @State private var mirroring: Bool = false
+    @State private var rotating: Bool = false
     
     init(category: Category) {
         self.category = category
@@ -52,9 +53,26 @@ struct IndividualCategoryView: View {
                         .padding(.top, 10)
                     
                     if initialized && algorithms[currentIndex].roofpig {
-                        RoofPigView(algorithm: mirroring ? algorithmStripper(alg: algMirrorerWithParens(alg: algorithms[currentIndex].algorithm)) : algorithmStripper(alg: algorithms[currentIndex].algorithm), setup: mirroring ? setupMirrorer(setup: algorithms[currentIndex].setupMoves) : algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring)
-                            .frame(width: 400, height: 450)
-                            .id("\(mirroring)-\(currentIndex)-\(count)")
+                        if mirroring && rotating {
+                            RoofPigView(algorithm: algorithmStripper(alg: algMirrorerWithParens(alg: algRotator(alg: algorithms[currentIndex].algorithm))), setup: setupMirrorer(setup: algorithms[currentIndex].setupMoves), type: algorithms[currentIndex].type, mirrored: mirroring, rotated: rotating)
+                                .frame(width: 400, height: 450)
+                                .id("\(mirroring)-\(currentIndex)-\(count)")
+                        } else if mirroring {
+                            RoofPigView(algorithm: algorithmStripper(alg: algMirrorerWithParens(alg: algorithms[currentIndex].algorithm)), setup: setupMirrorer(setup: algorithms[currentIndex].setupMoves), type: algorithms[currentIndex].type, mirrored: mirroring, rotated: rotating)
+                                .frame(width: 400, height: 450)
+                                .id("\(mirroring)-\(currentIndex)-\(count)")
+                        } else if rotating {
+                            RoofPigView(algorithm: algorithmStripper(alg: algRotator(alg: algorithms[currentIndex].algorithm)), setup: algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring, rotated: rotating)
+                                .frame(width: 400, height: 450)
+                                .id("\(mirroring)-\(currentIndex)-\(count)")
+                        } else {
+                            RoofPigView(algorithm: algorithmStripper(alg: algorithms[currentIndex].algorithm), setup: algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring, rotated: rotating)
+                                .frame(width: 400, height: 450)
+                                .id("\(mirroring)-\(currentIndex)-\(count)")
+                        }
+//                        RoofPigView(algorithm: mirroring ? algorithmStripper(alg: algMirrorerWithParens(alg: algorithms[currentIndex].algorithm)) : algorithmStripper(alg: algorithms[currentIndex].algorithm), setup: mirroring ? setupMirrorer(setup: algorithms[currentIndex].setupMoves) : algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring)
+//                            .frame(width: 400, height: 450)
+//                            .id("\(mirroring)-\(currentIndex)-\(count)")
                     } else if showVideo {
                         F2LVideoView(videoName: algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
                             .frame(width: 450, height: 450)
@@ -90,18 +108,53 @@ struct IndividualCategoryView: View {
                         
                     // answer display
                     if showAll {
-                        Text(mirroring ? algMirrorerWithParens(alg:  algorithms[currentIndex].algorithm)  :  algorithms[currentIndex].algorithm)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .multilineTextAlignment(.center)
-                            .font(.largeTitle)
-                            .padding()
-                            .onTapGesture {
-                                if showVideo {
-                                    showVideo = false
+                        if mirroring && rotating {
+                            Text(algMirrorerWithParens(alg: algRotator(alg: algorithms[currentIndex].algorithm)))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                                .font(.largeTitle)
+                                .padding()
+                                .onTapGesture {
+                                    if showVideo {
+                                        showVideo = false
+                                    }
                                 }
-                            }
+                        } else if rotating {
+                            Text(algRotator(alg: algorithms[currentIndex].algorithm))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                                .font(.largeTitle)
+                                .padding()
+                                .onTapGesture {
+                                    if showVideo {
+                                        showVideo = false
+                                    }
+                                }
+                        } else if mirroring {
+                            Text(algMirrorerWithParens(alg: algorithms[currentIndex].algorithm))
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                                .font(.largeTitle)
+                                .padding()
+                                .onTapGesture {
+                                    if showVideo {
+                                        showVideo = false
+                                    }
+                                }
+                        } else {
+                            Text(algorithms[currentIndex].algorithm)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                                .font(.largeTitle)
+                                .padding()
+                                .onTapGesture {
+                                    if showVideo {
+                                        showVideo = false
+                                    }
+                                }
+                                
+                        }
                     }
-                    
                     Spacer()
                     // clear screen
                 } else {
@@ -126,15 +179,24 @@ struct IndividualCategoryView: View {
                     Spacer()
                     // Mirror button
                     if algorithms[currentIndex].roofpig {
-                        Button {
-                            showVideo = false
-                            mirroring.toggle()
-                        } label: {
-                            Image(systemName: "arrow.left.and.right.circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundStyle(Color.indigo)
+                        HStack {
+                            Button {
+                                showVideo = false
+                                mirroring.toggle()
+                            } label: {
+                                Image(systemName: "arrow.left.and.right.circle.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundStyle(Color.indigo)
+                            }
+                            Button {
+                                showVideo = false
+                                rotating.toggle()
+                            } label: {
+                                Image(systemName: "arrow.up.and.down.circle.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundStyle(Color.indigo)
+                            }
                         }
-                        
                     }
                     HStack {
                         Button { //right
