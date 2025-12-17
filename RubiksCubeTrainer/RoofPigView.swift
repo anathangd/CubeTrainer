@@ -190,6 +190,8 @@ func algRotator(alg: String) -> String {
         case "b'": rotatedMove = "f'"
         case "S": rotatedMove = "S'"
         case "S'": rotatedMove = "S"
+        case "U2": rotatedMove = "U2'"
+        case "U2'": rotatedMove = "U2"
         
         default: rotatedMove = move
         }

@@ -253,6 +253,7 @@ struct IndividualCategoryView: View {
         showAll = false
         showAnswerImage = false
         mirroring = false
+        rotating = false
         count += 1
         algorithms.remove(at: 0)
     }
@@ -271,6 +272,7 @@ struct IndividualCategoryView: View {
         showAll = false
         showAnswerImage = false
         mirroring = false
+        rotating = false
         count += 1
         let current = algorithms[currentIndex]
         algorithms.remove(at: 0)

@@ -10,10 +10,15 @@ import SwiftUI
 struct ListView: View {
     var category: Category
     @State private var algorithms: [Algorithm]
+    @State private var needsWorkArray: [Algorithm] = []
     
     init(category: Category) {
         self.category = category
         _algorithms = State(initialValue: category.algorithms)
+        if let data = UserDefaults.standard.data(forKey: "needsWork"),
+           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+            _needsWorkArray = State(initialValue: decoded)
+        }
     }
     
     @EnvironmentObject var solveCountModel: SolveCountModel
@@ -42,9 +47,39 @@ struct AlgorithmRow: View {
     var algorithm: Algorithm
     @State private var localMirroring = false
     @State private var localRotating = false
+    @State private var needsWorkArray: [Algorithm] = []
+    
+    init(algorithm: Algorithm) {
+        self.algorithm = algorithm
+
+        if let data = UserDefaults.standard.data(forKey: "needsWork"),
+           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+            _needsWorkArray = State(initialValue: decoded)
+        } else {
+            _needsWorkArray = State(initialValue: [])
+        }
+    }
+        
     var body: some View {
         VStack {
-            Text(algorithm.name)
+            HStack {
+                Text(algorithm.name)
+                Button {
+                    if !needsWorkArray.contains(where: { $0.name == algorithm.name }) {
+                        print("adding \(algorithm.name) to needsWorkArray...")
+                        needsWorkArray.append(algorithm)
+                        if let encoded = try? JSONEncoder().encode(needsWorkArray) {
+                            UserDefaults.standard.set(encoded, forKey: "needsWork")
+                        }
+                        print("needsWork array count: \(needsWorkArray.count)")
+                    }
+                } label: {
+                    Image(systemName: "figure.strengthtraining.traditional")
+                        .foregroundStyle(needsWorkArray.contains(where: { $0.name == algorithm.name }) ? Color.gray : Color.blue)
+                        .font(.system(size: 25))
+                }
+            }
+            .offset(x: 25) // offset by the size of the button to keep it center!
             if algorithm.roofpig {
                 if localMirroring && localRotating {
                     RoofPigView(
@@ -106,7 +141,7 @@ struct AlgorithmRow: View {
                         Image(systemName: "arrow.left.and.right.circle.fill")
                             .padding(.top, 10)
                             .font(.system(size: 40))
-                            .foregroundStyle(Color.indigo)                    
+                            .foregroundStyle(Color.indigo)
                     }
                     .allowsHitTesting(true)
                     Button {
