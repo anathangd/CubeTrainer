@@ -10,7 +10,7 @@ import SwiftUI
 struct ListView: View {
     var category: Category
     @State private var algorithms: [Algorithm]
-    @State private var needsWorkArray: [Algorithm] = []
+    @State private var needsWorkArray: [Algorithm]
     
     init(category: Category) {
         self.category = category
@@ -18,6 +18,8 @@ struct ListView: View {
         if let data = UserDefaults.standard.data(forKey: "needsWork"),
            let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
             _needsWorkArray = State(initialValue: decoded)
+        } else {
+            _needsWorkArray = State(initialValue: [])
         }
     }
     
@@ -28,9 +30,14 @@ struct ListView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                ForEach(algorithms) { algorithm in
-                    AlgorithmRow(algorithm: algorithm)
-                        .listRowBackground(Color.yellow)
+                ForEach(Array(algorithms.enumerated()), id: \.element.id) { index, algorithm in
+                    VStack(spacing: 0) {
+                        AlgorithmRow(algorithm: algorithm, needsWorkArray: $needsWorkArray)
+                            .listRowBackground(Color.yellow)
+                        if index < algorithms.count - 1 {
+                            Divider()
+                        }
+                    }
                 }
             }
             .background(Color.yellow) // Set entire view background to yellow
@@ -47,18 +54,7 @@ struct AlgorithmRow: View {
     var algorithm: Algorithm
     @State private var localMirroring = false
     @State private var localRotating = false
-    @State private var needsWorkArray: [Algorithm] = []
-    
-    init(algorithm: Algorithm) {
-        self.algorithm = algorithm
-
-        if let data = UserDefaults.standard.data(forKey: "needsWork"),
-           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
-            _needsWorkArray = State(initialValue: decoded)
-        } else {
-            _needsWorkArray = State(initialValue: [])
-        }
-    }
+    @Binding var needsWorkArray: [Algorithm]
         
     var body: some View {
         VStack {
@@ -114,6 +110,7 @@ struct AlgorithmRow: View {
                 Image(algorithm.name)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .padding(.horizontal, 40)
             }
             if algorithm.note != "" {
                 Text("(\(algorithm.note))")
@@ -131,6 +128,7 @@ struct AlgorithmRow: View {
             } else {
                 Text(algorithm.algorithm)
                     .font(.title)
+                    .padding(.bottom, 10)
             }
             if algorithm.roofpig {
                 HStack {
@@ -139,7 +137,7 @@ struct AlgorithmRow: View {
                         print("localMirroring: \(localMirroring), localRotating: \(localRotating)")
                     } label: {
                         Image(systemName: "arrow.left.and.right.circle.fill")
-                            .padding(.top, 10)
+                            .padding(.bottom, 10)
                             .font(.system(size: 40))
                             .foregroundStyle(Color.indigo)
                     }
@@ -149,7 +147,7 @@ struct AlgorithmRow: View {
                         print("localMirroring: \(localMirroring), localRotating: \(localRotating)")
                     } label: {
                         Image(systemName: "arrow.up.and.down.circle.fill")
-                            .padding(.top, 10)
+                            .padding(.bottom, 10)
                             .font(.system(size: 40))
                             .foregroundStyle(Color.indigo)
                     }

@@ -52,6 +52,14 @@ struct PLLRecognitionAbridgedCases {
         Algorithm(name: "outerblockrightcheckered1", algorithm: "(U) Ab mirrored: outer block on right, checkers", note: ""),
         Algorithm(name: "outerblockleftcheckered1", algorithm: "(No rotation) Ab: outer block left, checkers", note: ""),
         Algorithm(name: "1outerright1inneropp1", algorithm: "(U') Jb: two blocks, outer on right, more opp (adj will face away)", note: ""),
-        Algorithm(name: "1outerleft1inneropp1", algorithm: "(U2) Ja: two blocks, outer on left, more opp (adj will face away)", note: "")
+        Algorithm(name: "1outerleft1inneropp1", algorithm: "(U2) Ja: two blocks, outer on left, more opp (adj will face away)", note: ""),
+        Algorithm(name: "one3x1leftopp1", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj1", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1rightopp1", algorithm: "(U') It’s Ua when an opposite edge color is on the left", note: ""),
+        Algorithm(name: "one3x1rightadj1", algorithm: "(U') It’s Ub when an adjacent edge color is on the left", note: ""),
+        Algorithm(name: "no3x1atleast1oppright1", algorithm: "(No rotation) It’s Ua when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "no3x1atleast1oppleft1", algorithm: "(U) It’s Ub when an opposite edge color is on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft1", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerright1", algorithm: "(No rotation) It’s Ub when a checker pattern is only on the right", note: ""),
     ]
 }

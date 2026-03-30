@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AVKit
 
 struct IndividualCategoryView: View {
     var category: Category
@@ -14,13 +13,19 @@ struct IndividualCategoryView: View {
     // Store current index of the displayed algorithm
     @State private var currentIndex = 0
     @State var showAll = false
-    @State private var showVideo = false
     @State private var showAnswerImage = false
     @State private var playTrigger = true
     @State private var count = 0
     @State private var needsWorkArray: [Algorithm] = []
     @State private var mirroring: Bool = false
     @State private var rotating: Bool = false
+    @State private var imageVariant: Int = Int.random(in: 1...4)
+    private let eightVariantImages: Set<String> = [
+        "3colorcheckermiddle",
+        "noblocksnochecker",
+        "oneblockinside",
+        "oneblockoutside"
+    ]
     
     init(category: Category) {
         self.category = category
@@ -33,6 +38,28 @@ struct IndividualCategoryView: View {
     
     @State private var initialized = false
 
+    private var usesPLLRecVariants: Bool {
+        category.name == "PLL Rec Abridged"
+    }
+
+    private var currentImageName: String {
+        guard !algorithms.isEmpty else {
+            return "Loading..."
+        }
+
+        let baseName = algorithms[currentIndex].name
+
+        guard usesPLLRecVariants, !baseName.isEmpty else {
+            return baseName
+        }
+
+        var name = baseName
+        name.removeLast()
+        let fullName = name + String(imageVariant)
+        print("Current image variant selected:", fullName)
+        return fullName
+    }
+
     var body: some View {
         ZStack {
             Rectangle()
@@ -40,16 +67,13 @@ struct IndividualCategoryView: View {
                 .foregroundStyle(.yellow)
                 .onTapGesture {
                     showAll = true
-                    if showVideo {
-                        showVideo = false
-                    }
                 }
             VStack {
                 // Display algorithm name and steps
                 if !algorithms.isEmpty {
                     Text("Algorithms left: \(algorithms.count)")
                     
-                    Text(algorithms[currentIndex].name)
+                    Text(currentImageName)
                         .padding(.top, 10)
                     
                     if initialized && algorithms[currentIndex].roofpig {
@@ -70,29 +94,12 @@ struct IndividualCategoryView: View {
                                 .frame(width: 400, height: 450)
                                 .id("\(mirroring)-\(currentIndex)-\(count)")
                         }
-//                        RoofPigView(algorithm: mirroring ? algorithmStripper(alg: algMirrorerWithParens(alg: algorithms[currentIndex].algorithm)) : algorithmStripper(alg: algorithms[currentIndex].algorithm), setup: mirroring ? setupMirrorer(setup: algorithms[currentIndex].setupMoves) : algorithms[currentIndex].setupMoves, type: algorithms[currentIndex].type, mirrored: mirroring)
-//                            .frame(width: 400, height: 450)
-//                            .id("\(mirroring)-\(currentIndex)-\(count)")
-                    } else if showVideo {
-                        F2LVideoView(videoName: algorithms[currentIndex].name, videoType: "mov", playTrigger: $playTrigger)
-                            .frame(width: 450, height: 450)
-                            .cornerRadius(12)
-                            .shadow(radius: 4)
-                            .onTapGesture {
-                                playTrigger = true
-                            }
-                            .onAppear {
-                                // Trigger playback on first load
-                                playTrigger = true
-                            }
                     } else {
-                        Image(showAnswerImage ? algorithms[currentIndex].answer : algorithms[currentIndex].name)
+                        Image(showAnswerImage ? algorithms[currentIndex].answer : currentImageName)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .padding(category.name == "Full PLL" ? 40 : 0)
                             .onTapGesture {
-                                if algorithms[currentIndex].hasVid {
-                                    showVideo = true
-                                }
                                 if algorithms[currentIndex].answer != "" {
                                     showAnswerImage.toggle()
                                 }
@@ -114,45 +121,28 @@ struct IndividualCategoryView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.largeTitle)
                                 .padding()
-                                .onTapGesture {
-                                    if showVideo {
-                                        showVideo = false
-                                    }
-                                }
+                                .onTapGesture { }
                         } else if rotating {
                             Text(algRotator(alg: algorithms[currentIndex].algorithm))
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .multilineTextAlignment(.center)
                                 .font(.largeTitle)
                                 .padding()
-                                .onTapGesture {
-                                    if showVideo {
-                                        showVideo = false
-                                    }
-                                }
+                                .onTapGesture { }
                         } else if mirroring {
                             Text(algMirrorerWithParens(alg: algorithms[currentIndex].algorithm))
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .multilineTextAlignment(.center)
                                 .font(.largeTitle)
                                 .padding()
-                                .onTapGesture {
-                                    if showVideo {
-                                        showVideo = false
-                                    }
-                                }
+                                .onTapGesture { }
                         } else {
                             Text(algorithms[currentIndex].algorithm)
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .multilineTextAlignment(.center)
                                 .font(.largeTitle)
                                 .padding()
-                                .onTapGesture {
-                                    if showVideo {
-                                        showVideo = false
-                                    }
-                                }
-                                
+                                .onTapGesture { }
                         }
                     }
                     Spacer()
@@ -181,7 +171,6 @@ struct IndividualCategoryView: View {
                     if algorithms[currentIndex].roofpig {
                         HStack {
                             Button {
-                                showVideo = false
                                 mirroring.toggle()
                             } label: {
                                 Image(systemName: "arrow.left.and.right.circle.fill")
@@ -189,7 +178,6 @@ struct IndividualCategoryView: View {
                                     .foregroundStyle(Color.indigo)
                             }
                             Button {
-                                showVideo = false
                                 rotating.toggle()
                             } label: {
                                 Image(systemName: "arrow.up.and.down.circle.fill")
@@ -200,7 +188,6 @@ struct IndividualCategoryView: View {
                     }
                     HStack {
                         Button { //right
-                            showVideo = false
                             markCorrect()
                         } label: {
                             Image(systemName: "checkmark.circle")
@@ -210,7 +197,6 @@ struct IndividualCategoryView: View {
                                 .padding(20)
                         }
                         Button { //wrong
-                            showVideo = false
                             markIncorrect()
                         } label: {
                             Image(systemName: "x.circle")
@@ -233,6 +219,7 @@ struct IndividualCategoryView: View {
                 algorithms[i].seen = false
             }
             algorithms.shuffle()
+            refreshImageVariant()
             DispatchQueue.main.async {
                 initialized = true
             }
@@ -256,6 +243,7 @@ struct IndividualCategoryView: View {
         rotating = false
         count += 1
         algorithms.remove(at: 0)
+        refreshImageVariant()
     }
     
     private func markIncorrect() {
@@ -277,6 +265,28 @@ struct IndividualCategoryView: View {
         let current = algorithms[currentIndex]
         algorithms.remove(at: 0)
         algorithms.append(current)
+        refreshImageVariant()
+    }
+
+    private func refreshImageVariant() {
+
+        guard usesPLLRecVariants else {
+            return
+        }
+
+        guard !algorithms.isEmpty else {
+            return
+        }
+
+        let baseName = algorithms[currentIndex].name
+        var name = baseName
+        name.removeLast()
+
+        if eightVariantImages.contains(name) {
+            imageVariant = Int.random(in: 1...8)
+        } else {
+            imageVariant = Int.random(in: 1...4)
+        }
     }
     
     private func saveNeedsWork() {
@@ -287,16 +297,58 @@ struct IndividualCategoryView: View {
 }
 
 #Preview {
-    IndividualCategoryView(category: Category(name: "Simple OLL", algorithms: [
-        Algorithm(name: "corner edge top 1", algorithm: "(U' R U') (R' U R) U R'", note: "", hasVid: true),
-        Algorithm(name: "corner top edge middle 1", algorithm: "(U F' U F) (U F' U2 F)", note: "", hasVid: true),
-        Algorithm(name: "corner top edge middle 2", algorithm: "(U' R U' R') (U' R U2 R')", note: "", hasVid: true),
-        Algorithm(name: "corner top edge middle 3", algorithm: "(U F' U' F) (U' R U R')", note: "", hasVid: true),
-        Algorithm(name: "corner top edge middle 4", algorithm: "(U' R U R') (d R' U' R)", note: "", hasVid: true),
-        Algorithm(name: "corner top edge middle 5", algorithm: "(R U' R') (d R' U R)", note: "", hasVid: true),
-        Algorithm(name: "corner bottom edge top 6", algorithm: "(F' U' F) (U F' U' F)", note: "", hasVid: true),
-        Algorithm(name: "corner bottom edge middle 1", algorithm: "(R U' R' U) R U2 R' (U R U' R')", note: "", hasVid: true),
-        Algorithm(name: "corner bottom edge middle 2", algorithm: "(R U' R' U') (R U R' U') (R U2 R')", note: "", hasVid: true),
-        Algorithm(name: "corner bottom edge middle 3", algorithm: "(R U R' U') (R U' R') U d (R' U' R)", note: "", hasVid: true),
+    IndividualCategoryView(category: Category(name: "PLL Rec Abridged", algorithms: [
+        Algorithm(name: "oneblockoutside1", algorithm: "(No rotation) V: different block on outside, mostly opp", note: ""),
+        Algorithm(name: "oneblockoutside5", algorithm: "(U) V mirrored: different block on outside, mostly opp", note: ""),
+        Algorithm(name: "oneblockinside1", algorithm: "(No rotation) Y mirrored: block on the inside different corners", note: ""),
+        Algorithm(name: "oneblockinside5", algorithm: "(U) Y: block on the inside different corners", note: ""),
+        Algorithm(name: "noblockscheckerinside1", algorithm: "(U') V: checker inside, different corners", note: ""),
+        Algorithm(name: "noblockscheckeroutside1", algorithm: "(U') Y: checker outside", note: ""),
+        Algorithm(name: "noblocksnochecker1", algorithm: "(No rotation) E: no blocks, no checker in checker", note: ""),
+        Algorithm(name: "noblocksnochecker5", algorithm: "(U) E: no blocks, no checker in checker", note: ""),
+        Algorithm(name: "outerblockrightnotcheckered1", algorithm: "(U) Ga: block outside, adj corner, adj in headlights", note: ""),
+        Algorithm(name: "outerblockleftnotcheckered1", algorithm: "(No rotation) Gc: block outside, adj corner, adj in headlights", note: ""),
+        Algorithm(name: "inneradjleft1", algorithm: "(No rotation) Ga: inner block, checkers with adj corner", note: ""),
+        Algorithm(name: "inneradjright1", algorithm: "(U) Gc: inner block, checkers with adj corner", note: ""),
+        Algorithm(name: "inneroppleft1", algorithm: "(U') Gb: inner block, checkers with opp corner", note: ""),
+        Algorithm(name: "inneroppright1", algorithm: "(U2) Gd: inner block, checkers with opp corner", note: ""),
+        Algorithm(name: "outerrightopp1", algorithm: "(No rotation) Gb: outer block on right, checkers with opp corner", note: ""),
+        Algorithm(name: "outerleftopp1", algorithm: "(U) Gd: outer block on left, checkers with opp corner", note: ""),
+        Algorithm(name: "outerleftoppnochecker1", algorithm: "(No rotation) Aa: outer block on left, no checker, opp corner", note: ""),
+        Algorithm(name: "outerrightoppnochecker1", algorithm: "(U) Aa mirrored: outer block on right, no checker, opp corner", note: ""),
+        Algorithm(name: "outerleftadjchecker1", algorithm: "(U') Ra: outer block on left, checkers with adj corner (checker to opp side)", note: ""),
+        Algorithm(name: "outerrightadjchecker1", algorithm: "(U2) Rb: outer block on right, checkers with adj corner (checker to opp side)", note: ""),
+        Algorithm(name: "outerleftadjnochecker1", algorithm: "(No rotation) T: outer block on left, no checker, adj corner", note: ""),
+        Algorithm(name: "outerrightadjnochecker1", algorithm: "(U') T: outer block on right, no checker, adj corner", note: ""),
+        Algorithm(name: "oppinhead3right1", algorithm: "(U2) Gb: full checker minus middle left which will point away", note: ""),
+        Algorithm(name: "oppinhead3left1", algorithm: "(U') Gd: full checker minus middle right which will point away", note: ""),
+        Algorithm(name: "oppinheadleft1", algorithm: "(U) Gb: opp in headlights, no other pattern", note: ""),
+        Algorithm(name: "oppinheadright1", algorithm: "(No rotation) Gd: opp in headlights, no other pattern", note: ""),
+        Algorithm(name: "adjinheadleft1", algorithm: "(No rotation) Rb: full checker minus outer right", note: ""),
+        Algorithm(name: "adjinheadright1", algorithm: "(U) Ra: full checker minus outer left", note: ""),
+        Algorithm(name: "adjinheadrightchecker1", algorithm: "(U2) Ga: adj in headlights which checkers, no other pattern", note: ""),
+        Algorithm(name: "adjinheadleftchecker1", algorithm: "(U') Gc: adj in headlights which checkers, no other pattern", note: ""),
+        Algorithm(name: "adjinheadrightnochecker1", algorithm: "(U') Aa: adj in headlights, 3 different other colors", note: ""),
+        Algorithm(name: "adjinheadleftnochecker1", algorithm: "(U') Ab: adj in headlights, 3 different other colors", note: ""),
+        Algorithm(name: "3colorcheckermiddle1", algorithm: "(U') F: checkers in middle, outer corners same (look for outer opp pair)", note: ""),
+        Algorithm(name: "3colorcheckermiddle5", algorithm: "(No rotation) F: checkers in middle, outer corners same (look for outer opp pair)", note: ""),
+        Algorithm(name: "oppoutercornerright1", algorithm: "(U') Ga: checker in checker, more opp (inner checker to opp side)", note: ""),
+        Algorithm(name: "oppoutercornerleft1", algorithm: "(U2) Gc: checker in checker, more opp (inner checker to opp side)", note: ""),
+        Algorithm(name: "oppinnercornerright1", algorithm: "(U2) Ra: checker in checker, more adj (inner checker to opp side)", note: ""),
+        Algorithm(name: "oppinnercornerleft1", algorithm: "(U') Rb: checker in checker, more adj (inner checker to opp side)", note: ""),
+        Algorithm(name: "1outerleft1inner1", algorithm: "(U) Ja: two blocks, outer on left, more adj", note: ""),
+        Algorithm(name: "1outerright1inner1", algorithm: "(No rotation) Jb: two blocks, outer on right, more adj", note: ""),
+        Algorithm(name: "outerblockrightcheckered1", algorithm: "(U) Ab mirrored: outer block on right, checkers", note: ""),
+        Algorithm(name: "outerblockleftcheckered1", algorithm: "(No rotation) Ab: outer block left, checkers", note: ""),
+        Algorithm(name: "1outerright1inneropp1", algorithm: "(U') Jb: two blocks, outer on right, more opp (adj will face away)", note: ""),
+        Algorithm(name: "1outerleft1inneropp1", algorithm: "(U2) Ja: two blocks, outer on left, more opp (adj will face away)", note: ""),
+        Algorithm(name: "one3x1leftopp1", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj1", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1rightopp1", algorithm: "(U') It’s Ua when an opposite edge color is on the left", note: ""),
+        Algorithm(name: "one3x1rightadj1", algorithm: "(U') It’s Ub when an adjacent edge color is on the left", note: ""),
+        Algorithm(name: "no3x1atleast1oppright1", algorithm: "(No rotation) It’s Ua when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "no3x1atleast1oppleft1", algorithm: "(U) It’s Ub when an opposite edge color is on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft1", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerright1", algorithm: "(No rotation) It’s Ub when a checker pattern is only on the right", note: ""),
     ]))
 }

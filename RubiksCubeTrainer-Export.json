@@ -1,0 +1,3973 @@
+{
+  "cfopSolveTimes" : [
+    {
+      "crossSolveTime" : 7.470170021057129,
+      "date" : "2025-06-14T11:18:53Z",
+      "f2LSolveTime" : 29.566058039665222,
+      "memo" : "",
+      "ollSolveTime" : 7.80080509185791,
+      "pllSolveTime" : 6.105425953865051
+    },
+    {
+      "crossSolveTime" : 6.436572909355164,
+      "date" : "2025-06-14T11:21:07Z",
+      "f2LSolveTime" : 38.07993304729462,
+      "memo" : "",
+      "ollSolveTime" : 9.605390071868896,
+      "pllSolveTime" : 7.067507982254028
+    },
+    {
+      "crossSolveTime" : 7.485399007797241,
+      "date" : "2025-06-14T11:24:49Z",
+      "f2LSolveTime" : 32.5453200340271,
+      "memo" : "",
+      "ollSolveTime" : 6.817649006843567,
+      "pllSolveTime" : 5.653830051422119
+    },
+    {
+      "crossSolveTime" : 8.168938040733337,
+      "date" : "2025-06-14T11:28:16Z",
+      "f2LSolveTime" : 22.0897159576416,
+      "memo" : "",
+      "ollSolveTime" : 8.969059944152832,
+      "pllSolveTime" : 9.305755972862244
+    },
+    {
+      "crossSolveTime" : 4.486181020736694,
+      "date" : "2025-06-14T11:30:46Z",
+      "f2LSolveTime" : 37.05474400520325,
+      "memo" : "",
+      "ollSolveTime" : 9.950926899909973,
+      "pllSolveTime" : 11.318367004394531
+    },
+    {
+      "crossSolveTime" : 4.580567002296448,
+      "date" : "2025-06-14T11:33:25Z",
+      "f2LSolveTime" : 38.73979306221008,
+      "memo" : "",
+      "ollSolveTime" : 5.367594957351685,
+      "pllSolveTime" : 10.968724012374878
+    },
+    {
+      "crossSolveTime" : 4.2858099937438965,
+      "date" : "2025-06-14T11:35:28Z",
+      "f2LSolveTime" : 26.53697896003723,
+      "memo" : "",
+      "ollSolveTime" : 5.851868033409119,
+      "pllSolveTime" : 9.452005982398987
+    },
+    {
+      "crossSolveTime" : 4.400967001914978,
+      "date" : "2025-06-14T11:37:21Z",
+      "f2LSolveTime" : 22.405827045440674,
+      "memo" : "",
+      "ollSolveTime" : 8.185552954673767,
+      "pllSolveTime" : 6.935099959373474
+    },
+    {
+      "crossSolveTime" : 4.93531596660614,
+      "date" : "2025-06-14T11:39:18Z",
+      "f2LSolveTime" : 21.8386470079422,
+      "memo" : "",
+      "ollSolveTime" : 4.150642991065979,
+      "pllSolveTime" : 5.668485999107361
+    },
+    {
+      "crossSolveTime" : 5.7682600021362305,
+      "date" : "2025-06-14T11:43:00Z",
+      "f2LSolveTime" : 34.82875692844391,
+      "memo" : "",
+      "ollSolveTime" : 5.203910946846008,
+      "pllSolveTime" : 6.550684928894043
+    },
+    {
+      "crossSolveTime" : 3.06507408618927,
+      "date" : "2025-06-15T00:19:31Z",
+      "f2LSolveTime" : 28.344866037368774,
+      "memo" : "",
+      "ollSolveTime" : 5.935286998748779,
+      "pllSolveTime" : 5.418626070022583
+    },
+    {
+      "crossSolveTime" : 2.534838080406189,
+      "date" : "2025-06-15T00:21:12Z",
+      "f2LSolveTime" : 27.580880999565125,
+      "memo" : "",
+      "ollSolveTime" : 6.869714021682739,
+      "pllSolveTime" : 12.689704060554504
+    },
+    {
+      "crossSolveTime" : 9.700663924217224,
+      "date" : "2025-06-15T00:23:32Z",
+      "f2LSolveTime" : 32.74891400337219,
+      "memo" : "",
+      "ollSolveTime" : 5.319415926933289,
+      "pllSolveTime" : 5.855028986930847
+    },
+    {
+      "crossSolveTime" : 6.58578097820282,
+      "date" : "2025-06-15T00:25:05Z",
+      "f2LSolveTime" : 23.359863996505737,
+      "memo" : "",
+      "ollSolveTime" : 12.574756026268005,
+      "pllSolveTime" : 5.349833011627197
+    },
+    {
+      "crossSolveTime" : 8.60588800907135,
+      "date" : "2025-06-15T00:26:32Z",
+      "f2LSolveTime" : 29.70753300189972,
+      "memo" : "",
+      "ollSolveTime" : 6.33595609664917,
+      "pllSolveTime" : 5.735449910163879
+    },
+    {
+      "crossSolveTime" : 8.685757040977478,
+      "date" : "2025-06-15T00:28:07Z",
+      "f2LSolveTime" : 25.879172921180725,
+      "memo" : "",
+      "ollSolveTime" : 5.204831957817078,
+      "pllSolveTime" : 6.216977000236511
+    },
+    {
+      "crossSolveTime" : 6.167627930641174,
+      "date" : "2025-06-15T00:30:42Z",
+      "f2LSolveTime" : 37.98465299606323,
+      "memo" : "",
+      "ollSolveTime" : 6.9349870681762695,
+      "pllSolveTime" : 4.349128007888794
+    },
+    {
+      "crossSolveTime" : 8.265933990478516,
+      "date" : "2025-06-15T00:31:58Z",
+      "f2LSolveTime" : 16.639067888259888,
+      "memo" : "",
+      "ollSolveTime" : 7.154192090034485,
+      "pllSolveTime" : 4.784534931182861
+    },
+    {
+      "crossSolveTime" : 5.614706039428711,
+      "date" : "2025-06-15T00:33:50Z",
+      "f2LSolveTime" : 20.758299946784973,
+      "memo" : "",
+      "ollSolveTime" : 5.036105990409851,
+      "pllSolveTime" : 8.20424497127533
+    },
+    {
+      "crossSolveTime" : 6.0342079401016235,
+      "date" : "2025-06-15T00:36:17Z",
+      "f2LSolveTime" : 31.930138111114502,
+      "memo" : "",
+      "ollSolveTime" : 5.254698991775513,
+      "pllSolveTime" : 6.150146961212158
+    },
+    {
+      "crossSolveTime" : 6.264593005180359,
+      "date" : "2025-06-15T00:37:27Z",
+      "f2LSolveTime" : 17.056640028953552,
+      "memo" : "",
+      "ollSolveTime" : 2.8509390354156494,
+      "pllSolveTime" : 5.3531190156936646
+    },
+    {
+      "crossSolveTime" : 4.669474005699158,
+      "date" : "2025-06-15T07:31:08Z",
+      "f2LSolveTime" : 36.219088077545166,
+      "memo" : "",
+      "ollSolveTime" : 7.391417980194092,
+      "pllSolveTime" : 5.875490069389343
+    },
+    {
+      "crossSolveTime" : 6.93989098072052,
+      "date" : "2025-06-15T07:32:42Z",
+      "f2LSolveTime" : 28.8453049659729,
+      "memo" : "",
+      "ollSolveTime" : 5.025331020355225,
+      "pllSolveTime" : 4.286044001579285
+    },
+    {
+      "crossSolveTime" : 7.474931001663208,
+      "date" : "2025-06-15T07:34:06Z",
+      "f2LSolveTime" : 25.10796809196472,
+      "memo" : "",
+      "ollSolveTime" : 5.539155960083008,
+      "pllSolveTime" : 7.157402992248535
+    },
+    {
+      "crossSolveTime" : 7.757688045501709,
+      "date" : "2025-06-15T07:37:01Z",
+      "f2LSolveTime" : 27.414655923843384,
+      "memo" : "",
+      "ollSolveTime" : 7.707887053489685,
+      "pllSolveTime" : 6.9256980419158936
+    },
+    {
+      "crossSolveTime" : 5.555997014045715,
+      "date" : "2025-06-15T07:38:59Z",
+      "f2LSolveTime" : 31.968443036079407,
+      "memo" : "",
+      "ollSolveTime" : 5.624063968658447,
+      "pllSolveTime" : 5.505908012390137
+    },
+    {
+      "crossSolveTime" : 6.386787056922913,
+      "date" : "2025-06-15T07:41:01Z",
+      "f2LSolveTime" : 32.3690869808197,
+      "memo" : "",
+      "ollSolveTime" : 5.475987076759338,
+      "pllSolveTime" : 5.505583047866821
+    },
+    {
+      "crossSolveTime" : 4.314857006072998,
+      "date" : "2025-06-15T09:25:34Z",
+      "f2LSolveTime" : 23.20538902282715,
+      "memo" : "",
+      "ollSolveTime" : 5.385547041893005,
+      "pllSolveTime" : 5.818015098571777
+    },
+    {
+      "crossSolveTime" : 5.501194000244141,
+      "date" : "2025-06-16T00:52:50Z",
+      "f2LSolveTime" : 32.780357003211975,
+      "memo" : "",
+      "ollSolveTime" : 5.055263042449951,
+      "pllSolveTime" : 6.115775942802429
+    },
+    {
+      "crossSolveTime" : 9.970800042152405,
+      "date" : "2025-06-16T00:55:28Z",
+      "f2LSolveTime" : 17.02522897720337,
+      "memo" : "",
+      "ollSolveTime" : 5.7551010847091675,
+      "pllSolveTime" : 5.466663956642151
+    },
+    {
+      "crossSolveTime" : 4.734805941581726,
+      "date" : "2025-06-16T00:57:11Z",
+      "f2LSolveTime" : 27.14518392086029,
+      "memo" : "",
+      "ollSolveTime" : 7.984722018241882,
+      "pllSolveTime" : 9.30531895160675
+    },
+    {
+      "crossSolveTime" : 6.651020050048828,
+      "date" : "2025-06-16T01:13:17Z",
+      "f2LSolveTime" : 27.179503917694092,
+      "memo" : "",
+      "ollSolveTime" : 6.619821071624756,
+      "pllSolveTime" : 6.205477952957153
+    },
+    {
+      "crossSolveTime" : 7.668094992637634,
+      "date" : "2025-06-16T01:15:14Z",
+      "f2LSolveTime" : 23.175650000572205,
+      "memo" : "",
+      "ollSolveTime" : 6.569019079208374,
+      "pllSolveTime" : 6.855937957763672
+    },
+    {
+      "crossSolveTime" : 6.535072088241577,
+      "date" : "2025-06-16T22:14:46Z",
+      "f2LSolveTime" : 24.211488008499146,
+      "memo" : "",
+      "ollSolveTime" : 4.068281054496765,
+      "pllSolveTime" : 8.721058011054993
+    },
+    {
+      "crossSolveTime" : 5.86583399772644,
+      "date" : "2025-06-16T22:26:46Z",
+      "f2LSolveTime" : 21.89508807659149,
+      "memo" : "",
+      "ollSolveTime" : 7.235803008079529,
+      "pllSolveTime" : 7.617130994796753
+    },
+    {
+      "crossSolveTime" : 8.618895053863525,
+      "date" : "2025-06-16T22:39:15Z",
+      "f2LSolveTime" : 32.295735001564026,
+      "memo" : "",
+      "ollSolveTime" : 3.3679280281066895,
+      "pllSolveTime" : 6.469245076179504
+    },
+    {
+      "crossSolveTime" : 8.735351920127869,
+      "date" : "2025-06-17T01:02:32Z",
+      "f2LSolveTime" : 31.635679006576538,
+      "memo" : "",
+      "ollSolveTime" : 6.670581936836243,
+      "pllSolveTime" : 5.219913959503174
+    },
+    {
+      "crossSolveTime" : 6.367069959640503,
+      "date" : "2025-06-17T01:05:57Z",
+      "f2LSolveTime" : 29.16853892803192,
+      "memo" : "",
+      "ollSolveTime" : 5.920040965080261,
+      "pllSolveTime" : 9.175420999526978
+    },
+    {
+      "crossSolveTime" : 5.184954047203064,
+      "date" : "2025-06-17T01:07:33Z",
+      "f2LSolveTime" : 39.43964695930481,
+      "memo" : "",
+      "ollSolveTime" : 6.686551928520203,
+      "pllSolveTime" : 8.80542504787445
+    },
+    {
+      "crossSolveTime" : 4.71768593788147,
+      "date" : "2025-06-17T01:08:59Z",
+      "f2LSolveTime" : 28.234346985816956,
+      "memo" : "",
+      "ollSolveTime" : 7.38585102558136,
+      "pllSolveTime" : 7.971369981765747
+    },
+    {
+      "crossSolveTime" : 5.405270934104919,
+      "date" : "2025-06-17T01:10:30Z",
+      "f2LSolveTime" : 20.595289945602417,
+      "memo" : "",
+      "ollSolveTime" : 6.985251069068909,
+      "pllSolveTime" : 4.751355051994324
+    },
+    {
+      "crossSolveTime" : 5.067892909049988,
+      "date" : "2025-06-17T01:12:13Z",
+      "f2LSolveTime" : 27.997995018959045,
+      "memo" : "",
+      "ollSolveTime" : 4.255610942840576,
+      "pllSolveTime" : 5.785767078399658
+    },
+    {
+      "crossSolveTime" : 5.017675995826721,
+      "date" : "2025-06-17T01:13:46Z",
+      "f2LSolveTime" : 30.3852059841156,
+      "memo" : "",
+      "ollSolveTime" : 6.1684969663619995,
+      "pllSolveTime" : 6.786839008331299
+    },
+    {
+      "crossSolveTime" : 5.16817307472229,
+      "date" : "2025-06-17T01:19:50Z",
+      "f2LSolveTime" : 29.898676991462708,
+      "memo" : "",
+      "ollSolveTime" : 5.819828033447266,
+      "pllSolveTime" : 8.370721936225891
+    },
+    {
+      "crossSolveTime" : 5.618988037109375,
+      "date" : "2025-06-17T01:21:44Z",
+      "f2LSolveTime" : 30.58487105369568,
+      "memo" : "",
+      "ollSolveTime" : 8.055523037910461,
+      "pllSolveTime" : 6.599225997924805
+    },
+    {
+      "crossSolveTime" : 4.416831970214844,
+      "date" : "2025-06-17T01:23:01Z",
+      "f2LSolveTime" : 28.380048036575317,
+      "memo" : "",
+      "ollSolveTime" : 6.319962978363037,
+      "pllSolveTime" : 6.405395030975342
+    },
+    {
+      "crossSolveTime" : 3.7514199018478394,
+      "date" : "2025-06-17T01:26:03Z",
+      "f2LSolveTime" : 35.35577595233917,
+      "memo" : "",
+      "ollSolveTime" : 5.499320983886719,
+      "pllSolveTime" : 6.705525040626526
+    },
+    {
+      "crossSolveTime" : 4.918184041976929,
+      "date" : "2025-06-17T01:28:50Z",
+      "f2LSolveTime" : 24.895863890647888,
+      "memo" : "",
+      "ollSolveTime" : 5.455621957778931,
+      "pllSolveTime" : 9.50124192237854
+    },
+    {
+      "crossSolveTime" : 5.535241961479187,
+      "date" : "2025-06-17T01:30:26Z",
+      "f2LSolveTime" : 22.22523593902588,
+      "memo" : "",
+      "ollSolveTime" : 4.867779016494751,
+      "pllSolveTime" : 3.28568696975708
+    },
+    {
+      "crossSolveTime" : 6.516842007637024,
+      "date" : "2025-06-17T07:09:43Z",
+      "f2LSolveTime" : 29.92999505996704,
+      "memo" : "",
+      "ollSolveTime" : 8.405176997184753,
+      "pllSolveTime" : 7.819000005722046
+    },
+    {
+      "crossSolveTime" : 6.735622048377991,
+      "date" : "2025-06-17T07:10:57Z",
+      "f2LSolveTime" : 31.28463101387024,
+      "memo" : "",
+      "ollSolveTime" : 6.550940990447998,
+      "pllSolveTime" : 5.118811011314392
+    },
+    {
+      "crossSolveTime" : 6.018139004707336,
+      "date" : "2025-06-17T07:12:40Z",
+      "f2LSolveTime" : 34.31441104412079,
+      "memo" : "",
+      "ollSolveTime" : 7.65510094165802,
+      "pllSolveTime" : 7.499145030975342
+    },
+    {
+      "crossSolveTime" : 11.30504298210144,
+      "date" : "2025-06-17T07:14:08Z",
+      "f2LSolveTime" : 24.194630980491638,
+      "memo" : "",
+      "ollSolveTime" : 5.050217032432556,
+      "pllSolveTime" : 5.65491795539856
+    },
+    {
+      "crossSolveTime" : 6.114820957183838,
+      "date" : "2025-06-17T07:15:45Z",
+      "f2LSolveTime" : 31.134696006774902,
+      "memo" : "",
+      "ollSolveTime" : 7.184758901596069,
+      "pllSolveTime" : 7.869470000267029
+    },
+    {
+      "crossSolveTime" : 8.918867945671082,
+      "date" : "2025-06-17T07:17:43Z",
+      "f2LSolveTime" : 19.124511003494263,
+      "memo" : "",
+      "ollSolveTime" : 5.716977953910828,
+      "pllSolveTime" : 7.804250001907349
+    },
+    {
+      "crossSolveTime" : 5.885025978088379,
+      "date" : "2025-06-17T07:19:58Z",
+      "f2LSolveTime" : 42.064493060112,
+      "memo" : "",
+      "ollSolveTime" : 4.150439977645874,
+      "pllSolveTime" : 9.638498067855835
+    },
+    {
+      "crossSolveTime" : 3.316787004470825,
+      "date" : "2025-06-17T07:21:27Z",
+      "f2LSolveTime" : 34.09734797477722,
+      "memo" : "",
+      "ollSolveTime" : 6.904674053192139,
+      "pllSolveTime" : 7.5185630321502686
+    },
+    {
+      "crossSolveTime" : 6.164764046669006,
+      "date" : "2025-06-17T07:23:12Z",
+      "f2LSolveTime" : 28.128631949424744,
+      "memo" : "",
+      "ollSolveTime" : 6.98642110824585,
+      "pllSolveTime" : 7.554558992385864
+    },
+    {
+      "crossSolveTime" : 6.355139970779419,
+      "date" : "2025-06-17T07:24:47Z",
+      "f2LSolveTime" : 26.440456986427307,
+      "memo" : "",
+      "ollSolveTime" : 6.669610023498535,
+      "pllSolveTime" : 7.104771971702576
+    },
+    {
+      "crossSolveTime" : 3.4659650325775146,
+      "date" : "2025-06-17T10:41:14Z",
+      "f2LSolveTime" : 23.79546296596527,
+      "memo" : "",
+      "ollSolveTime" : 6.619676947593689,
+      "pllSolveTime" : 7.8700350522994995
+    },
+    {
+      "crossSolveTime" : 5.05099892616272,
+      "date" : "2025-06-17T10:42:39Z",
+      "f2LSolveTime" : 20.65883493423462,
+      "memo" : "",
+      "ollSolveTime" : 3.3010010719299316,
+      "pllSolveTime" : 7.11952805519104
+    },
+    {
+      "crossSolveTime" : 8.10571300983429,
+      "date" : "2025-06-17T10:44:47Z",
+      "f2LSolveTime" : 35.72903907299042,
+      "memo" : "",
+      "ollSolveTime" : 6.555500030517578,
+      "pllSolveTime" : 5.485605001449585
+    },
+    {
+      "crossSolveTime" : 7.499457955360413,
+      "date" : "2025-06-17T10:46:20Z",
+      "f2LSolveTime" : 36.215219020843506,
+      "memo" : "",
+      "ollSolveTime" : 8.655301094055176,
+      "pllSolveTime" : 5.200314044952393
+    },
+    {
+      "crossSolveTime" : 2.4856289625167847,
+      "date" : "2025-06-17T10:47:57Z",
+      "f2LSolveTime" : 33.095203042030334,
+      "memo" : "",
+      "ollSolveTime" : 5.668146014213562,
+      "pllSolveTime" : 6.685763001441956
+    },
+    {
+      "crossSolveTime" : 5.5680859088897705,
+      "date" : "2025-06-17T10:49:45Z",
+      "f2LSolveTime" : 25.395411014556885,
+      "memo" : "OLL skip",
+      "ollSolveTime" : 0.885794997215271,
+      "pllSolveTime" : 4.430557012557983
+    },
+    {
+      "crossSolveTime" : 5.6666189432144165,
+      "date" : "2025-06-17T10:51:44Z",
+      "f2LSolveTime" : 29.24538803100586,
+      "memo" : "",
+      "ollSolveTime" : 6.4854960441589355,
+      "pllSolveTime" : 9.935739040374756
+    },
+    {
+      "crossSolveTime" : 5.201370000839233,
+      "date" : "2025-06-17T10:52:53Z",
+      "f2LSolveTime" : 25.22613799571991,
+      "memo" : "",
+      "ollSolveTime" : 8.320042967796326,
+      "pllSolveTime" : 4.868449926376343
+    },
+    {
+      "crossSolveTime" : 6.419497966766357,
+      "date" : "2025-06-17T10:54:43Z",
+      "f2LSolveTime" : 33.69089090824127,
+      "memo" : "",
+      "ollSolveTime" : 5.8858970403671265,
+      "pllSolveTime" : 5.55090606212616
+    },
+    {
+      "crossSolveTime" : 5.847880005836487,
+      "date" : "2025-06-17T10:55:36Z",
+      "f2LSolveTime" : 20.675702929496765,
+      "memo" : "",
+      "ollSolveTime" : 5.500662922859192,
+      "pllSolveTime" : 6.236104965209961
+    },
+    {
+      "crossSolveTime" : 7.906228065490723,
+      "date" : "2025-06-17T10:57:44Z",
+      "f2LSolveTime" : 40.785667061805725,
+      "memo" : "",
+      "ollSolveTime" : 7.099931001663208,
+      "pllSolveTime" : 4.685781002044678
+    },
+    {
+      "crossSolveTime" : 7.2679890394210815,
+      "date" : "2025-06-17T10:59:16Z",
+      "f2LSolveTime" : 31.030539989471436,
+      "memo" : "PLL skip",
+      "ollSolveTime" : 5.118696093559265,
+      "pllSolveTime" : 1.5359700918197632
+    },
+    {
+      "crossSolveTime" : 6.815832018852234,
+      "date" : "2025-06-17T11:00:27Z",
+      "f2LSolveTime" : 20.87548303604126,
+      "memo" : "",
+      "ollSolveTime" : 7.555920958518982,
+      "pllSolveTime" : 7.14976692199707
+    },
+    {
+      "crossSolveTime" : 3.4499720335006714,
+      "date" : "2025-06-17T11:02:15Z",
+      "f2LSolveTime" : 19.709570050239563,
+      "memo" : "",
+      "ollSolveTime" : 9.137274026870728,
+      "pllSolveTime" : 9.386579036712646
+    },
+    {
+      "crossSolveTime" : 4.116034984588623,
+      "date" : "2025-06-17T11:03:45Z",
+      "f2LSolveTime" : 32.31599998474121,
+      "memo" : "",
+      "ollSolveTime" : 4.865436911582947,
+      "pllSolveTime" : 7.418729066848755
+    },
+    {
+      "crossSolveTime" : 9.768718957901001,
+      "date" : "2025-06-17T11:05:15Z",
+      "f2LSolveTime" : 27.626358032226562,
+      "memo" : "",
+      "ollSolveTime" : 4.956308007240295,
+      "pllSolveTime" : 4.31535792350769
+    },
+    {
+      "crossSolveTime" : 5.618219017982483,
+      "date" : "2025-06-17T11:06:33Z",
+      "f2LSolveTime" : 20.946346044540405,
+      "memo" : "",
+      "ollSolveTime" : 5.216069936752319,
+      "pllSolveTime" : 8.786062002182007
+    },
+    {
+      "crossSolveTime" : 5.180727958679199,
+      "date" : "2025-06-17T11:08:23Z",
+      "f2LSolveTime" : 39.21534597873688,
+      "memo" : "",
+      "ollSolveTime" : 4.800762057304382,
+      "pllSolveTime" : 8.219288945198059
+    },
+    {
+      "crossSolveTime" : 5.035948991775513,
+      "date" : "2025-06-17T11:09:33Z",
+      "f2LSolveTime" : 37.977486968040466,
+      "memo" : "",
+      "ollSolveTime" : 6.156324028968811,
+      "pllSolveTime" : 3.9164010286331177
+    },
+    {
+      "crossSolveTime" : 6.0001420974731445,
+      "date" : "2025-06-17T11:10:57Z",
+      "f2LSolveTime" : 22.058596968650818,
+      "memo" : "",
+      "ollSolveTime" : 6.355795979499817,
+      "pllSolveTime" : 4.348105072975159
+    },
+    {
+      "crossSolveTime" : 8.367648005485535,
+      "date" : "2025-06-17T11:12:25Z",
+      "f2LSolveTime" : 30.277040004730225,
+      "memo" : "",
+      "ollSolveTime" : 5.668573021888733,
+      "pllSolveTime" : 7.18646502494812
+    },
+    {
+      "crossSolveTime" : 5.229359030723572,
+      "date" : "2025-06-17T11:14:34Z",
+      "f2LSolveTime" : 22.075632095336914,
+      "memo" : "",
+      "ollSolveTime" : 4.166455984115601,
+      "pllSolveTime" : 5.206579923629761
+    },
+    {
+      "crossSolveTime" : 5.046840071678162,
+      "date" : "2025-06-17T11:16:53Z",
+      "f2LSolveTime" : 28.309059977531433,
+      "memo" : "",
+      "ollSolveTime" : 3.2676889896392822,
+      "pllSolveTime" : 8.306365013122559
+    },
+    {
+      "crossSolveTime" : 6.066771984100342,
+      "date" : "2025-06-17T11:19:08Z",
+      "f2LSolveTime" : 23.405893087387085,
+      "memo" : "",
+      "ollSolveTime" : 6.86659300327301,
+      "pllSolveTime" : 5.350799083709717
+    },
+    {
+      "crossSolveTime" : 5.466686964035034,
+      "date" : "2025-06-17T11:20:20Z",
+      "f2LSolveTime" : 22.626682996749878,
+      "memo" : "",
+      "ollSolveTime" : 7.197772979736328,
+      "pllSolveTime" : 6.206623077392578
+    },
+    {
+      "crossSolveTime" : 3.949319005012512,
+      "date" : "2025-06-18T05:25:34Z",
+      "f2LSolveTime" : 25.096708059310913,
+      "memo" : "",
+      "ollSolveTime" : 7.3667649030685425,
+      "pllSolveTime" : 7.206743001937866
+    },
+    {
+      "crossSolveTime" : 6.586825013160706,
+      "date" : "2025-06-18T05:26:46Z",
+      "f2LSolveTime" : 25.356904983520508,
+      "memo" : "",
+      "ollSolveTime" : 3.466805934906006,
+      "pllSolveTime" : 8.380926966667175
+    },
+    {
+      "crossSolveTime" : 4.649304986000061,
+      "date" : "2025-06-18T05:28:02Z",
+      "f2LSolveTime" : 15.618801951408386,
+      "memo" : "",
+      "ollSolveTime" : 8.356876969337463,
+      "pllSolveTime" : 7.179179906845093
+    },
+    {
+      "crossSolveTime" : 5.4488630294799805,
+      "date" : "2025-06-18T05:29:28Z",
+      "f2LSolveTime" : 30.320961952209473,
+      "memo" : "",
+      "ollSolveTime" : 4.836081027984619,
+      "pllSolveTime" : 5.449025988578796
+    },
+    {
+      "crossSolveTime" : 5.44979190826416,
+      "date" : "2025-06-18T05:30:47Z",
+      "f2LSolveTime" : 27.656975984573364,
+      "memo" : "",
+      "ollSolveTime" : 5.6509000062942505,
+      "pllSolveTime" : 6.7869789600372314
+    },
+    {
+      "crossSolveTime" : 4.998914003372192,
+      "date" : "2025-06-18T05:32:55Z",
+      "f2LSolveTime" : 29.007149934768677,
+      "memo" : "",
+      "ollSolveTime" : 9.231332063674927,
+      "pllSolveTime" : 8.200848937034607
+    },
+    {
+      "crossSolveTime" : 6.8171080350875854,
+      "date" : "2025-06-18T05:34:01Z",
+      "f2LSolveTime" : 29.636569023132324,
+      "memo" : "OLL skip",
+      "ollSolveTime" : 0.8682540655136108,
+      "pllSolveTime" : 5.647762894630432
+    },
+    {
+      "crossSolveTime" : 8.049522042274475,
+      "date" : "2025-06-18T05:35:50Z",
+      "f2LSolveTime" : 26.737615942955017,
+      "memo" : "",
+      "ollSolveTime" : 6.817798972129822,
+      "pllSolveTime" : 6.300835967063904
+    },
+    {
+      "crossSolveTime" : 9.552484035491943,
+      "date" : "2025-06-18T05:37:06Z",
+      "f2LSolveTime" : 29.7922260761261,
+      "memo" : "",
+      "ollSolveTime" : 5.436712026596069,
+      "pllSolveTime" : 6.617232084274292
+    },
+    {
+      "crossSolveTime" : 8.729946970939636,
+      "date" : "2025-06-18T05:38:43Z",
+      "f2LSolveTime" : 31.407716035842896,
+      "memo" : "",
+      "ollSolveTime" : 8.037201046943665,
+      "pllSolveTime" : 10.517257928848267
+    },
+    {
+      "crossSolveTime" : 3.137380003929138,
+      "date" : "2025-06-18T05:39:58Z",
+      "f2LSolveTime" : 24.84946894645691,
+      "memo" : "",
+      "ollSolveTime" : 6.167943000793457,
+      "pllSolveTime" : 7.017958045005798
+    },
+    {
+      "crossSolveTime" : 4.097535967826843,
+      "date" : "2025-06-18T05:41:06Z",
+      "f2LSolveTime" : 18.387570023536682,
+      "memo" : "",
+      "ollSolveTime" : 2.6810959577560425,
+      "pllSolveTime" : 7.937375068664551
+    },
+    {
+      "crossSolveTime" : 9.998666048049927,
+      "date" : "2025-06-18T05:42:59Z",
+      "f2LSolveTime" : 19.821115970611572,
+      "memo" : "",
+      "ollSolveTime" : 10.237519025802612,
+      "pllSolveTime" : 5.198837995529175
+    },
+    {
+      "crossSolveTime" : 6.048635005950928,
+      "date" : "2025-06-18T05:48:02Z",
+      "f2LSolveTime" : 30.370458960533142,
+      "memo" : "",
+      "ollSolveTime" : 6.817461967468262,
+      "pllSolveTime" : 7.250939965248108
+    },
+    {
+      "crossSolveTime" : 5.297062993049622,
+      "date" : "2025-06-18T05:50:23Z",
+      "f2LSolveTime" : 24.270745038986206,
+      "memo" : "",
+      "ollSolveTime" : 5.967625021934509,
+      "pllSolveTime" : 6.036594986915588
+    },
+    {
+      "crossSolveTime" : 8.867195010185242,
+      "date" : "2025-06-18T05:52:17Z",
+      "f2LSolveTime" : 21.500473976135254,
+      "memo" : "",
+      "ollSolveTime" : 3.6002789735794067,
+      "pllSolveTime" : 7.986905932426453
+    },
+    {
+      "crossSolveTime" : 7.097944021224976,
+      "date" : "2025-06-18T05:54:08Z",
+      "f2LSolveTime" : 38.907549023628235,
+      "memo" : "",
+      "ollSolveTime" : 7.467267990112305,
+      "pllSolveTime" : 7.999898076057434
+    },
+    {
+      "crossSolveTime" : 5.299417972564697,
+      "date" : "2025-06-18T05:55:05Z",
+      "f2LSolveTime" : 28.506857991218567,
+      "memo" : "",
+      "ollSolveTime" : 4.948853015899658,
+      "pllSolveTime" : 5.117493987083435
+    },
+    {
+      "crossSolveTime" : 7.279646992683411,
+      "date" : "2025-06-18T05:57:12Z",
+      "f2LSolveTime" : 24.257462978363037,
+      "memo" : "",
+      "ollSolveTime" : 5.167030930519104,
+      "pllSolveTime" : 6.317965030670166
+    },
+    {
+      "crossSolveTime" : 3.729511022567749,
+      "date" : "2025-06-18T05:58:23Z",
+      "f2LSolveTime" : 28.389531016349792,
+      "memo" : "",
+      "ollSolveTime" : 3.967532992362976,
+      "pllSolveTime" : 6.418072938919067
+    },
+    {
+      "crossSolveTime" : 2.2379109859466553,
+      "date" : "2025-06-18T05:59:33Z",
+      "f2LSolveTime" : 24.147946000099182,
+      "memo" : "",
+      "ollSolveTime" : 9.00764799118042,
+      "pllSolveTime" : 7.71744704246521
+    },
+    {
+      "crossSolveTime" : 4.717536926269531,
+      "date" : "2025-06-18T06:06:47Z",
+      "f2LSolveTime" : 18.918311953544617,
+      "memo" : "",
+      "ollSolveTime" : 6.417973041534424,
+      "pllSolveTime" : 5.257135987281799
+    },
+    {
+      "crossSolveTime" : 3.6177539825439453,
+      "date" : "2025-06-18T06:10:44Z",
+      "f2LSolveTime" : 27.217553973197937,
+      "memo" : "",
+      "ollSolveTime" : 5.83774209022522,
+      "pllSolveTime" : 5.417614936828613
+    },
+    {
+      "crossSolveTime" : 3.9498199224472046,
+      "date" : "2025-06-18T06:12:02Z",
+      "f2LSolveTime" : 25.307670950889587,
+      "memo" : "PLL skip",
+      "ollSolveTime" : 6.137241959571838,
+      "pllSolveTime" : 1.0289759635925293
+    },
+    {
+      "crossSolveTime" : 9.0309579372406,
+      "date" : "2025-06-18T06:13:17Z",
+      "f2LSolveTime" : 24.907909989356995,
+      "memo" : "",
+      "ollSolveTime" : 4.297491908073425,
+      "pllSolveTime" : 7.217680931091309
+    },
+    {
+      "crossSolveTime" : 4.680317997932434,
+      "date" : "2025-06-18T06:14:39Z",
+      "f2LSolveTime" : 33.37793505191803,
+      "memo" : "",
+      "ollSolveTime" : 6.447656989097595,
+      "pllSolveTime" : 5.017573952674866
+    },
+    {
+      "crossSolveTime" : 8.630479097366333,
+      "date" : "2025-06-18T06:19:10Z",
+      "f2LSolveTime" : 25.90786099433899,
+      "memo" : "",
+      "ollSolveTime" : 6.327736973762512,
+      "pllSolveTime" : 6.21764600276947
+    },
+    {
+      "crossSolveTime" : 5.3880380392074585,
+      "date" : "2025-06-18T06:20:29Z",
+      "f2LSolveTime" : 23.51800298690796,
+      "memo" : "",
+      "ollSolveTime" : 6.667585015296936,
+      "pllSolveTime" : 5.867551922798157
+    },
+    {
+      "crossSolveTime" : 10.317914962768555,
+      "date" : "2025-06-18T06:21:59Z",
+      "f2LSolveTime" : 26.567888021469116,
+      "memo" : "",
+      "ollSolveTime" : 7.017802000045776,
+      "pllSolveTime" : 6.267876029014587
+    },
+    {
+      "crossSolveTime" : 5.367985963821411,
+      "date" : "2025-06-18T06:25:14Z",
+      "f2LSolveTime" : 22.587903022766113,
+      "memo" : "",
+      "ollSolveTime" : 6.128574967384338,
+      "pllSolveTime" : 8.157868027687073
+    },
+    {
+      "crossSolveTime" : 8.999523997306824,
+      "date" : "2025-06-18T06:26:17Z",
+      "f2LSolveTime" : 16.387961983680725,
+      "memo" : "",
+      "ollSolveTime" : 4.667665004730225,
+      "pllSolveTime" : 6.267994999885559
+    },
+    {
+      "crossSolveTime" : 3.5876810550689697,
+      "date" : "2025-06-18T10:29:09Z",
+      "f2LSolveTime" : 42.74842691421509,
+      "memo" : "",
+      "ollSolveTime" : 5.687798023223877,
+      "pllSolveTime" : 6.868399024009705
+    },
+    {
+      "crossSolveTime" : 4.438492059707642,
+      "date" : "2025-06-18T10:30:35Z",
+      "f2LSolveTime" : 29.50834095478058,
+      "memo" : "",
+      "ollSolveTime" : 10.008409023284912,
+      "pllSolveTime" : 4.298370003700256
+    },
+    {
+      "crossSolveTime" : 5.1985321044921875,
+      "date" : "2025-06-18T10:32:06Z",
+      "f2LSolveTime" : 30.82935607433319,
+      "memo" : "",
+      "ollSolveTime" : 6.519128918647766,
+      "pllSolveTime" : 10.458458065986633
+    },
+    {
+      "crossSolveTime" : 7.908656001091003,
+      "date" : "2025-06-18T10:33:46Z",
+      "f2LSolveTime" : 30.88886797428131,
+      "memo" : "",
+      "ollSolveTime" : 5.168659090995789,
+      "pllSolveTime" : 7.63866400718689
+    },
+    {
+      "crossSolveTime" : 6.188266038894653,
+      "date" : "2025-06-18T10:35:09Z",
+      "f2LSolveTime" : 23.508113026618958,
+      "memo" : "",
+      "ollSolveTime" : 5.59856104850769,
+      "pllSolveTime" : 9.288522005081177
+    },
+    {
+      "crossSolveTime" : 8.118674993515015,
+      "date" : "2025-06-18T10:36:31Z",
+      "f2LSolveTime" : 20.8085960149765,
+      "memo" : "",
+      "ollSolveTime" : 5.050935983657837,
+      "pllSolveTime" : 5.588671088218689
+    },
+    {
+      "crossSolveTime" : 2.9487900733947754,
+      "date" : "2025-06-18T10:37:39Z",
+      "f2LSolveTime" : 24.82865309715271,
+      "memo" : "",
+      "ollSolveTime" : 6.1687480211257935,
+      "pllSolveTime" : 5.848678946495056
+    },
+    {
+      "crossSolveTime" : 6.958281993865967,
+      "date" : "2025-06-18T10:40:29Z",
+      "f2LSolveTime" : 24.888025045394897,
+      "memo" : "",
+      "ollSolveTime" : 6.138048052787781,
+      "pllSolveTime" : 5.048092007637024
+    },
+    {
+      "crossSolveTime" : 9.208131074905396,
+      "date" : "2025-06-18T10:42:00Z",
+      "f2LSolveTime" : 26.788084983825684,
+      "memo" : "",
+      "ollSolveTime" : 5.06852400302887,
+      "pllSolveTime" : 7.619354009628296
+    },
+    {
+      "crossSolveTime" : 2.6881370544433594,
+      "date" : "2025-06-18T10:43:30Z",
+      "f2LSolveTime" : 33.79832196235657,
+      "memo" : "",
+      "ollSolveTime" : 3.7284770011901855,
+      "pllSolveTime" : 8.758684992790222
+    },
+    {
+      "crossSolveTime" : 6.158469915390015,
+      "date" : "2025-06-18T10:45:08Z",
+      "f2LSolveTime" : 41.32806992530823,
+      "memo" : "",
+      "ollSolveTime" : 6.9181050062179565,
+      "pllSolveTime" : 6.350669026374817
+    },
+    {
+      "crossSolveTime" : 6.539125084877014,
+      "date" : "2025-06-18T10:46:12Z",
+      "f2LSolveTime" : 24.930011987686157,
+      "memo" : "",
+      "ollSolveTime" : 5.829666018486023,
+      "pllSolveTime" : 3.8684979677200317
+    },
+    {
+      "crossSolveTime" : 3.518399953842163,
+      "date" : "2025-06-18T10:48:51Z",
+      "f2LSolveTime" : 22.158347964286804,
+      "memo" : "",
+      "ollSolveTime" : 5.368294954299927,
+      "pllSolveTime" : 6.188394904136658
+    },
+    {
+      "crossSolveTime" : 4.888246059417725,
+      "date" : "2025-06-18T10:50:03Z",
+      "f2LSolveTime" : 26.228500962257385,
+      "memo" : "",
+      "ollSolveTime" : 2.9100260734558105,
+      "pllSolveTime" : 8.938508987426758
+    },
+    {
+      "crossSolveTime" : 5.999268054962158,
+      "date" : "2025-06-18T10:51:23Z",
+      "f2LSolveTime" : 22.37839901447296,
+      "memo" : "",
+      "ollSolveTime" : 3.7883700132369995,
+      "pllSolveTime" : 6.8985220193862915
+    },
+    {
+      "crossSolveTime" : 4.4184650182724,
+      "date" : "2025-06-18T11:07:33Z",
+      "f2LSolveTime" : 26.38889992237091,
+      "memo" : "",
+      "ollSolveTime" : 5.058440089225769,
+      "pllSolveTime" : 8.398596048355103
+    },
+    {
+      "crossSolveTime" : 3.748510003089905,
+      "date" : "2025-06-18T11:08:40Z",
+      "f2LSolveTime" : 22.74002504348755,
+      "memo" : "",
+      "ollSolveTime" : 7.469130992889404,
+      "pllSolveTime" : 6.618409037590027
+    },
+    {
+      "crossSolveTime" : 7.948519945144653,
+      "date" : "2025-06-18T11:11:35Z",
+      "f2LSolveTime" : 20.158543944358826,
+      "memo" : "",
+      "ollSolveTime" : 6.888471007347107,
+      "pllSolveTime" : 6.618497014045715
+    },
+    {
+      "crossSolveTime" : 4.758639097213745,
+      "date" : "2025-06-18T11:13:43Z",
+      "f2LSolveTime" : 27.32846200466156,
+      "memo" : "",
+      "ollSolveTime" : 7.248578071594238,
+      "pllSolveTime" : 7.818582057952881
+    },
+    {
+      "crossSolveTime" : 5.3090879917144775,
+      "date" : "2025-06-18T11:14:51Z",
+      "f2LSolveTime" : 29.82896101474762,
+      "memo" : "",
+      "ollSolveTime" : 4.748706102371216,
+      "pllSolveTime" : 4.130149006843567
+    },
+    {
+      "crossSolveTime" : 9.538611054420471,
+      "date" : "2025-06-18T11:32:44Z",
+      "f2LSolveTime" : 32.428932905197144,
+      "memo" : "",
+      "ollSolveTime" : 6.3887529373168945,
+      "pllSolveTime" : 6.148458957672119
+    },
+    {
+      "crossSolveTime" : 7.188920974731445,
+      "date" : "2025-06-18T11:33:43Z",
+      "f2LSolveTime" : 21.958881974220276,
+      "memo" : "",
+      "ollSolveTime" : 5.868844985961914,
+      "pllSolveTime" : 6.7187910079956055
+    },
+    {
+      "crossSolveTime" : 4.669033050537109,
+      "date" : "2025-06-18T11:34:54Z",
+      "f2LSolveTime" : 18.870036959648132,
+      "memo" : "",
+      "ollSolveTime" : 8.408851981163025,
+      "pllSolveTime" : 4.968891024589539
+    },
+    {
+      "crossSolveTime" : 4.099976062774658,
+      "date" : "2025-06-18T11:35:55Z",
+      "f2LSolveTime" : 18.289761900901794,
+      "memo" : "",
+      "ollSolveTime" : 7.2889909744262695,
+      "pllSolveTime" : 4.948850035667419
+    },
+    {
+      "crossSolveTime" : 5.50891900062561,
+      "date" : "2025-06-18T11:38:15Z",
+      "f2LSolveTime" : 16.89905297756195,
+      "memo" : "",
+      "ollSolveTime" : 5.359120011329651,
+      "pllSolveTime" : 9.31900691986084
+    },
+    {
+      "crossSolveTime" : 4.469080924987793,
+      "date" : "2025-06-18T11:39:30Z",
+      "f2LSolveTime" : 18.079092025756836,
+      "memo" : "",
+      "ollSolveTime" : 5.3989410400390625,
+      "pllSolveTime" : 5.030201077461243
+    },
+    {
+      "crossSolveTime" : 6.089187026023865,
+      "date" : "2025-06-18T22:11:07Z",
+      "f2LSolveTime" : 28.31907892227173,
+      "memo" : "",
+      "ollSolveTime" : 7.009297966957092,
+      "pllSolveTime" : 7.999484062194824
+    },
+    {
+      "crossSolveTime" : 6.109403967857361,
+      "date" : "2025-07-02T07:02:42Z",
+      "f2LSolveTime" : 31.970009088516235,
+      "memo" : "",
+      "ollSolveTime" : 8.590256929397583,
+      "pllSolveTime" : 8.02018404006958
+    },
+    {
+      "crossSolveTime" : 4.2001519203186035,
+      "date" : "2025-07-02T07:03:44Z",
+      "f2LSolveTime" : 23.400206089019775,
+      "memo" : "",
+      "ollSolveTime" : 4.950255036354065,
+      "pllSolveTime" : 7.271013021469116
+    },
+    {
+      "crossSolveTime" : 4.740566968917847,
+      "date" : "2025-07-02T07:05:30Z",
+      "f2LSolveTime" : 40.10939693450928,
+      "memo" : "",
+      "ollSolveTime" : 7.73983895778656,
+      "pllSolveTime" : 6.180798053741455
+    },
+    {
+      "crossSolveTime" : 6.770505905151367,
+      "date" : "2025-07-02T07:06:43Z",
+      "f2LSolveTime" : 22.620438933372498,
+      "memo" : "",
+      "ollSolveTime" : 8.87040901184082,
+      "pllSolveTime" : 8.370229959487915
+    },
+    {
+      "crossSolveTime" : 4.6503400802612305,
+      "date" : "2025-07-02T07:08:05Z",
+      "f2LSolveTime" : 26.150462985038757,
+      "memo" : "",
+      "ollSolveTime" : 8.060281991958618,
+      "pllSolveTime" : 8.930330038070679
+    },
+    {
+      "crossSolveTime" : 10.320641994476318,
+      "date" : "2025-07-03T01:35:30Z",
+      "f2LSolveTime" : 21.850306034088135,
+      "memo" : "",
+      "ollSolveTime" : 6.290542006492615,
+      "pllSolveTime" : 7.319995045661926
+    },
+    {
+      "crossSolveTime" : 5.75069797039032,
+      "date" : "2025-07-03T01:37:01Z",
+      "f2LSolveTime" : 31.040184020996094,
+      "memo" : "",
+      "ollSolveTime" : 7.121958017349243,
+      "pllSolveTime" : 10.491092920303345
+    },
+    {
+      "crossSolveTime" : 4.701283097267151,
+      "date" : "2025-07-03T01:38:31Z",
+      "f2LSolveTime" : 38.37047803401947,
+      "memo" : "",
+      "ollSolveTime" : 7.309656023979187,
+      "pllSolveTime" : 4.5306479930877686
+    },
+    {
+      "crossSolveTime" : 3.490676999092102,
+      "date" : "2025-07-03T01:39:53Z",
+      "f2LSolveTime" : 28.990588068962097,
+      "memo" : "",
+      "ollSolveTime" : 4.740558981895447,
+      "pllSolveTime" : 8.450645923614502
+    },
+    {
+      "crossSolveTime" : 5.820649981498718,
+      "date" : "2025-07-03T01:41:09Z",
+      "f2LSolveTime" : 23.8805810213089,
+      "memo" : "",
+      "ollSolveTime" : 4.030586004257202,
+      "pllSolveTime" : 8.220777034759521
+    },
+    {
+      "crossSolveTime" : 7.841138005256653,
+      "date" : "2025-07-07T06:26:05Z",
+      "f2LSolveTime" : 29.170872926712036,
+      "memo" : "",
+      "ollSolveTime" : 5.520830035209656,
+      "pllSolveTime" : 4.921037912368774
+    },
+    {
+      "crossSolveTime" : 6.54078209400177,
+      "date" : "2025-07-07T06:27:54Z",
+      "f2LSolveTime" : 27.830785989761353,
+      "memo" : "",
+      "ollSolveTime" : 6.440750956535339,
+      "pllSolveTime" : 7.670711994171143
+    },
+    {
+      "crossSolveTime" : 5.660091996192932,
+      "date" : "2025-07-07T06:30:15Z",
+      "f2LSolveTime" : 23.68982696533203,
+      "memo" : "",
+      "ollSolveTime" : 6.700334072113037,
+      "pllSolveTime" : 6.470436930656433
+    },
+    {
+      "crossSolveTime" : 10.940073013305664,
+      "date" : "2025-07-07T06:32:04Z",
+      "f2LSolveTime" : 22.860103964805603,
+      "memo" : "",
+      "ollSolveTime" : 7.039941072463989,
+      "pllSolveTime" : 9.250083088874817
+    },
+    {
+      "crossSolveTime" : 4.841192007064819,
+      "date" : "2025-07-08T11:53:46Z",
+      "f2LSolveTime" : 21.3908349275589,
+      "memo" : "",
+      "ollSolveTime" : 5.049913048744202,
+      "pllSolveTime" : 8.250873923301697
+    },
+    {
+      "crossSolveTime" : 5.760743021965027,
+      "date" : "2025-07-08T11:56:30Z",
+      "f2LSolveTime" : 23.070670008659363,
+      "memo" : "",
+      "ollSolveTime" : 6.270944952964783,
+      "pllSolveTime" : 9.350406050682068
+    },
+    {
+      "crossSolveTime" : 8.881168961524963,
+      "date" : "2025-07-08T11:59:35Z",
+      "f2LSolveTime" : 31.261994004249573,
+      "memo" : "",
+      "ollSolveTime" : 6.282704949378967,
+      "pllSolveTime" : 6.220476031303406
+    },
+    {
+      "crossSolveTime" : 6.331065058708191,
+      "date" : "2025-07-08T12:01:05Z",
+      "f2LSolveTime" : 19.37174701690674,
+      "memo" : "",
+      "ollSolveTime" : 13.976002097129822,
+      "pllSolveTime" : 7.334802985191345
+    },
+    {
+      "crossSolveTime" : 6.470713973045349,
+      "date" : "2025-07-08T12:02:28Z",
+      "f2LSolveTime" : 26.980854034423828,
+      "memo" : "",
+      "ollSolveTime" : 6.977353930473328,
+      "pllSolveTime" : 4.157864093780518
+    },
+    {
+      "crossSolveTime" : 3.253124952316284,
+      "date" : "2025-07-08T12:03:38Z",
+      "f2LSolveTime" : 24.093626976013184,
+      "memo" : "",
+      "ollSolveTime" : 6.6024099588394165,
+      "pllSolveTime" : 8.478497982025146
+    },
+    {
+      "crossSolveTime" : 6.036399006843567,
+      "date" : "2025-07-08T12:05:03Z",
+      "f2LSolveTime" : 22.346127033233643,
+      "memo" : "",
+      "ollSolveTime" : 5.495875954627991,
+      "pllSolveTime" : 6.616855025291443
+    },
+    {
+      "crossSolveTime" : 4.325884103775024,
+      "date" : "2025-07-08T12:08:03Z",
+      "f2LSolveTime" : 18.404574990272522,
+      "memo" : "",
+      "ollSolveTime" : 6.348580002784729,
+      "pllSolveTime" : 5.339866995811462
+    },
+    {
+      "crossSolveTime" : 5.974393963813782,
+      "date" : "2025-07-08T12:11:01Z",
+      "f2LSolveTime" : 29.829161047935486,
+      "memo" : "PLL skip",
+      "ollSolveTime" : 7.481959939002991,
+      "pllSolveTime" : 0.7827630043029785
+    },
+    {
+      "crossSolveTime" : 5.255958080291748,
+      "date" : "2025-07-08T12:15:48Z",
+      "f2LSolveTime" : 19.16935908794403,
+      "memo" : "",
+      "ollSolveTime" : 6.783450961112976,
+      "pllSolveTime" : 7.922245979309082
+    },
+    {
+      "crossSolveTime" : 3.769544005393982,
+      "date" : "2025-07-08T12:21:10Z",
+      "f2LSolveTime" : 25.524930000305176,
+      "memo" : "",
+      "ollSolveTime" : 2.3853999376296997,
+      "pllSolveTime" : 7.735958933830261
+    },
+    {
+      "crossSolveTime" : 6.088732004165649,
+      "date" : "2025-07-08T12:22:17Z",
+      "f2LSolveTime" : 15.682175040245056,
+      "memo" : "",
+      "ollSolveTime" : 5.502928972244263,
+      "pllSolveTime" : 13.441946029663086
+    },
+    {
+      "crossSolveTime" : 4.187694072723389,
+      "date" : "2025-07-08T12:25:03Z",
+      "f2LSolveTime" : 24.056177973747253,
+      "memo" : "",
+      "ollSolveTime" : 4.539865016937256,
+      "pllSolveTime" : 7.327234983444214
+    },
+    {
+      "crossSolveTime" : 6.590126991271973,
+      "date" : "2025-07-08T12:26:17Z",
+      "f2LSolveTime" : 21.6609890460968,
+      "memo" : "",
+      "ollSolveTime" : 5.8459309339523315,
+      "pllSolveTime" : 5.334375023841858
+    },
+    {
+      "crossSolveTime" : 1.6675779819488525,
+      "date" : "2025-07-08T12:28:03Z",
+      "f2LSolveTime" : 26.174779057502747,
+      "memo" : "",
+      "ollSolveTime" : 6.241163969039917,
+      "pllSolveTime" : 6.314368963241577
+    },
+    {
+      "crossSolveTime" : 7.229712009429932,
+      "date" : "2025-07-08T12:31:08Z",
+      "f2LSolveTime" : 22.651302933692932,
+      "memo" : "",
+      "ollSolveTime" : 7.432504057884216,
+      "pllSolveTime" : 4.932456970214844
+    },
+    {
+      "crossSolveTime" : 7.62263810634613,
+      "date" : "2025-07-08T12:32:34Z",
+      "f2LSolveTime" : 26.773486018180847,
+      "memo" : "",
+      "ollSolveTime" : 6.081498026847839,
+      "pllSolveTime" : 7.878488063812256
+    },
+    {
+      "crossSolveTime" : 6.6657469272613525,
+      "date" : "2025-07-08T12:33:57Z",
+      "f2LSolveTime" : 24.20522105693817,
+      "memo" : "",
+      "ollSolveTime" : 5.88391900062561,
+      "pllSolveTime" : 6.7889779806137085
+    },
+    {
+      "crossSolveTime" : 6.399909019470215,
+      "date" : "2025-07-08T12:36:36Z",
+      "f2LSolveTime" : 21.30753207206726,
+      "memo" : "",
+      "ollSolveTime" : 5.008190035820007,
+      "pllSolveTime" : 8.442312002182007
+    },
+    {
+      "crossSolveTime" : 10.605580925941467,
+      "date" : "2025-07-08T12:38:22Z",
+      "f2LSolveTime" : 28.41070008277893,
+      "memo" : "",
+      "ollSolveTime" : 4.084403991699219,
+      "pllSolveTime" : 6.168730020523071
+    },
+    {
+      "crossSolveTime" : 4.204247951507568,
+      "date" : "2025-07-08T12:40:35Z",
+      "f2LSolveTime" : 29.039906978607178,
+      "memo" : "",
+      "ollSolveTime" : 6.76836097240448,
+      "pllSolveTime" : 6.541718006134033
+    },
+    {
+      "crossSolveTime" : 8.853575944900513,
+      "date" : "2025-07-08T12:42:42Z",
+      "f2LSolveTime" : 28.88305401802063,
+      "memo" : "New GAN magnetic cube!",
+      "ollSolveTime" : 8.613736987113953,
+      "pllSolveTime" : 4.786549925804138
+    },
+    {
+      "crossSolveTime" : 5.806934952735901,
+      "date" : "2025-07-09T22:22:12Z",
+      "f2LSolveTime" : 26.829847931861877,
+      "memo" : "",
+      "ollSolveTime" : 5.596781969070435,
+      "pllSolveTime" : 7.355443954467773
+    },
+    {
+      "crossSolveTime" : 7.294005036354065,
+      "date" : "2025-07-09T22:30:57Z",
+      "f2LSolveTime" : 21.54120099544525,
+      "memo" : "",
+      "ollSolveTime" : 5.221856951713562,
+      "pllSolveTime" : 5.213909983634949
+    },
+    {
+      "crossSolveTime" : 5.907639980316162,
+      "date" : "2025-07-09T22:32:25Z",
+      "f2LSolveTime" : 19.62828505039215,
+      "memo" : "",
+      "ollSolveTime" : 6.1498799324035645,
+      "pllSolveTime" : 6.8885650634765625
+    },
+    {
+      "crossSolveTime" : 6.585740923881531,
+      "date" : "2025-07-09T22:33:27Z",
+      "f2LSolveTime" : 17.5139479637146,
+      "memo" : "",
+      "ollSolveTime" : 5.049214005470276,
+      "pllSolveTime" : 6.384894967079163
+    },
+    {
+      "crossSolveTime" : 8.14322805404663,
+      "date" : "2025-07-09T22:34:57Z",
+      "f2LSolveTime" : 23.78922402858734,
+      "memo" : "",
+      "ollSolveTime" : 7.221895933151245,
+      "pllSolveTime" : 5.304636001586914
+    },
+    {
+      "crossSolveTime" : 9.473151922225952,
+      "date" : "2025-07-09T22:36:33Z",
+      "f2LSolveTime" : 22.655353903770447,
+      "memo" : "",
+      "ollSolveTime" : 7.626221060752869,
+      "pllSolveTime" : 4.695485949516296
+    },
+    {
+      "crossSolveTime" : 4.817268967628479,
+      "date" : "2025-07-09T22:37:42Z",
+      "f2LSolveTime" : 22.440577030181885,
+      "memo" : "",
+      "ollSolveTime" : 5.86368191242218,
+      "pllSolveTime" : 5.051512002944946
+    },
+    {
+      "crossSolveTime" : 5.5236430168151855,
+      "date" : "2025-07-09T22:39:20Z",
+      "f2LSolveTime" : 25.3578759431839,
+      "memo" : "",
+      "ollSolveTime" : 4.828585982322693,
+      "pllSolveTime" : 4.401134967803955
+    },
+    {
+      "crossSolveTime" : 4.509027004241943,
+      "date" : "2025-07-09T22:40:35Z",
+      "f2LSolveTime" : 22.405817985534668,
+      "memo" : "",
+      "ollSolveTime" : 4.497311949729919,
+      "pllSolveTime" : 7.873972058296204
+    },
+    {
+      "crossSolveTime" : 7.102651953697205,
+      "date" : "2025-07-09T22:41:35Z",
+      "f2LSolveTime" : 21.273110032081604,
+      "memo" : "",
+      "ollSolveTime" : 5.7012939453125,
+      "pllSolveTime" : 5.91638708114624
+    },
+    {
+      "crossSolveTime" : 6.138149976730347,
+      "date" : "2025-07-09T22:43:14Z",
+      "f2LSolveTime" : 26.339476943016052,
+      "memo" : "",
+      "ollSolveTime" : 6.51512598991394,
+      "pllSolveTime" : 4.68684995174408
+    },
+    {
+      "crossSolveTime" : 5.4453489780426025,
+      "date" : "2025-07-09T22:44:44Z",
+      "f2LSolveTime" : 22.19830095767975,
+      "memo" : "",
+      "ollSolveTime" : 5.3051300048828125,
+      "pllSolveTime" : 7.905498027801514
+    },
+    {
+      "crossSolveTime" : 7.402814984321594,
+      "date" : "2025-07-09T22:46:22Z",
+      "f2LSolveTime" : 23.838396072387695,
+      "memo" : "",
+      "ollSolveTime" : 6.752945065498352,
+      "pllSolveTime" : 6.731300950050354
+    },
+    {
+      "crossSolveTime" : 6.033933043479919,
+      "date" : "2025-07-09T22:47:39Z",
+      "f2LSolveTime" : 24.95662796497345,
+      "memo" : "",
+      "ollSolveTime" : 3.4184240102767944,
+      "pllSolveTime" : 6.785905957221985
+    },
+    {
+      "crossSolveTime" : 5.085703015327454,
+      "date" : "2025-07-09T22:49:10Z",
+      "f2LSolveTime" : 23.1909499168396,
+      "memo" : "",
+      "ollSolveTime" : 5.051159024238586,
+      "pllSolveTime" : 8.734475016593933
+    },
+    {
+      "crossSolveTime" : 4.4941229820251465,
+      "date" : "2025-07-10T23:18:29Z",
+      "f2LSolveTime" : 19.230992078781128,
+      "memo" : "",
+      "ollSolveTime" : 4.300174951553345,
+      "pllSolveTime" : 4.523473024368286
+    },
+    {
+      "crossSolveTime" : 7.805045008659363,
+      "date" : "2025-07-10T23:19:49Z",
+      "f2LSolveTime" : 23.094573974609375,
+      "memo" : "",
+      "ollSolveTime" : 6.019165992736816,
+      "pllSolveTime" : 6.137979030609131
+    },
+    {
+      "crossSolveTime" : 4.239034056663513,
+      "date" : "2025-07-10T23:20:49Z",
+      "f2LSolveTime" : 26.03863298892975,
+      "memo" : "",
+      "ollSolveTime" : 3.005020022392273,
+      "pllSolveTime" : 7.370530009269714
+    },
+    {
+      "crossSolveTime" : 4.452739000320435,
+      "date" : "2025-07-10T23:22:01Z",
+      "f2LSolveTime" : 25.9915269613266,
+      "memo" : "",
+      "ollSolveTime" : 6.929345965385437,
+      "pllSolveTime" : 6.483953952789307
+    },
+    {
+      "crossSolveTime" : 8.125101923942566,
+      "date" : "2025-07-10T23:24:02Z",
+      "f2LSolveTime" : 24.739850997924805,
+      "memo" : "",
+      "ollSolveTime" : 5.3172008991241455,
+      "pllSolveTime" : 7.928477048873901
+    },
+    {
+      "crossSolveTime" : 6.07329797744751,
+      "date" : "2025-07-10T23:25:50Z",
+      "f2LSolveTime" : 17.001561999320984,
+      "memo" : "",
+      "ollSolveTime" : 3.8515429496765137,
+      "pllSolveTime" : 8.475743889808655
+    },
+    {
+      "crossSolveTime" : 9.325800061225891,
+      "date" : "2025-07-10T23:27:30Z",
+      "f2LSolveTime" : 25.15105402469635,
+      "memo" : "",
+      "ollSolveTime" : 4.368296027183533,
+      "pllSolveTime" : 8.010198950767517
+    },
+    {
+      "crossSolveTime" : 7.656127095222473,
+      "date" : "2025-07-10T23:28:34Z",
+      "f2LSolveTime" : 19.39393401145935,
+      "memo" : "",
+      "ollSolveTime" : 4.190970063209534,
+      "pllSolveTime" : 6.373302936553955
+    },
+    {
+      "crossSolveTime" : 2.089946985244751,
+      "date" : "2025-07-17T05:12:34Z",
+      "f2LSolveTime" : 31.301240921020508,
+      "memo" : "",
+      "ollSolveTime" : 5.035709023475647,
+      "pllSolveTime" : 6.1172789335250854
+    },
+    {
+      "crossSolveTime" : 5.1185290813446045,
+      "date" : "2025-07-17T05:17:28Z",
+      "f2LSolveTime" : 18.061817049980164,
+      "memo" : "",
+      "ollSolveTime" : 6.7738929986953735,
+      "pllSolveTime" : 14.906602025032043
+    },
+    {
+      "crossSolveTime" : 7.284214973449707,
+      "date" : "2025-07-17T05:19:17Z",
+      "f2LSolveTime" : 27.74216902256012,
+      "memo" : "",
+      "ollSolveTime" : 6.781180024147034,
+      "pllSolveTime" : 5.9721620082855225
+    },
+    {
+      "crossSolveTime" : 2.9308769702911377,
+      "date" : "2025-08-21T03:33:35Z",
+      "f2LSolveTime" : 19.0883469581604,
+      "memo" : "",
+      "ollSolveTime" : 7.24093496799469,
+      "pllSolveTime" : 14.237669944763184
+    },
+    {
+      "crossSolveTime" : 4.48878800868988,
+      "date" : "2025-08-21T03:40:54Z",
+      "f2LSolveTime" : 26.149282932281494,
+      "memo" : "",
+      "ollSolveTime" : 4.867496013641357,
+      "pllSolveTime" : 8.15989899635315
+    },
+    {
+      "crossSolveTime" : 5.208269000053406,
+      "date" : "2025-09-06T10:10:08Z",
+      "f2LSolveTime" : 20.373198986053467,
+      "memo" : "",
+      "ollSolveTime" : 3.255358934402466,
+      "pllSolveTime" : 6.340407967567444
+    },
+    {
+      "crossSolveTime" : 4.85906195640564,
+      "date" : "2025-09-06T10:11:42Z",
+      "f2LSolveTime" : 17.25858700275421,
+      "memo" : "PLL skip",
+      "ollSolveTime" : 7.233211994171143,
+      "pllSolveTime" : 0.4048389196395874
+    },
+    {
+      "crossSolveTime" : 5.238546013832092,
+      "date" : "2025-09-06T10:14:36Z",
+      "f2LSolveTime" : 20.898064970970154,
+      "memo" : "",
+      "ollSolveTime" : 4.718418002128601,
+      "pllSolveTime" : 4.479830980300903
+    },
+    {
+      "crossSolveTime" : 3.474224090576172,
+      "date" : "2025-09-06T10:18:14Z",
+      "f2LSolveTime" : 24.956045031547546,
+      "memo" : "",
+      "ollSolveTime" : 3.299622893333435,
+      "pllSolveTime" : 5.907844066619873
+    },
+    {
+      "crossSolveTime" : 2.910094976425171,
+      "date" : "2025-09-06T10:20:58Z",
+      "f2LSolveTime" : 17.248769998550415,
+      "memo" : "",
+      "ollSolveTime" : 2.4562249183654785,
+      "pllSolveTime" : 4.684955954551697
+    },
+    {
+      "crossSolveTime" : 3.2670750617980957,
+      "date" : "2025-09-06T10:22:28Z",
+      "f2LSolveTime" : 17.628123998641968,
+      "memo" : "",
+      "ollSolveTime" : 4.452441096305847,
+      "pllSolveTime" : 6.5146390199661255
+    },
+    {
+      "crossSolveTime" : 2.8433189392089844,
+      "date" : "2025-09-18T00:21:04Z",
+      "f2LSolveTime" : 18.758033990859985,
+      "memo" : "",
+      "ollSolveTime" : 3.556249976158142,
+      "pllSolveTime" : 4.064349889755249
+    },
+    {
+      "crossSolveTime" : 1.9279179573059082,
+      "date" : "2025-09-18T00:22:12Z",
+      "f2LSolveTime" : 18.64322793483734,
+      "memo" : "",
+      "ollSolveTime" : 4.160749912261963,
+      "pllSolveTime" : 7.024877071380615
+    },
+    {
+      "crossSolveTime" : 3.753140926361084,
+      "date" : "2025-09-18T00:23:48Z",
+      "f2LSolveTime" : 15.602810978889465,
+      "memo" : "",
+      "ollSolveTime" : 7.230061054229736,
+      "pllSolveTime" : 6.041693925857544
+    },
+    {
+      "crossSolveTime" : 3.2677390575408936,
+      "date" : "2025-09-18T00:25:02Z",
+      "f2LSolveTime" : 9.896700978279114,
+      "memo" : "",
+      "ollSolveTime" : 5.435839891433716,
+      "pllSolveTime" : 6.851988911628723
+    },
+    {
+      "crossSolveTime" : 5.366404056549072,
+      "date" : "2025-12-02T01:05:09Z",
+      "f2LSolveTime" : 16.35938799381256,
+      "memo" : "",
+      "ollSolveTime" : 3.304608941078186,
+      "pllSolveTime" : 7.318190932273865
+    },
+    {
+      "crossSolveTime" : 5.600313901901245,
+      "date" : "2025-12-02T01:06:29Z",
+      "f2LSolveTime" : 15.644098997116089,
+      "memo" : "",
+      "ollSolveTime" : 3.8670789003372192,
+      "pllSolveTime" : 6.000661015510559
+    },
+    {
+      "crossSolveTime" : 3.6854130029678345,
+      "date" : "2025-12-02T01:07:36Z",
+      "f2LSolveTime" : 16.64475703239441,
+      "memo" : "",
+      "ollSolveTime" : 4.905928015708923,
+      "pllSolveTime" : 8.504701018333435
+    },
+    {
+      "crossSolveTime" : 5.49773097038269,
+      "date" : "2025-12-02T01:08:51Z",
+      "f2LSolveTime" : 21.61410701274872,
+      "memo" : "",
+      "ollSolveTime" : 4.704593062400818,
+      "pllSolveTime" : 4.599261045455933
+    }
+  ],
+  "exportedAt" : "2026-01-09T04:53:21Z",
+  "solveTimes" : [
+    {
+      "date" : "2025-05-15T10:05:42Z",
+      "memo" : "First sub 60!!",
+      "solveTime" : 59.23104906082153
+    },
+    {
+      "date" : "2025-05-15T10:06:55Z",
+      "memo" : "",
+      "solveTime" : 56.20269989967346
+    },
+    {
+      "date" : "2025-05-16T04:50:47Z",
+      "memo" : "And I even hesitated on the PLL!",
+      "solveTime" : 57.88320505619049
+    },
+    {
+      "date" : "2025-05-16T04:56:02Z",
+      "memo" : "",
+      "solveTime" : 59.21983802318573
+    },
+    {
+      "date" : "2025-05-16T05:02:28Z",
+      "memo" : "",
+      "solveTime" : 54.16813099384308
+    },
+    {
+      "date" : "2025-05-16T08:56:42Z",
+      "memo" : "",
+      "solveTime" : 61.48361098766327
+    },
+    {
+      "date" : "2025-05-16T08:59:00Z",
+      "memo" : "",
+      "solveTime" : 51.369717955589294
+    },
+    {
+      "date" : "2025-05-16T09:33:36Z",
+      "memo" : "",
+      "solveTime" : 55.41605007648468
+    },
+    {
+      "date" : "2025-05-16T09:35:37Z",
+      "memo" : "",
+      "solveTime" : 66.75332498550415
+    },
+    {
+      "date" : "2025-05-16T09:37:11Z",
+      "memo" : "",
+      "solveTime" : 53.19083595275879
+    },
+    {
+      "date" : "2025-05-16T09:39:18Z",
+      "memo" : "",
+      "solveTime" : 64.91291809082031
+    },
+    {
+      "date" : "2025-05-16T09:45:16Z",
+      "memo" : "Yesss",
+      "solveTime" : 47.16780996322632
+    },
+    {
+      "date" : "2025-05-16T10:21:38Z",
+      "memo" : "",
+      "solveTime" : 62.65136909484863
+    },
+    {
+      "date" : "2025-05-16T10:26:31Z",
+      "memo" : "",
+      "solveTime" : 64.63585901260376
+    },
+    {
+      "date" : "2025-05-16T10:30:29Z",
+      "memo" : "",
+      "solveTime" : 51.52074599266052
+    },
+    {
+      "date" : "2025-05-16T10:32:42Z",
+      "memo" : "",
+      "solveTime" : 52.489153027534485
+    },
+    {
+      "date" : "2025-05-16T10:34:19Z",
+      "memo" : "",
+      "solveTime" : 54.78962004184723
+    },
+    {
+      "date" : "2025-05-16T10:37:04Z",
+      "memo" : "",
+      "solveTime" : 55.6777800321579
+    },
+    {
+      "date" : "2025-05-16T10:44:25Z",
+      "memo" : "",
+      "solveTime" : 49.08224892616272
+    },
+    {
+      "date" : "2025-05-16T10:49:20Z",
+      "memo" : "",
+      "solveTime" : 60.2254159450531
+    },
+    {
+      "date" : "2025-05-16T10:54:06Z",
+      "memo" : "",
+      "solveTime" : 58.394696950912476
+    },
+    {
+      "date" : "2025-05-17T00:26:07Z",
+      "memo" : "",
+      "solveTime" : 52.48114097118378
+    },
+    {
+      "date" : "2025-05-17T00:30:37Z",
+      "memo" : "",
+      "solveTime" : 56.161994099617004
+    },
+    {
+      "date" : "2025-05-17T00:32:45Z",
+      "memo" : "",
+      "solveTime" : 58.876450061798096
+    },
+    {
+      "date" : "2025-05-17T00:34:15Z",
+      "memo" : "",
+      "solveTime" : 44.154670000076294
+    },
+    {
+      "date" : "2025-05-18T00:51:36Z",
+      "memo" : "",
+      "solveTime" : 59.84981405735016
+    },
+    {
+      "date" : "2025-05-18T00:54:58Z",
+      "memo" : "And I even choked on the PLL!",
+      "solveTime" : 49.19487798213959
+    },
+    {
+      "date" : "2025-05-18T01:07:06Z",
+      "memo" : "",
+      "solveTime" : 44.62588894367218
+    },
+    {
+      "date" : "2025-05-18T09:51:02Z",
+      "memo" : "",
+      "solveTime" : 50.85371994972229
+    },
+    {
+      "date" : "2025-05-18T09:52:26Z",
+      "memo" : "",
+      "solveTime" : 45.97104001045227
+    },
+    {
+      "date" : "2025-05-18T09:54:08Z",
+      "memo" : "",
+      "solveTime" : 58.21476697921753
+    },
+    {
+      "date" : "2025-05-18T09:57:52Z",
+      "memo" : "",
+      "solveTime" : 49.56567299365997
+    },
+    {
+      "date" : "2025-05-18T10:00:50Z",
+      "memo" : "",
+      "solveTime" : 56.249698996543884
+    },
+    {
+      "date" : "2025-05-18T10:02:24Z",
+      "memo" : "",
+      "solveTime" : 42.12191903591156
+    },
+    {
+      "date" : "2025-05-19T11:04:00Z",
+      "memo" : "",
+      "solveTime" : 47.67673599720001
+    },
+    {
+      "date" : "2025-05-19T11:09:09Z",
+      "memo" : "",
+      "solveTime" : 56.82581806182861
+    },
+    {
+      "date" : "2025-05-19T11:12:54Z",
+      "memo" : "",
+      "solveTime" : 56.990233063697815
+    },
+    {
+      "date" : "2025-05-19T11:14:43Z",
+      "memo" : "",
+      "solveTime" : 53.82535099983215
+    },
+    {
+      "date" : "2025-05-19T11:23:15Z",
+      "memo" : "",
+      "solveTime" : 53.12033998966217
+    },
+    {
+      "date" : "2025-05-19T23:45:22Z",
+      "memo" : "",
+      "solveTime" : 50.70103394985199
+    },
+    {
+      "date" : "2025-05-20T11:02:16Z",
+      "memo" : "",
+      "solveTime" : 43.00473999977112
+    },
+    {
+      "date" : "2025-05-20T11:06:20Z",
+      "memo" : "",
+      "solveTime" : 50.17523205280304
+    },
+    {
+      "date" : "2025-05-20T11:08:29Z",
+      "memo" : "",
+      "solveTime" : 59.32566297054291
+    },
+    {
+      "date" : "2025-05-20T11:20:24Z",
+      "memo" : "",
+      "solveTime" : 50.05768096446991
+    },
+    {
+      "date" : "2025-05-20T11:22:14Z",
+      "memo" : "",
+      "solveTime" : 54.87674105167389
+    },
+    {
+      "date" : "2025-05-20T11:29:43Z",
+      "memo" : "",
+      "solveTime" : 50.03604507446289
+    },
+    {
+      "date" : "2025-05-20T11:34:20Z",
+      "memo" : "",
+      "solveTime" : 56.45764207839966
+    },
+    {
+      "date" : "2025-05-20T11:50:23Z",
+      "memo" : "",
+      "solveTime" : 42.74082899093628
+    },
+    {
+      "date" : "2025-05-21T09:55:52Z",
+      "memo" : "",
+      "solveTime" : 44.61104202270508
+    },
+    {
+      "date" : "2025-05-21T10:02:35Z",
+      "memo" : "",
+      "solveTime" : 50.37524402141571
+    },
+    {
+      "date" : "2025-05-21T10:06:02Z",
+      "memo" : "",
+      "solveTime" : 50.77549695968628
+    },
+    {
+      "date" : "2025-05-21T10:07:18Z",
+      "memo" : "",
+      "solveTime" : 46.18539202213287
+    },
+    {
+      "date" : "2025-05-21T10:11:14Z",
+      "memo" : "",
+      "solveTime" : 53.879937052726746
+    },
+    {
+      "date" : "2025-05-21T10:12:47Z",
+      "memo" : "",
+      "solveTime" : 52.626359939575195
+    },
+    {
+      "date" : "2025-05-21T10:15:35Z",
+      "memo" : "",
+      "solveTime" : 41.15579700469971
+    },
+    {
+      "date" : "2025-05-22T20:32:45Z",
+      "memo" : "",
+      "solveTime" : 43.056419014930725
+    },
+    {
+      "date" : "2025-05-22T20:34:36Z",
+      "memo" : "",
+      "solveTime" : 53.21772503852844
+    },
+    {
+      "date" : "2025-05-22T20:36:04Z",
+      "memo" : "",
+      "solveTime" : 45.4286789894104
+    },
+    {
+      "date" : "2025-05-22T20:38:45Z",
+      "memo" : "",
+      "solveTime" : 47.72767794132233
+    },
+    {
+      "date" : "2025-05-22T20:42:05Z",
+      "memo" : "",
+      "solveTime" : 55.71546709537506
+    },
+    {
+      "date" : "2025-05-22T20:46:13Z",
+      "memo" : "",
+      "solveTime" : 57.45553696155548
+    },
+    {
+      "date" : "2025-05-22T20:52:16Z",
+      "memo" : "",
+      "solveTime" : 45.664883971214294
+    },
+    {
+      "date" : "2025-05-23T05:37:54Z",
+      "memo" : "",
+      "solveTime" : 48.51608598232269
+    },
+    {
+      "date" : "2025-05-23T05:39:46Z",
+      "memo" : "",
+      "solveTime" : 45.176409006118774
+    },
+    {
+      "date" : "2025-05-24T00:35:41Z",
+      "memo" : "",
+      "solveTime" : 56.65489196777344
+    },
+    {
+      "date" : "2025-05-24T00:40:40Z",
+      "memo" : "",
+      "solveTime" : 55.9509699344635
+    },
+    {
+      "date" : "2025-05-24T00:44:08Z",
+      "memo" : "",
+      "solveTime" : 54.776455998420715
+    },
+    {
+      "date" : "2025-05-24T00:53:52Z",
+      "memo" : "",
+      "solveTime" : 54.84525394439697
+    },
+    {
+      "date" : "2025-05-24T00:55:15Z",
+      "memo" : "",
+      "solveTime" : 45.255958914756775
+    },
+    {
+      "date" : "2025-05-24T00:56:46Z",
+      "memo" : "",
+      "solveTime" : 55.22886598110199
+    },
+    {
+      "date" : "2025-05-24T08:49:03Z",
+      "memo" : "",
+      "solveTime" : 53.110653042793274
+    },
+    {
+      "date" : "2025-05-24T08:52:12Z",
+      "memo" : "",
+      "solveTime" : 54.96964502334595
+    },
+    {
+      "date" : "2025-05-24T08:53:29Z",
+      "memo" : "",
+      "solveTime" : 45.995429039001465
+    },
+    {
+      "date" : "2025-05-24T08:55:09Z",
+      "memo" : "",
+      "solveTime" : 54.15586304664612
+    },
+    {
+      "date" : "2025-05-24T09:01:55Z",
+      "memo" : "",
+      "solveTime" : 50.96477198600769
+    },
+    {
+      "date" : "2025-05-24T09:03:11Z",
+      "memo" : "",
+      "solveTime" : 50.78485298156738
+    },
+    {
+      "date" : "2025-05-24T09:04:41Z",
+      "memo" : "",
+      "solveTime" : 43.6253000497818
+    },
+    {
+      "date" : "2025-05-24T21:30:43Z",
+      "memo" : "",
+      "solveTime" : 55.41474199295044
+    },
+    {
+      "date" : "2025-05-24T21:34:20Z",
+      "memo" : "",
+      "solveTime" : 50.00840699672699
+    },
+    {
+      "date" : "2025-05-25T02:20:10Z",
+      "memo" : "",
+      "solveTime" : 55.0261390209198
+    },
+    {
+      "date" : "2025-05-25T02:26:09Z",
+      "memo" : "",
+      "solveTime" : 47.81488299369812
+    },
+    {
+      "date" : "2025-05-25T02:29:56Z",
+      "memo" : "",
+      "solveTime" : 47.03989803791046
+    },
+    {
+      "date" : "2025-05-25T02:35:13Z",
+      "memo" : "",
+      "solveTime" : 53.406301975250244
+    },
+    {
+      "date" : "2025-05-25T02:40:33Z",
+      "memo" : "",
+      "solveTime" : 49.16989505290985
+    },
+    {
+      "date" : "2025-05-25T02:41:59Z",
+      "memo" : "",
+      "solveTime" : 50.83472192287445
+    },
+    {
+      "date" : "2025-05-25T02:43:18Z",
+      "memo" : "",
+      "solveTime" : 37.51567900180817
+    },
+    {
+      "date" : "2025-05-25T02:46:15Z",
+      "memo" : "",
+      "solveTime" : 45.780686020851135
+    },
+    {
+      "date" : "2025-05-27T22:46:50Z",
+      "memo" : "",
+      "solveTime" : 50.59004294872284
+    },
+    {
+      "date" : "2025-05-27T22:50:12Z",
+      "memo" : "",
+      "solveTime" : 52.36506998538971
+    },
+    {
+      "date" : "2025-05-27T22:52:56Z",
+      "memo" : "",
+      "solveTime" : 46.239043951034546
+    },
+    {
+      "date" : "2025-05-27T22:54:20Z",
+      "memo" : "",
+      "solveTime" : 51.93920695781708
+    },
+    {
+      "date" : "2025-05-27T22:56:05Z",
+      "memo" : "",
+      "solveTime" : 47.3069189786911
+    },
+    {
+      "date" : "2025-05-27T23:00:18Z",
+      "memo" : "",
+      "solveTime" : 45.45513200759888
+    },
+    {
+      "date" : "2025-05-27T23:01:41Z",
+      "memo" : "",
+      "solveTime" : 47.755725026130676
+    },
+    {
+      "date" : "2025-05-29T00:46:03Z",
+      "memo" : "",
+      "solveTime" : 46.94125998020172
+    },
+    {
+      "date" : "2025-05-29T00:51:04Z",
+      "memo" : "",
+      "solveTime" : 52.36526799201965
+    },
+    {
+      "date" : "2025-05-29T00:52:27Z",
+      "memo" : "",
+      "solveTime" : 41.67523896694183
+    },
+    {
+      "date" : "2025-05-29T22:28:03Z",
+      "memo" : "",
+      "solveTime" : 37.217738032341
+    },
+    {
+      "date" : "2025-05-29T22:34:41Z",
+      "memo" : "",
+      "solveTime" : 44.060888051986694
+    },
+    {
+      "date" : "2025-05-29T22:36:01Z",
+      "memo" : "",
+      "solveTime" : 48.110641956329346
+    },
+    {
+      "date" : "2025-05-29T22:37:21Z",
+      "memo" : "",
+      "solveTime" : 46.31525707244873
+    },
+    {
+      "date" : "2025-05-29T23:04:41Z",
+      "memo" : "",
+      "solveTime" : 33.51564705371857
+    },
+    {
+      "date" : "2025-05-31T03:48:19Z",
+      "memo" : "",
+      "solveTime" : 46.435393929481506
+    },
+    {
+      "date" : "2025-05-31T03:55:12Z",
+      "memo" : "",
+      "solveTime" : 52.555408000946045
+    },
+    {
+      "date" : "2025-05-31T03:56:19Z",
+      "memo" : "",
+      "solveTime" : 43.54528510570526
+    },
+    {
+      "date" : "2025-05-31T03:58:39Z",
+      "memo" : "",
+      "solveTime" : 46.34466600418091
+    },
+    {
+      "date" : "2025-05-31T04:04:02Z",
+      "memo" : "",
+      "solveTime" : 51.567700028419495
+    },
+    {
+      "date" : "2025-05-31T04:05:21Z",
+      "memo" : "",
+      "solveTime" : 38.855348944664
+    },
+    {
+      "date" : "2025-05-31T04:07:17Z",
+      "memo" : "",
+      "solveTime" : 51.19842791557312
+    },
+    {
+      "date" : "2025-05-31T04:08:37Z",
+      "memo" : "",
+      "solveTime" : 51.83566403388977
+    },
+    {
+      "date" : "2025-06-01T09:32:19Z",
+      "memo" : "",
+      "solveTime" : 39.555554032325745
+    },
+    {
+      "date" : "2025-06-01T09:35:40Z",
+      "memo" : "",
+      "solveTime" : 51.07973492145538
+    },
+    {
+      "date" : "2025-06-01T09:36:58Z",
+      "memo" : "",
+      "solveTime" : 37.706730008125305
+    },
+    {
+      "date" : "2025-06-01T09:38:25Z",
+      "memo" : "",
+      "solveTime" : 49.89889693260193
+    },
+    {
+      "date" : "2025-06-01T09:39:52Z",
+      "memo" : "",
+      "solveTime" : 35.91911506652832
+    },
+    {
+      "date" : "2025-06-06T10:10:11Z",
+      "memo" : "",
+      "solveTime" : 50.62589406967163
+    },
+    {
+      "date" : "2025-06-06T10:17:34Z",
+      "memo" : "",
+      "solveTime" : 41.97495794296265
+    },
+    {
+      "date" : "2025-06-11T08:28:41Z",
+      "memo" : "",
+      "solveTime" : 44.069218039512634
+    },
+    {
+      "date" : "2025-06-11T08:34:51Z",
+      "memo" : "",
+      "solveTime" : 51.95852303504944
+    },
+    {
+      "date" : "2025-06-11T08:36:13Z",
+      "memo" : "",
+      "solveTime" : 53.87585997581482
+    },
+    {
+      "date" : "2025-06-12T09:45:02Z",
+      "memo" : "",
+      "solveTime" : 48.38961899280548
+    },
+    {
+      "date" : "2025-06-12T09:46:22Z",
+      "memo" : "",
+      "solveTime" : 43.05041003227234
+    },
+    {
+      "date" : "2025-06-12T09:49:08Z",
+      "memo" : "",
+      "solveTime" : 50.16541302204132
+    },
+    {
+      "date" : "2025-06-12T09:50:36Z",
+      "memo" : "",
+      "solveTime" : 50.94601607322693
+    },
+    {
+      "date" : "2025-06-12T09:53:40Z",
+      "memo" : "",
+      "solveTime" : 50.42579996585846
+    },
+    {
+      "date" : "2025-06-12T09:59:55Z",
+      "memo" : "",
+      "solveTime" : 54.355823040008545
+    },
+    {
+      "date" : "2025-06-12T10:01:18Z",
+      "memo" : "",
+      "solveTime" : 51.306989908218384
+    },
+    {
+      "date" : "2025-06-12T10:02:35Z",
+      "memo" : "",
+      "solveTime" : 52.37595891952515
+    },
+    {
+      "date" : "2025-06-12T10:05:41Z",
+      "memo" : "",
+      "solveTime" : 51.039710998535156
+    },
+    {
+      "date" : "2025-06-12T10:08:15Z",
+      "memo" : "",
+      "solveTime" : 36.046481013298035
+    },
+    {
+      "date" : "2025-06-12T10:09:37Z",
+      "memo" : "",
+      "solveTime" : 42.81546902656555
+    },
+    {
+      "date" : "2025-06-12T10:10:50Z",
+      "memo" : "",
+      "solveTime" : 41.74774706363678
+    },
+    {
+      "date" : "2025-06-12T10:12:10Z",
+      "memo" : "",
+      "solveTime" : 44.58075404167175
+    },
+    {
+      "date" : "2025-06-13T08:26:02Z",
+      "memo" : "",
+      "solveTime" : 47.778249979019165
+    },
+    {
+      "date" : "2025-06-13T08:27:36Z",
+      "memo" : "",
+      "solveTime" : 53.36638700962067
+    },
+    {
+      "date" : "2025-06-13T08:28:57Z",
+      "memo" : "",
+      "solveTime" : 46.028156042099
+    },
+    {
+      "date" : "2025-06-13T08:30:23Z",
+      "memo" : "",
+      "solveTime" : 44.39626109600067
+    },
+    {
+      "date" : "2025-06-13T08:31:54Z",
+      "memo" : "",
+      "solveTime" : 49.57635009288788
+    },
+    {
+      "date" : "2025-06-13T08:33:27Z",
+      "memo" : "",
+      "solveTime" : 40.60634005069733
+    },
+    {
+      "date" : "2025-06-13T08:34:56Z",
+      "memo" : "",
+      "solveTime" : 46.74651110172272
+    },
+    {
+      "date" : "2025-06-13T08:36:35Z",
+      "memo" : "",
+      "solveTime" : 43.75706601142883
+    },
+    {
+      "date" : "2025-06-14T00:24:00Z",
+      "memo" : "",
+      "solveTime" : 49.73656892776489
+    },
+    {
+      "date" : "2025-06-14T00:25:44Z",
+      "memo" : "",
+      "solveTime" : 46.38652694225311
+    },
+    {
+      "date" : "2025-06-14T00:27:05Z",
+      "memo" : "",
+      "solveTime" : 53.756543040275574
+    },
+    {
+      "date" : "2025-06-14T00:28:20Z",
+      "memo" : "",
+      "solveTime" : 44.679916977882385
+    },
+    {
+      "date" : "2025-06-14T00:32:52Z",
+      "memo" : "",
+      "solveTime" : 47.9467339515686
+    },
+    {
+      "date" : "2025-06-14T00:34:20Z",
+      "memo" : "",
+      "solveTime" : 44.99679696559906
+    },
+    {
+      "date" : "2025-06-14T00:41:33Z",
+      "memo" : "",
+      "solveTime" : 47.380290031433105
+    },
+    {
+      "date" : "2025-06-14T00:42:50Z",
+      "memo" : "",
+      "solveTime" : 45.9977810382843
+    },
+    {
+      "date" : "2025-06-14T00:44:15Z",
+      "memo" : "",
+      "solveTime" : 50.5780930519104
+    },
+    {
+      "date" : "2025-08-21T03:15:29Z",
+      "memo" : "Learned OLL",
+      "solveTime" : 41.11675202846527
+    },
+    {
+      "date" : "2025-08-21T03:17:07Z",
+      "memo" : "",
+      "solveTime" : 45.9000129699707
+    },
+    {
+      "date" : "2025-08-21T03:26:07Z",
+      "memo" : "",
+      "solveTime" : 34.990256905555725
+    },
+    {
+      "date" : "2025-08-21T03:29:38Z",
+      "memo" : "",
+      "solveTime" : 41.85913693904877
+    },
+    {
+      "date" : "2025-08-21T03:31:11Z",
+      "memo" : "",
+      "solveTime" : 37.62659502029419
+    },
+    {
+      "date" : "2025-08-21T04:26:29Z",
+      "memo" : "",
+      "solveTime" : 43.67760193347931
+    },
+    {
+      "date" : "2025-08-21T04:33:30Z",
+      "memo" : "",
+      "solveTime" : 40.74599504470825
+    },
+    {
+      "date" : "2025-08-21T04:34:48Z",
+      "memo" : "",
+      "solveTime" : 45.31587600708008
+    },
+    {
+      "date" : "2025-08-21T04:36:17Z",
+      "memo" : "",
+      "solveTime" : 38.79602098464966
+    },
+    {
+      "date" : "2025-08-21T04:40:54Z",
+      "memo" : "",
+      "solveTime" : 37.307040095329285
+    },
+    {
+      "date" : "2025-08-21T04:42:18Z",
+      "memo" : "",
+      "solveTime" : 38.05617308616638
+    },
+    {
+      "date" : "2025-08-21T04:43:54Z",
+      "memo" : "First 30!!",
+      "solveTime" : 30.00626301765442
+    },
+    {
+      "date" : "2025-08-21T04:45:34Z",
+      "memo" : "",
+      "solveTime" : 40.09630799293518
+    },
+    {
+      "date" : "2025-08-21T04:46:52Z",
+      "memo" : "",
+      "solveTime" : 37.72642707824707
+    },
+    {
+      "date" : "2025-08-21T04:50:44Z",
+      "memo" : "",
+      "solveTime" : 35.306398034095764
+    },
+    {
+      "date" : "2025-08-21T04:56:57Z",
+      "memo" : "",
+      "solveTime" : 34.746204018592834
+    },
+    {
+      "date" : "2025-08-21T04:59:10Z",
+      "memo" : "",
+      "solveTime" : 41.7263970375061
+    },
+    {
+      "date" : "2025-08-21T05:03:41Z",
+      "memo" : "",
+      "solveTime" : 42.59058105945587
+    },
+    {
+      "date" : "2025-08-21T05:51:09Z",
+      "memo" : "",
+      "solveTime" : 45.15652906894684
+    },
+    {
+      "date" : "2025-08-21T07:29:44Z",
+      "memo" : "",
+      "solveTime" : 35.216700077056885
+    },
+    {
+      "date" : "2025-08-21T07:36:34Z",
+      "memo" : "",
+      "solveTime" : 44.93094205856323
+    },
+    {
+      "date" : "2025-08-21T07:38:12Z",
+      "memo" : "",
+      "solveTime" : 46.90023899078369
+    },
+    {
+      "date" : "2025-08-21T07:39:37Z",
+      "memo" : "",
+      "solveTime" : 35.71677899360657
+    },
+    {
+      "date" : "2025-08-21T07:43:58Z",
+      "memo" : "",
+      "solveTime" : 39.61675405502319
+    },
+    {
+      "date" : "2025-08-21T07:45:14Z",
+      "memo" : "",
+      "solveTime" : 37.296666979789734
+    },
+    {
+      "date" : "2025-08-21T07:47:00Z",
+      "memo" : "",
+      "solveTime" : 35.56682300567627
+    },
+    {
+      "date" : "2025-08-21T08:13:41Z",
+      "memo" : "",
+      "solveTime" : 41.93891096115112
+    },
+    {
+      "date" : "2025-08-21T08:15:04Z",
+      "memo" : "",
+      "solveTime" : 45.11701500415802
+    },
+    {
+      "date" : "2025-08-21T08:16:17Z",
+      "memo" : "",
+      "solveTime" : 40.44702398777008
+    },
+    {
+      "date" : "2025-08-21T08:19:34Z",
+      "memo" : "",
+      "solveTime" : 31.796905994415283
+    },
+    {
+      "date" : "2025-08-21T08:21:33Z",
+      "memo" : "",
+      "solveTime" : 35.346961975097656
+    },
+    {
+      "date" : "2025-08-21T08:28:10Z",
+      "memo" : "",
+      "solveTime" : 37.078128933906555
+    },
+    {
+      "date" : "2025-08-21T08:35:14Z",
+      "memo" : "",
+      "solveTime" : 32.926849007606506
+    },
+    {
+      "date" : "2025-08-21T08:39:07Z",
+      "memo" : "",
+      "solveTime" : 35.677785992622375
+    },
+    {
+      "date" : "2025-08-21T08:40:22Z",
+      "memo" : "",
+      "solveTime" : 39.56713795661926
+    },
+    {
+      "date" : "2025-08-21T08:50:02Z",
+      "memo" : "",
+      "solveTime" : 37.367117047309875
+    },
+    {
+      "date" : "2025-08-21T08:53:29Z",
+      "memo" : "",
+      "solveTime" : 36.20717096328735
+    },
+    {
+      "date" : "2025-08-21T21:33:35Z",
+      "memo" : "",
+      "solveTime" : 38.737030029296875
+    },
+    {
+      "date" : "2025-08-21T21:35:28Z",
+      "memo" : "",
+      "solveTime" : 33.49737596511841
+    },
+    {
+      "date" : "2025-08-21T21:36:56Z",
+      "memo" : "",
+      "solveTime" : 45.8074209690094
+    },
+    {
+      "date" : "2025-08-21T21:45:15Z",
+      "memo" : "",
+      "solveTime" : 45.16706299781799
+    },
+    {
+      "date" : "2025-08-21T21:47:25Z",
+      "memo" : "",
+      "solveTime" : 37.767311096191406
+    },
+    {
+      "date" : "2025-08-21T21:53:58Z",
+      "memo" : "",
+      "solveTime" : 35.797600984573364
+    },
+    {
+      "date" : "2025-08-21T21:56:49Z",
+      "memo" : "",
+      "solveTime" : 38.417445063591
+    },
+    {
+      "date" : "2025-08-21T21:58:03Z",
+      "memo" : "",
+      "solveTime" : 33.94756090641022
+    },
+    {
+      "date" : "2025-08-21T23:26:21Z",
+      "memo" : "",
+      "solveTime" : 30.31731903553009
+    },
+    {
+      "date" : "2025-08-21T23:27:41Z",
+      "memo" : "",
+      "solveTime" : 35.23732793331146
+    },
+    {
+      "date" : "2025-08-21T23:29:05Z",
+      "memo" : "",
+      "solveTime" : 32.59936201572418
+    },
+    {
+      "date" : "2025-08-21T23:31:05Z",
+      "memo" : "",
+      "solveTime" : 43.47764992713928
+    },
+    {
+      "date" : "2025-08-21T23:32:33Z",
+      "memo" : "",
+      "solveTime" : 35.44900703430176
+    },
+    {
+      "date" : "2025-08-21T23:36:27Z",
+      "memo" : "",
+      "solveTime" : 46.36967098712921
+    },
+    {
+      "date" : "2025-08-21T23:37:40Z",
+      "memo" : "",
+      "solveTime" : 40.24797594547272
+    },
+    {
+      "date" : "2025-08-21T23:38:50Z",
+      "memo" : "",
+      "solveTime" : 43.03756809234619
+    },
+    {
+      "date" : "2025-08-21T23:40:25Z",
+      "memo" : "",
+      "solveTime" : 42.32786691188812
+    },
+    {
+      "date" : "2025-08-21T23:42:54Z",
+      "memo" : "",
+      "solveTime" : 38.427682995796204
+    },
+    {
+      "date" : "2025-08-21T23:45:33Z",
+      "memo" : "",
+      "solveTime" : 31.109112977981567
+    },
+    {
+      "date" : "2025-08-21T23:47:55Z",
+      "memo" : "",
+      "solveTime" : 41.027815103530884
+    },
+    {
+      "date" : "2025-08-21T23:49:04Z",
+      "memo" : "",
+      "solveTime" : 38.29778003692627
+    },
+    {
+      "date" : "2025-08-21T23:50:27Z",
+      "memo" : "",
+      "solveTime" : 36.089547991752625
+    },
+    {
+      "date" : "2025-08-22T00:26:11Z",
+      "memo" : "",
+      "solveTime" : 35.32842397689819
+    },
+    {
+      "date" : "2025-08-22T00:27:36Z",
+      "memo" : "",
+      "solveTime" : 27.368301033973694
+    },
+    {
+      "date" : "2025-08-28T06:30:36Z",
+      "memo" : "",
+      "solveTime" : 44.49805295467377
+    },
+    {
+      "date" : "2025-08-28T06:31:56Z",
+      "memo" : "",
+      "solveTime" : 45.03837490081787
+    },
+    {
+      "date" : "2025-08-28T06:35:36Z",
+      "memo" : "",
+      "solveTime" : 36.07979202270508
+    },
+    {
+      "date" : "2025-08-28T06:37:11Z",
+      "memo" : "",
+      "solveTime" : 41.138620018959045
+    },
+    {
+      "date" : "2025-08-31T00:12:18Z",
+      "memo" : "",
+      "solveTime" : 31.319753050804138
+    },
+    {
+      "date" : "2025-08-31T00:14:15Z",
+      "memo" : "",
+      "solveTime" : 37.43995797634125
+    },
+    {
+      "date" : "2025-08-31T00:18:17Z",
+      "memo" : "",
+      "solveTime" : 39.63991606235504
+    },
+    {
+      "date" : "2025-08-31T00:22:55Z",
+      "memo" : "",
+      "solveTime" : 30.66089701652527
+    },
+    {
+      "date" : "2025-08-31T00:26:53Z",
+      "memo" : "",
+      "solveTime" : 34.489845991134644
+    },
+    {
+      "date" : "2025-08-31T01:34:04Z",
+      "memo" : "Lucky scramble, 3 edges, then 2 F2L were in place",
+      "solveTime" : 23.528661966323853
+    },
+    {
+      "date" : "2025-08-31T04:03:04Z",
+      "memo" : "",
+      "solveTime" : 35.91938292980194
+    },
+    {
+      "date" : "2025-08-31T04:12:57Z",
+      "memo" : "",
+      "solveTime" : 36.36955404281616
+    },
+    {
+      "date" : "2025-08-31T23:00:47Z",
+      "memo" : "",
+      "solveTime" : 32.568832993507385
+    },
+    {
+      "date" : "2025-09-01T00:46:20Z",
+      "memo" : "",
+      "solveTime" : 33.00060498714447
+    },
+    {
+      "date" : "2025-09-01T00:47:36Z",
+      "memo" : "",
+      "solveTime" : 36.819610953330994
+    },
+    {
+      "date" : "2025-09-01T01:58:05Z",
+      "memo" : "",
+      "solveTime" : 30.769835948944092
+    },
+    {
+      "date" : "2025-09-01T01:59:28Z",
+      "memo" : "",
+      "solveTime" : 33.249815940856934
+    },
+    {
+      "date" : "2025-09-01T02:03:24Z",
+      "memo" : "",
+      "solveTime" : 29.84945499897003
+    },
+    {
+      "date" : "2025-09-01T02:18:08Z",
+      "memo" : "",
+      "solveTime" : 33.69936001300812
+    },
+    {
+      "date" : "2025-09-01T02:19:12Z",
+      "memo" : "",
+      "solveTime" : 34.36936891078949
+    },
+    {
+      "date" : "2025-09-01T02:21:45Z",
+      "memo" : "",
+      "solveTime" : 27.379451990127563
+    },
+    {
+      "date" : "2025-09-01T03:14:06Z",
+      "memo" : "",
+      "solveTime" : 32.048914074897766
+    },
+    {
+      "date" : "2025-09-01T03:16:19Z",
+      "memo" : "",
+      "solveTime" : 29.02961301803589
+    },
+    {
+      "date" : "2025-09-01T03:21:34Z",
+      "memo" : "",
+      "solveTime" : 20.12931203842163
+    },
+    {
+      "date" : "2025-09-03T00:24:57Z",
+      "memo" : "",
+      "solveTime" : 29.62916898727417
+    },
+    {
+      "date" : "2025-09-03T00:26:12Z",
+      "memo" : "",
+      "solveTime" : 32.54908299446106
+    },
+    {
+      "date" : "2025-09-03T00:32:18Z",
+      "memo" : "",
+      "solveTime" : 32.32922399044037
+    },
+    {
+      "date" : "2025-09-04T23:31:40Z",
+      "memo" : "",
+      "solveTime" : 34.94024097919464
+    },
+    {
+      "date" : "2025-09-04T23:32:42Z",
+      "memo" : "",
+      "solveTime" : 28.73009705543518
+    },
+    {
+      "date" : "2025-09-04T23:34:50Z",
+      "memo" : "",
+      "solveTime" : 22.260417938232422
+    },
+    {
+      "date" : "2025-09-04T23:38:20Z",
+      "memo" : "",
+      "solveTime" : 31.48061501979828
+    },
+    {
+      "date" : "2025-09-04T23:39:16Z",
+      "memo" : "",
+      "solveTime" : 30.0103360414505
+    },
+    {
+      "date" : "2025-09-04T23:46:04Z",
+      "memo" : "",
+      "solveTime" : 25.48040008544922
+    },
+    {
+      "date" : "2025-09-04T23:52:50Z",
+      "memo" : "",
+      "solveTime" : 35.18988907337189
+    },
+    {
+      "date" : "2025-09-04T23:54:01Z",
+      "memo" : "",
+      "solveTime" : 28.74047303199768
+    },
+    {
+      "date" : "2025-09-04T23:55:02Z",
+      "memo" : "",
+      "solveTime" : 30.889923930168152
+    },
+    {
+      "date" : "2025-09-05T08:35:32Z",
+      "memo" : "",
+      "solveTime" : 32.201398968696594
+    },
+    {
+      "date" : "2025-09-05T08:36:43Z",
+      "memo" : "",
+      "solveTime" : 29.55108094215393
+    },
+    {
+      "date" : "2025-09-06T01:19:52Z",
+      "memo" : "",
+      "solveTime" : 34.60183894634247
+    },
+    {
+      "date" : "2025-09-06T01:21:03Z",
+      "memo" : "",
+      "solveTime" : 34.98216795921326
+    },
+    {
+      "date" : "2025-09-06T01:21:54Z",
+      "memo" : "",
+      "solveTime" : 28.131369948387146
+    },
+    {
+      "date" : "2025-09-06T01:24:08Z",
+      "memo" : "",
+      "solveTime" : 28.733322978019714
+    },
+    {
+      "date" : "2025-09-06T01:25:15Z",
+      "memo" : "",
+      "solveTime" : 35.01970601081848
+    },
+    {
+      "date" : "2025-09-06T01:27:35Z",
+      "memo" : "",
+      "solveTime" : 33.661316990852356
+    },
+    {
+      "date" : "2025-09-06T01:28:37Z",
+      "memo" : "",
+      "solveTime" : 30.271237015724182
+    },
+    {
+      "date" : "2025-09-06T01:29:43Z",
+      "memo" : "",
+      "solveTime" : 30.837785005569458
+    },
+    {
+      "date" : "2025-09-06T01:34:41Z",
+      "memo" : "",
+      "solveTime" : 28.99785006046295
+    },
+    {
+      "date" : "2025-09-06T01:38:11Z",
+      "memo" : "",
+      "solveTime" : 30.022026896476746
+    },
+    {
+      "date" : "2025-09-06T01:41:45Z",
+      "memo" : "",
+      "solveTime" : 31.44516098499298
+    },
+    {
+      "date" : "2025-09-06T01:48:19Z",
+      "memo" : "",
+      "solveTime" : 32.22241008281708
+    },
+    {
+      "date" : "2025-09-06T01:50:18Z",
+      "memo" : "",
+      "solveTime" : 28.065266013145447
+    },
+    {
+      "date" : "2025-09-06T02:00:04Z",
+      "memo" : "",
+      "solveTime" : 31.569618940353394
+    },
+    {
+      "date" : "2025-09-06T02:09:24Z",
+      "memo" : "",
+      "solveTime" : 28.708173990249634
+    },
+    {
+      "date" : "2025-09-06T05:31:19Z",
+      "memo" : "",
+      "solveTime" : 33.31042397022247
+    },
+    {
+      "date" : "2025-09-06T05:32:21Z",
+      "memo" : "",
+      "solveTime" : 33.196486949920654
+    },
+    {
+      "date" : "2025-09-06T05:33:30Z",
+      "memo" : "",
+      "solveTime" : 31.832565903663635
+    },
+    {
+      "date" : "2025-09-06T05:34:22Z",
+      "memo" : "",
+      "solveTime" : 28.095976948738098
+    },
+    {
+      "date" : "2025-09-06T08:31:51Z",
+      "memo" : "",
+      "solveTime" : 30.16930902004242
+    },
+    {
+      "date" : "2025-09-06T08:33:07Z",
+      "memo" : "",
+      "solveTime" : 31.383224964141846
+    },
+    {
+      "date" : "2025-09-06T11:32:27Z",
+      "memo" : "",
+      "solveTime" : 35.39797008037567
+    },
+    {
+      "date" : "2025-09-06T11:33:36Z",
+      "memo" : "",
+      "solveTime" : 30.73681402206421
+    },
+    {
+      "date" : "2025-09-06T11:35:44Z",
+      "memo" : "",
+      "solveTime" : 29.363070011138916
+    },
+    {
+      "date" : "2025-09-06T11:37:52Z",
+      "memo" : "",
+      "solveTime" : 30.055853009223938
+    },
+    {
+      "date" : "2025-09-06T11:41:22Z",
+      "memo" : "",
+      "solveTime" : 35.128779888153076
+    },
+    {
+      "date" : "2025-09-06T11:48:19Z",
+      "memo" : "",
+      "solveTime" : 30.212589979171753
+    },
+    {
+      "date" : "2025-09-06T11:50:32Z",
+      "memo" : "",
+      "solveTime" : 27.731853008270264
+    },
+    {
+      "date" : "2025-09-06T11:54:54Z",
+      "memo" : "",
+      "solveTime" : 33.58159899711609
+    },
+    {
+      "date" : "2025-09-06T11:55:58Z",
+      "memo" : "",
+      "solveTime" : 29.139668941497803
+    },
+    {
+      "date" : "2025-09-06T11:59:49Z",
+      "memo" : "",
+      "solveTime" : 32.431843996047974
+    },
+    {
+      "date" : "2025-09-06T12:01:15Z",
+      "memo" : "",
+      "solveTime" : 33.514269948005676
+    },
+    {
+      "date" : "2025-09-06T12:04:35Z",
+      "memo" : "",
+      "solveTime" : 26.646448016166687
+    },
+    {
+      "date" : "2025-09-06T12:05:50Z",
+      "memo" : "",
+      "solveTime" : 30.811394929885864
+    },
+    {
+      "date" : "2025-09-06T12:12:28Z",
+      "memo" : "",
+      "solveTime" : 32.67246699333191
+    },
+    {
+      "date" : "2025-09-06T12:15:53Z",
+      "memo" : "",
+      "solveTime" : 33.548519015312195
+    },
+    {
+      "date" : "2025-09-06T12:17:02Z",
+      "memo" : "",
+      "solveTime" : 27.960446000099182
+    },
+    {
+      "date" : "2025-09-06T12:19:35Z",
+      "memo" : "",
+      "solveTime" : 31.415538907051086
+    },
+    {
+      "date" : "2025-09-07T10:13:14Z",
+      "memo" : "",
+      "solveTime" : 33.82039499282837
+    },
+    {
+      "date" : "2025-09-07T10:14:12Z",
+      "memo" : "",
+      "solveTime" : 28.227784991264343
+    },
+    {
+      "date" : "2025-09-07T10:16:17Z",
+      "memo" : "",
+      "solveTime" : 28.865010023117065
+    },
+    {
+      "date" : "2025-09-07T10:18:18Z",
+      "memo" : "",
+      "solveTime" : 29.98280394077301
+    },
+    {
+      "date" : "2025-09-07T10:24:30Z",
+      "memo" : "",
+      "solveTime" : 31.555017948150635
+    },
+    {
+      "date" : "2025-09-12T00:08:20Z",
+      "memo" : "",
+      "solveTime" : 34.62633693218231
+    },
+    {
+      "date" : "2025-09-12T00:10:20Z",
+      "memo" : "",
+      "solveTime" : 30.66557002067566
+    },
+    {
+      "date" : "2025-09-12T00:11:16Z",
+      "memo" : "",
+      "solveTime" : 31.026736974716187
+    },
+    {
+      "date" : "2025-09-12T01:53:04Z",
+      "memo" : "",
+      "solveTime" : 32.18060791492462
+    },
+    {
+      "date" : "2025-09-12T01:53:58Z",
+      "memo" : "",
+      "solveTime" : 31.60344898700714
+    },
+    {
+      "date" : "2025-09-12T02:07:00Z",
+      "memo" : "",
+      "solveTime" : 32.05049204826355
+    },
+    {
+      "date" : "2025-09-12T02:24:01Z",
+      "memo" : "",
+      "solveTime" : 32.5903559923172
+    },
+    {
+      "date" : "2025-09-12T02:25:03Z",
+      "memo" : "",
+      "solveTime" : 33.86425602436066
+    },
+    {
+      "date" : "2025-09-12T02:26:07Z",
+      "memo" : "",
+      "solveTime" : 30.849200010299683
+    },
+    {
+      "date" : "2025-09-12T02:28:06Z",
+      "memo" : "",
+      "solveTime" : 28.930174112319946
+    },
+    {
+      "date" : "2025-09-12T02:32:49Z",
+      "memo" : "",
+      "solveTime" : 33.30000102519989
+    },
+    {
+      "date" : "2025-09-12T02:34:47Z",
+      "memo" : "",
+      "solveTime" : 31.580991983413696
+    },
+    {
+      "date" : "2025-09-12T02:35:58Z",
+      "memo" : "",
+      "solveTime" : 33.69821000099182
+    },
+    {
+      "date" : "2025-09-12T11:16:16Z",
+      "memo" : "",
+      "solveTime" : 34.63058400154114
+    },
+    {
+      "date" : "2025-09-12T11:17:20Z",
+      "memo" : "",
+      "solveTime" : 34.45980393886566
+    },
+    {
+      "date" : "2025-09-12T11:19:35Z",
+      "memo" : "",
+      "solveTime" : 31.87834894657135
+    },
+    {
+      "date" : "2025-09-12T23:30:11Z",
+      "memo" : "",
+      "solveTime" : 32.15846800804138
+    },
+    {
+      "date" : "2025-09-12T23:32:04Z",
+      "memo" : "",
+      "solveTime" : 30.222718954086304
+    },
+    {
+      "date" : "2025-09-12T23:32:57Z",
+      "memo" : "",
+      "solveTime" : 27.73286998271942
+    },
+    {
+      "date" : "2025-09-12T23:34:05Z",
+      "memo" : "",
+      "solveTime" : 32.476279973983765
+    },
+    {
+      "date" : "2025-09-12T23:35:12Z",
+      "memo" : "",
+      "solveTime" : 33.49218201637268
+    },
+    {
+      "date" : "2025-09-12T23:36:04Z",
+      "memo" : "",
+      "solveTime" : 28.430176973342896
+    },
+    {
+      "date" : "2025-09-14T00:36:57Z",
+      "memo" : "",
+      "solveTime" : 27.016746997833252
+    },
+    {
+      "date" : "2025-09-14T00:38:35Z",
+      "memo" : "",
+      "solveTime" : 29.31608009338379
+    },
+    {
+      "date" : "2025-09-14T00:42:51Z",
+      "memo" : "",
+      "solveTime" : 23.835978031158447
+    },
+    {
+      "date" : "2025-09-14T00:46:31Z",
+      "memo" : "",
+      "solveTime" : 31.123937010765076
+    },
+    {
+      "date" : "2025-09-14T00:48:56Z",
+      "memo" : "",
+      "solveTime" : 32.65051198005676
+    },
+    {
+      "date" : "2025-09-14T00:50:20Z",
+      "memo" : "",
+      "solveTime" : 32.96603202819824
+    },
+    {
+      "date" : "2025-09-14T00:51:26Z",
+      "memo" : "",
+      "solveTime" : 30.634476900100708
+    },
+    {
+      "date" : "2025-09-14T00:53:43Z",
+      "memo" : "",
+      "solveTime" : 29.129624009132385
+    },
+    {
+      "date" : "2025-09-14T00:54:38Z",
+      "memo" : "",
+      "solveTime" : 30.66092801094055
+    },
+    {
+      "date" : "2025-09-14T18:31:45Z",
+      "memo" : "",
+      "solveTime" : 29.86383605003357
+    },
+    {
+      "date" : "2025-09-14T19:46:52Z",
+      "memo" : "",
+      "solveTime" : 31.40408205986023
+    },
+    {
+      "date" : "2025-09-14T19:48:22Z",
+      "memo" : "",
+      "solveTime" : 33.60807800292969
+    },
+    {
+      "date" : "2025-09-14T19:49:18Z",
+      "memo" : "",
+      "solveTime" : 28.080179929733276
+    },
+    {
+      "date" : "2025-09-14T19:50:13Z",
+      "memo" : "",
+      "solveTime" : 28.904229998588562
+    },
+    {
+      "date" : "2025-09-14T19:51:41Z",
+      "memo" : "",
+      "solveTime" : 32.9066219329834
+    },
+    {
+      "date" : "2025-09-14T19:54:09Z",
+      "memo" : "",
+      "solveTime" : 29.582298040390015
+    },
+    {
+      "date" : "2025-09-14T19:55:02Z",
+      "memo" : "",
+      "solveTime" : 22.74037992954254
+    },
+    {
+      "date" : "2025-09-14T19:56:13Z",
+      "memo" : "",
+      "solveTime" : 29.18622601032257
+    },
+    {
+      "date" : "2025-09-14T20:06:51Z",
+      "memo" : "",
+      "solveTime" : 28.04604411125183
+    },
+    {
+      "date" : "2025-09-14T20:09:09Z",
+      "memo" : "",
+      "solveTime" : 27.316697001457214
+    },
+    {
+      "date" : "2025-09-14T20:10:31Z",
+      "memo" : "",
+      "solveTime" : 30.6393940448761
+    },
+    {
+      "date" : "2025-09-14T20:30:05Z",
+      "memo" : "",
+      "solveTime" : 30.967797994613647
+    },
+    {
+      "date" : "2025-09-14T20:31:00Z",
+      "memo" : "",
+      "solveTime" : 25.164276003837585
+    },
+    {
+      "date" : "2025-09-14T20:33:34Z",
+      "memo" : "",
+      "solveTime" : 30.114822030067444
+    },
+    {
+      "date" : "2025-09-14T23:25:28Z",
+      "memo" : "",
+      "solveTime" : 29.542593955993652
+    },
+    {
+      "date" : "2025-09-14T23:28:27Z",
+      "memo" : "",
+      "solveTime" : 29.8841450214386
+    },
+    {
+      "date" : "2025-09-14T23:29:25Z",
+      "memo" : "",
+      "solveTime" : 30.9214129447937
+    },
+    {
+      "date" : "2025-09-14T23:31:19Z",
+      "memo" : "",
+      "solveTime" : 26.138748049736023
+    },
+    {
+      "date" : "2025-09-14T23:34:02Z",
+      "memo" : "",
+      "solveTime" : 25.789237022399902
+    },
+    {
+      "date" : "2025-09-14T23:38:03Z",
+      "memo" : "",
+      "solveTime" : 28.93589997291565
+    },
+    {
+      "date" : "2025-09-14T23:38:59Z",
+      "memo" : "",
+      "solveTime" : 25.589669942855835
+    },
+    {
+      "date" : "2025-09-14T23:45:31Z",
+      "memo" : "",
+      "solveTime" : 29.355098009109497
+    },
+    {
+      "date" : "2025-09-14T23:47:24Z",
+      "memo" : "",
+      "solveTime" : 22.247968077659607
+    },
+    {
+      "date" : "2025-09-14T23:48:33Z",
+      "memo" : "",
+      "solveTime" : 30.836252093315125
+    },
+    {
+      "date" : "2025-09-14T23:51:16Z",
+      "memo" : "",
+      "solveTime" : 30.48778200149536
+    },
+    {
+      "date" : "2025-09-15T03:53:53Z",
+      "memo" : "",
+      "solveTime" : 29.786983966827393
+    },
+    {
+      "date" : "2025-09-15T03:58:18Z",
+      "memo" : "",
+      "solveTime" : 30.692683935165405
+    },
+    {
+      "date" : "2025-09-15T03:59:10Z",
+      "memo" : "",
+      "solveTime" : 27.450075030326843
+    },
+    {
+      "date" : "2025-09-15T04:03:26Z",
+      "memo" : "",
+      "solveTime" : 28.470242023468018
+    },
+    {
+      "date" : "2025-09-15T22:48:00Z",
+      "memo" : "",
+      "solveTime" : 27.50757598876953
+    },
+    {
+      "date" : "2025-09-15T22:48:52Z",
+      "memo" : "",
+      "solveTime" : 27.09251308441162
+    },
+    {
+      "date" : "2025-09-15T22:51:34Z",
+      "memo" : "",
+      "solveTime" : 25.554680943489075
+    },
+    {
+      "date" : "2025-09-15T23:04:16Z",
+      "memo" : "",
+      "solveTime" : 29.241501927375793
+    },
+    {
+      "date" : "2025-09-16T01:46:09Z",
+      "memo" : "",
+      "solveTime" : 29.926219940185547
+    },
+    {
+      "date" : "2025-09-16T01:49:43Z",
+      "memo" : "",
+      "solveTime" : 27.378799080848694
+    },
+    {
+      "date" : "2025-09-16T23:44:08Z",
+      "memo" : "",
+      "solveTime" : 28.142137050628662
+    },
+    {
+      "date" : "2025-09-16T23:46:20Z",
+      "memo" : "",
+      "solveTime" : 29.098551034927368
+    },
+    {
+      "date" : "2025-09-16T23:47:11Z",
+      "memo" : "",
+      "solveTime" : 27.998914003372192
+    },
+    {
+      "date" : "2025-09-17T00:02:38Z",
+      "memo" : "",
+      "solveTime" : 27.948730945587158
+    },
+    {
+      "date" : "2025-09-17T00:03:50Z",
+      "memo" : "",
+      "solveTime" : 28.1751229763031
+    },
+    {
+      "date" : "2025-09-17T22:47:03Z",
+      "memo" : "",
+      "solveTime" : 27.488240003585815
+    },
+    {
+      "date" : "2025-09-17T22:48:07Z",
+      "memo" : "",
+      "solveTime" : 28.84109902381897
+    },
+    {
+      "date" : "2025-09-17T22:49:10Z",
+      "memo" : "",
+      "solveTime" : 23.886922955513
+    },
+    {
+      "date" : "2025-09-17T22:57:44Z",
+      "memo" : "",
+      "solveTime" : 24.659645080566406
+    },
+    {
+      "date" : "2025-09-18T00:13:40Z",
+      "memo" : "",
+      "solveTime" : 28.877282977104187
+    },
+    {
+      "date" : "2025-09-18T00:18:32Z",
+      "memo" : "",
+      "solveTime" : 27.554971933364868
+    },
+    {
+      "date" : "2025-09-18T00:19:27Z",
+      "memo" : "",
+      "solveTime" : 24.213137984275818
+    },
+    {
+      "date" : "2025-09-18T00:26:57Z",
+      "memo" : "",
+      "solveTime" : 29.57306706905365
+    },
+    {
+      "date" : "2025-09-18T00:38:27Z",
+      "memo" : "",
+      "solveTime" : 27.68760395050049
+    },
+    {
+      "date" : "2025-09-18T00:39:36Z",
+      "memo" : "",
+      "solveTime" : 29.18991494178772
+    },
+    {
+      "date" : "2025-09-18T00:47:27Z",
+      "memo" : "",
+      "solveTime" : 25.34107494354248
+    },
+    {
+      "date" : "2025-09-18T00:49:26Z",
+      "memo" : "",
+      "solveTime" : 26.303027987480164
+    },
+    {
+      "date" : "2025-09-18T00:53:33Z",
+      "memo" : "",
+      "solveTime" : 28.53084897994995
+    },
+    {
+      "date" : "2025-09-18T00:55:51Z",
+      "memo" : "",
+      "solveTime" : 28.67276406288147
+    },
+    {
+      "date" : "2025-09-18T00:57:46Z",
+      "memo" : "",
+      "solveTime" : 27.26208198070526
+    },
+    {
+      "date" : "2025-09-18T01:00:56Z",
+      "memo" : "",
+      "solveTime" : 26.426027059555054
+    },
+    {
+      "date" : "2025-09-18T01:46:34Z",
+      "memo" : "",
+      "solveTime" : 28.154900074005127
+    },
+    {
+      "date" : "2025-09-18T01:47:52Z",
+      "memo" : "",
+      "solveTime" : 28.925785064697266
+    },
+    {
+      "date" : "2025-09-18T01:55:08Z",
+      "memo" : "",
+      "solveTime" : 29.230502009391785
+    },
+    {
+      "date" : "2025-09-18T01:56:09Z",
+      "memo" : "",
+      "solveTime" : 24.822105050086975
+    },
+    {
+      "date" : "2025-09-18T02:04:11Z",
+      "memo" : "",
+      "solveTime" : 25.456233024597168
+    },
+    {
+      "date" : "2025-09-18T02:08:31Z",
+      "memo" : "",
+      "solveTime" : 26.45881199836731
+    },
+    {
+      "date" : "2025-09-18T05:48:28Z",
+      "memo" : "",
+      "solveTime" : 25.993690013885498
+    },
+    {
+      "date" : "2025-09-18T05:50:37Z",
+      "memo" : "",
+      "solveTime" : 28.873674035072327
+    },
+    {
+      "date" : "2025-09-18T23:41:53Z",
+      "memo" : "",
+      "solveTime" : 29.436210989952087
+    },
+    {
+      "date" : "2025-09-18T23:44:56Z",
+      "memo" : "",
+      "solveTime" : 25.556861996650696
+    },
+    {
+      "date" : "2025-09-18T23:58:31Z",
+      "memo" : "",
+      "solveTime" : 27.217326045036316
+    },
+    {
+      "date" : "2025-09-19T00:22:04Z",
+      "memo" : "",
+      "solveTime" : 28.51758098602295
+    },
+    {
+      "date" : "2025-09-19T00:25:22Z",
+      "memo" : "",
+      "solveTime" : 27.731786012649536
+    },
+    {
+      "date" : "2025-09-19T22:37:54Z",
+      "memo" : "",
+      "solveTime" : 26.446955919265747
+    },
+    {
+      "date" : "2025-09-19T23:48:27Z",
+      "memo" : "",
+      "solveTime" : 27.29904007911682
+    },
+    {
+      "date" : "2025-09-19T23:50:31Z",
+      "memo" : "",
+      "solveTime" : 24.09673500061035
+    },
+    {
+      "date" : "2025-09-19T23:53:16Z",
+      "memo" : "",
+      "solveTime" : 24.04437506198883
+    },
+    {
+      "date" : "2025-09-19T23:58:28Z",
+      "memo" : "",
+      "solveTime" : 25.02757704257965
+    },
+    {
+      "date" : "2025-09-20T00:15:42Z",
+      "memo" : "",
+      "solveTime" : 27.57854402065277
+    },
+    {
+      "date" : "2025-09-20T00:17:40Z",
+      "memo" : "",
+      "solveTime" : 28.73145294189453
+    },
+    {
+      "date" : "2025-09-20T00:18:44Z",
+      "memo" : "",
+      "solveTime" : 23.526332020759583
+    },
+    {
+      "date" : "2025-09-20T05:12:50Z",
+      "memo" : "",
+      "solveTime" : 27.480695009231567
+    },
+    {
+      "date" : "2025-09-20T22:49:59Z",
+      "memo" : "",
+      "solveTime" : 24.36442804336548
+    },
+    {
+      "date" : "2025-09-20T22:51:27Z",
+      "memo" : "",
+      "solveTime" : 25.148529052734375
+    },
+    {
+      "date" : "2025-09-21T01:09:18Z",
+      "memo" : "",
+      "solveTime" : 26.47349500656128
+    },
+    {
+      "date" : "2025-09-21T01:13:22Z",
+      "memo" : "",
+      "solveTime" : 26.943607926368713
+    },
+    {
+      "date" : "2025-09-21T23:49:42Z",
+      "memo" : "",
+      "solveTime" : 26.351168036460876
+    },
+    {
+      "date" : "2025-09-21T23:51:50Z",
+      "memo" : "",
+      "solveTime" : 24.156720995903015
+    },
+    {
+      "date" : "2025-09-21T23:52:54Z",
+      "memo" : "",
+      "solveTime" : 25.295302987098694
+    },
+    {
+      "date" : "2025-09-22T00:11:25Z",
+      "memo" : "",
+      "solveTime" : 28.646464943885803
+    },
+    {
+      "date" : "2025-09-22T00:12:34Z",
+      "memo" : "",
+      "solveTime" : 28.046214938163757
+    },
+    {
+      "date" : "2025-09-22T00:14:40Z",
+      "memo" : "",
+      "solveTime" : 27.961163997650146
+    },
+    {
+      "date" : "2025-09-22T00:16:40Z",
+      "memo" : "",
+      "solveTime" : 23.175830006599426
+    },
+    {
+      "date" : "2025-09-23T07:59:12Z",
+      "memo" : "",
+      "solveTime" : 25.010408997535706
+    },
+    {
+      "date" : "2025-09-23T08:24:57Z",
+      "memo" : "",
+      "solveTime" : 26.47494399547577
+    },
+    {
+      "date" : "2025-09-23T11:15:25Z",
+      "memo" : "",
+      "solveTime" : 28.060932993888855
+    },
+    {
+      "date" : "2025-09-23T23:09:58Z",
+      "memo" : "",
+      "solveTime" : 25.79686999320984
+    },
+    {
+      "date" : "2025-09-23T23:14:08Z",
+      "memo" : "",
+      "solveTime" : 25.96107292175293
+    },
+    {
+      "date" : "2025-09-23T23:23:02Z",
+      "memo" : "",
+      "solveTime" : 25.431472063064575
+    },
+    {
+      "date" : "2025-09-23T23:26:28Z",
+      "memo" : "",
+      "solveTime" : 24.799879908561707
+    },
+    {
+      "date" : "2025-09-23T23:40:22Z",
+      "memo" : "",
+      "solveTime" : 25.967435002326965
+    },
+    {
+      "date" : "2025-09-30T09:47:19Z",
+      "memo" : "",
+      "solveTime" : 26.28929901123047
+    },
+    {
+      "date" : "2025-09-30T23:12:54Z",
+      "memo" : "",
+      "solveTime" : 26.76476001739502
+    },
+    {
+      "date" : "2025-09-30T23:14:44Z",
+      "memo" : "",
+      "solveTime" : 25.616368055343628
+    },
+    {
+      "date" : "2025-10-02T22:46:45Z",
+      "memo" : "",
+      "solveTime" : 24.386997938156128
+    },
+    {
+      "date" : "2025-10-24T01:00:47Z",
+      "memo" : "",
+      "solveTime" : 26.591544032096863
+    },
+    {
+      "date" : "2025-10-24T01:01:49Z",
+      "memo" : "",
+      "solveTime" : 25.860346913337708
+    },
+    {
+      "date" : "2025-10-24T02:43:52Z",
+      "memo" : "",
+      "solveTime" : 21.626368045806885
+    },
+    {
+      "date" : "2025-10-24T23:27:29Z",
+      "memo" : "",
+      "solveTime" : 23.561211943626404
+    },
+    {
+      "date" : "2025-10-24T23:29:34Z",
+      "memo" : "",
+      "solveTime" : 24.81590497493744
+    },
+    {
+      "date" : "2025-10-25T00:55:20Z",
+      "memo" : "",
+      "solveTime" : 25.685847997665405
+    },
+    {
+      "date" : "2025-10-25T00:56:13Z",
+      "memo" : "",
+      "solveTime" : 23.237560033798218
+    },
+    {
+      "date" : "2025-10-25T00:58:50Z",
+      "memo" : "",
+      "solveTime" : 25.686476945877075
+    },
+    {
+      "date" : "2025-10-25T01:07:58Z",
+      "memo" : "",
+      "solveTime" : 22.52749001979828
+    },
+    {
+      "date" : "2025-10-25T01:11:59Z",
+      "memo" : "",
+      "solveTime" : 25.414755940437317
+    },
+    {
+      "date" : "2025-10-25T01:12:51Z",
+      "memo" : "",
+      "solveTime" : 25.728744983673096
+    },
+    {
+      "date" : "2025-11-24T07:31:07Z",
+      "memo" : "",
+      "solveTime" : 25.832337975502014
+    },
+    {
+      "date" : "2025-11-24T07:33:36Z",
+      "memo" : "",
+      "solveTime" : 24.360849976539612
+    },
+    {
+      "date" : "2025-12-01T07:00:39Z",
+      "memo" : "",
+      "solveTime" : 25.37021493911743
+    },
+    {
+      "date" : "2025-12-15T10:23:47Z",
+      "memo" : "",
+      "solveTime" : 26.306627988815308
+    },
+    {
+      "date" : "2025-12-17T04:39:44Z",
+      "memo" : "",
+      "solveTime" : 26.796213030815125
+    }
+  ],
+  "version" : 1
+}

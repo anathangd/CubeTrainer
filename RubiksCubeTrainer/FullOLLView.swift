@@ -20,34 +20,46 @@ struct FullOLLView: View {
             Algorithm(name: "fishRight", algorithm: "(L' U2 L) U (L' U L)", note: "6 times"),
             Algorithm(name: "fishLeft", algorithm: "(R U2 R') U' (R U' R')", note: "6 times"),
             Algorithm(name: "diagonalLeft", algorithm: "F' (r U R' U') (gr' F R)", note: "3 times"),
+            Algorithm(name: "diagonalLeftMirrored", algorithm: "F (l' U' L U) (gl F' L')", note: "3 times"),
             Algorithm(name: "Tout90", algorithm: "(gr U R' U') (gr' F R F')", note: "3 times"),
+            Algorithm(name: "Tout90Mirrored", algorithm: "(gl' U' L U) (gl F' L' F)", note: "3 times"),
             Algorithm(name: "crossMan90", algorithm: "R U2 (R2' U' R2 U')\n(R2' U2 R)", note: "6 times"),
+            Algorithm(name: "crossMan90Mirrored", algorithm: "L' U2 (L2 U L2 U) (L2 U2 L')", note: "6 times"),
             Algorithm(name: "cross", algorithm: "(R U R') U (R U' R') U\n(R U2 R')", note: "3 times"),
             Algorithm(name: "Tdown", algorithm: "R2 D (R' U2 R) D'\n(R' U2 R')", note: "3 times")
         ]),
         Category(name: "Dots", algorithms: [
             Algorithm(name: "dots 1", algorithm: "(R U2 R') (R' F R F') U2 (R' F R F')", note: "18 times"),
             Algorithm(name: "dots 2", algorithm: "F (R U R' U') F' f (R U R' U') f'", note: "6 times"),
+            Algorithm(name: "dots 2 mirrored", algorithm: "F' (L' U' L U) F f' (L' U' L U) f", note: "6 times"),
             Algorithm(name: "dots 3", algorithm: "f (R U R' U') f' U F (R U R' U') F'", note: "4 times"),
+            Algorithm(name: "dots 3 mirrored", algorithm: "f' (L' U' L U) f U' F' (L' U' L U) F", note: "4 times"),
             Algorithm(name: "dots 4", algorithm: "f (R U R' U') f' U' F (R U R' U') F'", note: "4 times"),
+            Algorithm(name: "dots 4 mirrored", algorithm: "f' (L' U' L U) f U F' (L' U' L U) F", note: "4 times"),
             Algorithm(name: "dots 5", algorithm: "M U (R U R' U') M' (R' F R F')", note: "12 times"),
             Algorithm(name: "dots 6", algorithm: "F (R U R' U) y' R' U2 (R' F R F')", note: "4 times"),
             Algorithm(name: "dots 7", algorithm: "(R U R' U) (R' F R F') U2 (R' F R F')", note: "18 times"),
+            Algorithm(name: "dots 7 mirrored", algorithm: "(L' U' L U') (L F' L' F) U2 (L F' L' F)", note: "18 times"),
             Algorithm(name: "dots 8", algorithm: "M U (R U R' U') M2 (U R U' r')", note: "2 times")
         ]),
         Category(name: "All Corners", algorithms: [
             Algorithm(name: "all corners 1", algorithm: "(R U R' U') M' (U R U' r')", note: "3 times"),
-            Algorithm(name: "all corners 2", algorithm: "M' U' M U2' M' U' M", note: "3 times")
+            Algorithm(name: "all corners 2", algorithm: "M' U' M U2' M' U' M", note: "3 times"),
+            Algorithm(name: "all corners 2 mirrored", algorithm: "M' U M U2 M' U M", note: "3 times")
         ]),
         Category(name: "Lines", algorithms: [
             Algorithm(name: "line 1", algorithm: "R U2 R2 (U' R U' R') U2 (F R F')", note: "18 times"),
             Algorithm(name: "line 2", algorithm: "(R U R' U) R d' R U' R' F'", note: "12 times"),
+            Algorithm(name: "line 2 mirrored", algorithm: "(L' U' L U') L' d L' U L F", note: "12 times"),
             Algorithm(name: "line 3", algorithm: "f (R U R' U') (R U R' U') f'", note: "3 times"),
+            Algorithm(name: "line 3 mirrored", algorithm: "f' (L' U' L U) (L' U' L U) f", note: "3 times"),
             Algorithm(name: "line 4", algorithm: "F (R U R' U') R F' (r U R' U') r'", note: "9 times")
         ]),
         Category(name: "Ts", algorithms: [
             Algorithm(name: "T1", algorithm: "F (R U R' U') F'", note: "6 times"),
-            Algorithm(name: "T2", algorithm: "(R U R' U') (R' F R F')", note: "3 times")
+            Algorithm(name: "T1 mirrored", algorithm: "F' (L' U' L U) F", note: "6 times"),
+            Algorithm(name: "T2", algorithm: "(R U R' U') (R' F R F')", note: "3 times"),
+            Algorithm(name: "T2 mirrored", algorithm: "(L' U' L U) (L F' L' F)", note: "3 times")
         ]),
         Category(name: "Zs", algorithms: [
             Algorithm(name: "Z1", algorithm: "R' F (R U R' U') F' U R", note: "12 times"),
@@ -61,6 +73,7 @@ struct FullOLLView: View {
         ]),
         Category(name: "Cs", algorithms: [
             Algorithm(name: "C1", algorithm: "R' U' (R' F R F') U R", note: "6 times"),
+            Algorithm(name: "C1 mirrored", algorithm: "L U (L F' L' F) U' L'", note: "6 times"),
             Algorithm(name: "C2", algorithm: "(R U R' U') x D' R' U R U' D x'", note: "3 times")
         ]),
         Category(name: "Ws", algorithms: [
@@ -75,7 +88,9 @@ struct FullOLLView: View {
         ]),
         Category(name: "Squares", algorithms: [
             Algorithm(name: "square 1", algorithm: "(R U2 R') (R' F R F') (R U2 R')", note: "6 times"),
+            Algorithm(name: "square 1 mirrored", algorithm: "(L' U2 L) (L F' L' F) (L' U2 L)", note: "6 times"),
             Algorithm(name: "square 2", algorithm: "F R' F' R U R U' R'", note: "3 times"),
+            Algorithm(name: "square 2 mirrored", algorithm: "F' L F L' U' L' U L", note: "3 times"),
             Algorithm(name: "square 3", algorithm: "l' U2 L U L' U l", note: "6 times"),
             Algorithm(name: "square 4", algorithm: "r U2 R' U' R U' r'", note: "6 times")
         ]),
@@ -95,26 +110,9 @@ struct FullOLLView: View {
             Algorithm(name: "other 5", algorithm: "(R U R' U) (R' F R F') R U2 R'", note: "6 times"),
             Algorithm(name: "other 6", algorithm: "(L' U' L U') (L F' L' F) L' U2 L", note: "6 times"),
             Algorithm(name: "other 7", algorithm: "(R U R' U') R U' R' F' U' (F R U R')", note: "4 times"),
-            Algorithm(name: "other 8", algorithm: "(R' F R F') (R' F R F') (R U R' U') (R U R')", note: "4 times"),
-            Algorithm(name: "other 9", algorithm: "(L F' L' F) (L F' L' F) (L' U' L U) (L' U' L)", note: "4 times"),
-            Algorithm(name: "other 10", algorithm: "(L' U' L U) L' U L F U (F' L' U' L)", note: "4 times")
-        ]),
-        Category(name: "Mirrored", algorithms: [
-            Algorithm(name: "diagonalLeftMirrored", algorithm: "F (l' U' L U) (gl F' L')", note: "3 times"),
-            Algorithm(name: "Tout90Mirrored", algorithm: "(gl' U' L U) (gl F' L' F)", note: "3 times"),
-            Algorithm(name: "crossMan90Mirrored", algorithm: "L' U2 (L2 U L2 U) (L2 U2 L')", note: "6 times"),
-            Algorithm(name: "dots 2 mirrored", algorithm: "F' (L' U' L U) F f' (L' U' L U) f", note: "6 times"),
-            Algorithm(name: "dots 3 mirrored", algorithm: "f' (L' U' L U) f U' F' (L' U' L U) F", note: "4 times"),
-            Algorithm(name: "dots 4 mirrored", algorithm: "f' (L' U' L U) f U F' (L' U' L U) F", note: "4 times"),
-            Algorithm(name: "dots 7 mirrored", algorithm: "(L' U' L U') (L F' L' F) U2 (L F' L' F)", note: "18 times"),
-            Algorithm(name: "all corners 2 mirrored", algorithm: "M' U M U2 M' U M", note: "3 times"),
-            Algorithm(name: "line 2 mirrored", algorithm: "(L' U' L U') L' d L' U L F", note: "12 times"),
-            Algorithm(name: "line 3 mirrored", algorithm: "f' (L' U' L U) (L' U' L U) f", note: "3 times"),
-            Algorithm(name: "T1 mirrored", algorithm: "F' (L' U' L U) F", note: "6 times"),
-            Algorithm(name: "T2 mirrored", algorithm: "(L' U' L U) (L F' L' F)", note: "3 times"),
-            Algorithm(name: "C1 mirrored", algorithm: "L U (L F' L' F) U' L'", note: "6 times"),
-            Algorithm(name: "square 1 mirrored", algorithm: "(L' U2 L) (L F' L' F) (L' U2 L)", note: "6 times"),
-            Algorithm(name: "square 2 mirrored", algorithm: "F' L F L' U' L' U L", note: "3 times")
+            Algorithm(name: "other 8", algorithm: "(L' U' L U) L' U L F U (F' L' U' L)", note: "4 times"),
+            Algorithm(name: "other 9", algorithm: "(R' F R F') (R' F R F') (R U R' U') (R U R')", note: "4 times"),
+            Algorithm(name: "other 10", algorithm: "(L F' L' F) (L F' L' F) (L' U' L U) (L' U' L)", note: "4 times")
         ])
     ]
     var allAlgorithmsCategory: Category {

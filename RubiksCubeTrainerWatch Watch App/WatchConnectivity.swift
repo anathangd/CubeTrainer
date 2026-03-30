@@ -90,8 +90,23 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
     // Request current solve count from phone safely
     func requestCurrentSolveCount() {
         print("requestCurrentSolveCount called")
-        // Queue request to phone; delivered when phone wakes
-        WCSession.default.transferUserInfo(["requestSolveCount": true])
-        print("transferUserInfo sent: requestSolveCount = true")
+        if WCSession.default.isReachable {
+            WCSession.default.sendMessage(["requestSolveCount": true]) { response in
+                if let count = response["solveCount"] as? Int {
+                    DispatchQueue.main.async {
+                        self.solveCount = count
+                        UserDefaults.standard.set(count, forKey: "solveCount")
+                        print("📥 Watch got solveCount reply: \(count)")
+                    }
+                }
+            } errorHandler: { error in
+                print("❌ requestSolveCount sendMessage failed: \(error.localizedDescription)")
+                WCSession.default.transferUserInfo(["requestSolveCount": true])
+            }
+        } else {
+            // Queue request to phone; delivered when phone wakes.
+            WCSession.default.transferUserInfo(["requestSolveCount": true])
+            print("transferUserInfo sent: requestSolveCount = true")
+        }
     }
 }
