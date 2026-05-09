@@ -69,4 +69,5 @@ struct Algorithm: Identifiable {
     var name: String
     var algorithm: String
     var note: String
+    var answer: String = ""
 }

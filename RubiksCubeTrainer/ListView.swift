@@ -83,7 +83,7 @@ struct AlgorithmRow: View {
                         setup: setupMirrorer(setup: algorithm.setupMoves),
                         type: algorithm.type,
                         mirrored: localMirroring, rotated: localRotating)
-                    .frame(width: 350, height: 410)
+                    .frame(width: 350, height: 390)
                     .id(localMirroring)
                 } else if localMirroring {
                     RoofPigView(
@@ -91,7 +91,7 @@ struct AlgorithmRow: View {
                         setup: setupMirrorer(setup: algorithm.setupMoves),
                         type: algorithm.type,
                         mirrored: localMirroring, rotated: localRotating)
-                    .frame(width: 350, height: 410)
+                    .frame(width: 350, height: 390)
                     .id(localMirroring)
                 } else if localRotating {
                     RoofPigView(
@@ -99,18 +99,18 @@ struct AlgorithmRow: View {
                         setup: algorithm.setupMoves,
                         type: algorithm.type,
                         mirrored: localMirroring, rotated: localRotating)
-                    .frame(width: 350, height: 410)
+                    .frame(width: 350, height: 390)
                     .id(localMirroring)
                 } else {
                     RoofPigView(algorithm: algorithmStripper(alg: algorithm.algorithm), setup: algorithm.setupMoves, type: algorithm.type, mirrored: localMirroring, rotated: localRotating)
-                        .frame(width: 350, height: 410)
+                        .frame(width: 350, height: 385)
                         .id(localMirroring)
                 }
             } else {
                 Image(algorithm.name)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 50)
             }
             if algorithm.note != "" {
                 Text("(\(algorithm.note))")

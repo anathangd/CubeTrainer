@@ -30,10 +30,13 @@ struct RoofPigView: UIViewRepresentable {
         }
         let webView = WKWebView()
         webView.navigationDelegate = context.coordinator
+        webView.scrollView.delegate = context.coordinator
         
         // Disable scrolling and zooming
         webView.scrollView.isScrollEnabled = false
         webView.scrollView.pinchGestureRecognizer?.isEnabled = false
+        webView.scrollView.maximumZoomScale = 1.0
+        webView.scrollView.minimumZoomScale = 1.0
         
 //        print("🔍 Attempting to load f2l.html")
         if let htmlPath = Bundle.main.path(forResource: "f2l", ofType: "html") {
@@ -62,10 +65,49 @@ struct RoofPigView: UIViewRepresentable {
         Coordinator()
     }
     
-    class Coordinator: NSObject, WKNavigationDelegate {
+    class Coordinator: NSObject, WKNavigationDelegate, UIScrollViewDelegate {
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            let disablePinchJS = """
+            (function() {
+                var existing = document.querySelector('meta[name="viewport"]');
+                if (!existing) {
+                    existing = document.createElement('meta');
+                    existing.name = 'viewport';
+                    document.head.appendChild(existing);
+                }
+                existing.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+
+                ['gesturestart', 'gesturechange', 'gestureend'].forEach(function(type) {
+                    document.addEventListener(type, function(e) { e.preventDefault(); }, { passive: false });
+                });
+
+                document.addEventListener('touchmove', function(e) {
+                    if (e.touches && e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            })();
+            """
+
+            webView.evaluateJavaScript(disablePinchJS) { _, error in
+                if let error {
+                    print("⚠️ Failed to disable pinch zoom JS: \(error.localizedDescription)")
+                }
+            }
+
             print("🌐 WebView finished loading successfully")
         }
+
+        func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+            nil
+        }
+
+        func scrollViewDidZoom(_ scrollView: UIScrollView) {
+            if scrollView.zoomScale != 1.0 {
+                scrollView.setZoomScale(1.0, animated: false)
+            }
+        }
+
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
             print("⚠️ WebView failed with error: \(error.localizedDescription)")
         }

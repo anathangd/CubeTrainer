@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct MegaminxView: View {
+    @State private var selectedCategoryForIndividual: Category?
+    @State private var showIndividualView = false
+    @State private var selectedCategoryForList: Category?
+    @State private var showListView = false
+
     let categories: [Category] = [
-        Category(name: "Megaminx OLL", algorithms: [
+        Category(name: "Megaminx OLL - Edges", algorithms: [
             Algorithm(name: "orient edges 1", algorithm: "F R U2 (R2' F R F') U2' F'", note: "18 times"),
             Algorithm(name: "orient edges 2", algorithm: "F (U R U' R') F'", note: "6 times"),
             Algorithm(name: "orient edges 3", algorithm: "F (R U R' U') F'", note: "6 times"),
-            
+        ]),
+        Category(name: "Megaminx OLL - Corners", algorithms: [
             Algorithm(name: "orient corners 1", algorithm: "F (R U2 R' U' R U' R') F'", note: "6 times"),
             Algorithm(name: "orient corners 2", algorithm: "(R U R' U) (R U R' U2') (R U' R')", note: ""),
             Algorithm(name: "orient corners 3", algorithm: "(R U R' U') (R' F R U) (R U' R' F)", note: ""),
@@ -31,13 +37,14 @@ struct MegaminxView: View {
             Algorithm(name: "orient corners 15", algorithm: "R' U2' R2 U R2'\nU R2 U2' R'", note: ""),
             Algorithm(name: "orient corners 16", algorithm: "(R U2 R' U') (R U2 R' U2)\n(R U' R')", note: ""),
         ]),
-        Category(name: "Megaminx PLL", algorithms: [
+        Category(name: "Megaminx PLL - Edges", algorithms: [
             Algorithm(name: "rotate edges 1", algorithm: "(R U R' U) (R' U' R2 U')\n(R' U R' U) R U2'", note: "3 times"), //verified
             Algorithm(name: "rotate edges 2", algorithm: "(R U R' F') (R U R' U')\n(R' F R2 U' R')", note: "3 times"), //verified
             Algorithm(name: "rotate edges 3", algorithm: "(L R U2) (L' U R')\n(L U' R U2) (L' U2 R')", note: "2 times"), //verified
             Algorithm(name: "rotate edges 4", algorithm: "R2 U2' R2' U' R2 U2' R2'", note: "15 times"), //verified
             Algorithm(name: "rotate edges 5", algorithm: "R2 U2 R2' U R2 U2 R2'", note: "15 times"), //verified
-            
+        ]),
+        Category(name: "Megaminx PLL - Corners", algorithms: [
             Algorithm(name: "position corners 1", algorithm: "(R' F' BR' R) (BR R' F R)\n(BR' R' BR R)", note: ""),
             Algorithm(name: "position corners 2", algorithm: "(R' BR' R BR) (R' F' R BR')\n(R' BR F R)", note: ""),
             Algorithm(name: "position corners 3", algorithm: "y L' (R U2 R' U') (R U R' U')\n(R U R' U') R U' R' L", note: ""),
@@ -73,35 +80,49 @@ struct MegaminxView: View {
                     .fontWeight(.bold)
                 Spacer()
                 ScrollView(showsIndicators: false) {
-                    NavigationLink(destination: IndividualCategoryView(category: allAlgorithmsCategory)) {
-                        Text("All Algorithms")
+                    let allAlgorithms = allAlgorithmsCategory
+                    Button {
+                        selectedCategoryForIndividual = allAlgorithms
+                        showIndividualView = true
+                    } label: {
+                        Text("\(allAlgorithms.name) (\(allAlgorithms.algorithms.count))")
                             .capsuleButtonStyle()
                     }
-                    
-                    NavigationLink(destination: IndividualCategoryView(category: categories.first { $0.name == "Megaminx OLL" }!)) {
-                        Text("Megaminx OLL")
-                            .capsuleButtonStyle()
-                    }
-                    
-                    NavigationLink(destination: ListView(category: categories.first { $0.name == "Megaminx OLL" }!)) {
-                        Text("Megaminx OLL List")
-                            .capsuleButtonStyle()
-                    }
+                    .highPriorityGesture(
+                        LongPressGesture().onEnded { _ in
+                            showIndividualView = false
+                            selectedCategoryForList = allAlgorithms
+                            showListView = true
+                        }
+                    )
 
-                    NavigationLink(destination: IndividualCategoryView(category: categories.first { $0.name == "Megaminx PLL" }!)) {
-                        Text("Megaminx PLL")
-                            .capsuleButtonStyle()
+                    ForEach(categories, id: \.name) { category in
+                        Button {
+                            selectedCategoryForIndividual = category
+                            showIndividualView = true
+                        } label: {
+                            Text("\(category.name) (\(category.algorithms.count))")
+                                .capsuleButtonStyle()
+                        }
+                        .highPriorityGesture(
+                            LongPressGesture().onEnded { _ in
+                                showIndividualView = false
+                                selectedCategoryForList = category
+                                showListView = true
+                            }
+                        )
                     }
-
-                    NavigationLink(destination: ListView(category: categories.first { $0.name == "Megaminx PLL" }!)) {
-                        Text("Megaminx PLL List")
-                            .capsuleButtonStyle()
-                    }
-                    
+                    .frame(maxWidth: .infinity)                    
                 }
                 Spacer()
             }
             .padding()
+        }
+        .navigationDestination(isPresented: $showIndividualView) {
+            IndividualCategoryView(category: selectedCategoryForIndividual ?? allAlgorithmsCategory)
+        }
+        .navigationDestination(isPresented: $showListView) {
+            ListView(category: selectedCategoryForList ?? allAlgorithmsCategory)
         }
     }
 }

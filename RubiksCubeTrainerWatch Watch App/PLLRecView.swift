@@ -39,7 +39,12 @@ struct PLLRecView: View {
         _active = State(initialValue: cases)
     }
     var body: some View {
-        ZStack {
+        GeometryReader { geo in
+            let imageHeight = geo.size.height
+            let wedgeHeight = geo.size.height * 0.56
+            let imageScale = geo.size.height > 224 ? 1.24 : 1.05
+
+            ZStack {
             Rectangle()
                 .ignoresSafeArea()
                 .foregroundStyle(.yellow)
@@ -51,7 +56,8 @@ struct PLLRecView: View {
                 Image(currentImageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 180)
+                    .frame(height: imageHeight)
+                    .scaleEffect(imageScale, anchor: .top)
                     .allowsHitTesting(false)
                     .ignoresSafeArea()
                 VStack {
@@ -60,6 +66,7 @@ struct PLLRecView: View {
                             .shadow(color: .black, radius: 2)
                             .shadow(color: .black, radius: 6)
                             .padding()
+                            .padding(.leading, geo.size.height > 224 ? 10: 0)
                         Spacer()
                     }
                     Spacer()
@@ -73,14 +80,15 @@ struct PLLRecView: View {
                         } label: {
                             LeftCornerTriangle()
                                 .fill(.blue)
-                                .frame(maxWidth: .infinity, minHeight: 80, maxHeight: 80)
+                                .frame(maxWidth: .infinity, minHeight: wedgeHeight, maxHeight: wedgeHeight)
                                 .overlay(alignment: .bottomLeading) {
                                     Image(systemName: "checkmark.circle")
                                         .font(.system(size: 40))
                                         .foregroundStyle(Color.green)
                                         .shadow(color: .black.opacity(0.7), radius: 2)
                                         .background(.blue, in: Circle())
-                                        .padding()
+                                        .padding(.bottom, geo.size.height > 224 ? 12 : 8)
+                                        .padding(.leading, geo.size.height > 224 ? 12 : 8)
                                 }
                         }
                         .buttonStyle(.plain)
@@ -89,14 +97,15 @@ struct PLLRecView: View {
                         } label: {
                             RightCornerTriangle()
                                 .fill(.red)
-                                .frame(maxWidth: .infinity, minHeight: 80, maxHeight: 80)
+                                .frame(maxWidth: .infinity, minHeight: wedgeHeight, maxHeight: wedgeHeight)
                                 .overlay(alignment: .bottomTrailing) {
                                     Image(systemName: "x.circle")
                                         .font(.system(size: 40))
                                         .foregroundStyle(Color.orange)
                                         .shadow(color: .black.opacity(0.7), radius: 2)
                                         .background(.red, in: Circle())
-                                        .padding()
+                                        .padding(.bottom, geo.size.height > 224 ? 12 : 8)
+                                        .padding(.trailing, geo.size.height > 224 ? 12 : 8)
                                 }
                         }
                         .buttonStyle(.plain)
@@ -104,7 +113,7 @@ struct PLLRecView: View {
                     .overlay(alignment: .bottom) {
                         Rectangle()
                             .fill(.black.opacity(0.65))
-                            .frame(width: 1, height: 16)
+                            .frame(width: 1, height: 24)
                             .blur(radius: 0.5)
                     }
                 }
@@ -160,6 +169,7 @@ struct PLLRecView: View {
             refreshImageVariantForCurrentCard()
         }
         .navigationBarBackButtonHidden(true)
+        }
     }
     
     private func refreshImageVariantForCurrentCard() {
@@ -216,7 +226,7 @@ struct LeftCornerTriangle: Shape {
         path.move(to: CGPoint(x: 0, y: rect.maxY))
         // path.addLine(to: CGPoint(x: 0, y: rect.midY))
         path.addLine(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY * 0.81))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY * 0.73))
         path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         path.closeSubpath()
         return path
@@ -228,7 +238,7 @@ struct RightCornerTriangle: Shape {
         var path = Path()
         path.move(to: CGPoint(x: rect.maxX, y: rect.maxY))
         path.addLine(to: CGPoint(x: rect.maxX, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: rect.maxY * 0.81))
+        path.addLine(to: CGPoint(x: 0, y: rect.maxY * 0.73))
         path.addLine(to: CGPoint(x: 0, y: rect.maxY))
         path.closeSubpath()
         return path

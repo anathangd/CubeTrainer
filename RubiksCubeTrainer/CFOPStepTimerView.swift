@@ -120,8 +120,24 @@ struct CFOPStepTimerView: View {
     @State private var scramble = ""
     @EnvironmentObject var solveCountModel: SolveCountModel
     @State var editCount = false
-    let worldRecordTime = 3.08
+    let worldRecordTime = 2.76
     @State var worldRecord = false
+    
+    var scrambleLines: [[String]] {
+        let moves = scramble.split(separator: " ").map { String($0) }
+        var currentLine: [String] = []
+        var lines: [[String]] = []
+
+        for move in moves {
+            currentLine.append(move)
+            if currentLine.count == 10 { // moves per line
+                lines.append(currentLine)
+                currentLine = []
+            }
+        }
+        if !currentLine.isEmpty { lines.append(currentLine) }
+        return lines
+    }
     
     
     var body: some View {
@@ -318,12 +334,22 @@ struct CFOPStepTimerView: View {
                 if !isInspecting && !isSolving {
                     ZStack {
                         if !finished {
-                            Text(scramble)
-                                .font(.title)
-                                .multilineTextAlignment(.center)
-                                .frame(height: 90)
+                            VStack(alignment: .center, spacing: 4) {
+                                ForEach(scrambleLines, id: \.self) { line in
+                                    HStack(spacing: 8) {
+                                        ForEach(line, id: \.self) { move in
+                                            Text(move)
+                                                .font(.title)
+                                                .minimumScaleFactor(0.8)
+                                        }
+                                    }
+                                }
+                            }
+                            .multilineTextAlignment(.center)
+                            .frame(height: 90)
                         }
                     }
+                    
                     CapsuleButton(title: "Generate Scramble", action: {
                         generateScramble()
                         finished = false

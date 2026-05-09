@@ -51,7 +51,7 @@ struct TimerView: View {
     @State private var scramble = ""
     @EnvironmentObject var solveCountModel: SolveCountModel
     @State var editCount = false
-    let worldRecordTime = 3.08
+    let worldRecordTime = 2.76 // World record as of 2/9/2026
     @State var worldRecord = false
     
     var scrambleLines: [[String]] {
@@ -184,6 +184,7 @@ struct TimerView: View {
                                         ForEach(line, id: \.self) { move in
                                             Text(move)
                                                 .font(.title)
+                                                .minimumScaleFactor(0.8)
                                         }
                                     }
                                 }

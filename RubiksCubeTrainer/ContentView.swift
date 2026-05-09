@@ -31,6 +31,27 @@ struct ContentView: View {
     @State var editCount = false
     // Start with empty array; load from UserDefaults if available
     @State private var needsWorkArrayMain: [Algorithm] = []
+    @State private var showVisibilityEditor = false
+    @State private var showHelpPopup = false
+    @AppStorage("mainButtonVisibility") private var mainButtonVisibilityData: String = ""
+
+    private let hideableMainButtons: [String] = [
+        "Simple OLL",
+        "Simple PLL",
+        "F2L",
+        "Advanced F2L",
+        "Continuous F2L",
+        "Full OLL",
+        "Full PLL",
+        "PLL Rec Abridged",
+        "PLL Recognition",
+        "OLL Recognition Abridged",
+        "OLL Recognition",
+        "4X4 Parity",
+        "Megaminx",
+        "Export Times",
+        "Import Times"
+    ]
     var categories: [Category] = []
 
     init() {
@@ -41,23 +62,23 @@ struct ContentView: View {
         categories = [
             Category(name: "Simple OLL", algorithms: [
                 Algorithm(name: "Lshape", algorithm: "F U R U' R' F'", note: "6 times"),
-                Algorithm(name: "line", algorithm: "F R U R' U' F'", note: "6 times"),
-                Algorithm(name: "dot", algorithm: "gR U2 (R2' gF R F') U2\n(R' F R F')", note: "18 times"),
+                Algorithm(name: "line", algorithm: "F (R U R' U') F'", note: "6 times"),
+                Algorithm(name: "dot", algorithm: "(R U2 R') (R' F R F') U2 (R' F R F')", note: "18 times"),
                 Algorithm(name: "fishRight", algorithm: "(L' U2 L) U (L' U L)", note: "6 times"),
                 Algorithm(name: "fishLeft", algorithm: "(R U2 R') U' (R U' R')", note: "6 times"),
-                Algorithm(name: "diagonalLeft", algorithm: "F' (r U R' U') (gr' F R)", note: "3 times"),
-                Algorithm(name: "Tout90", algorithm: "(gr U R' U') (gr' F R F')", note: "3 times"),
+                Algorithm(name: "diagonalLeft", algorithm: "F' (r U R' U') (r' F R)", note: "3 times"),
+                Algorithm(name: "Tout90", algorithm: "(r U R' U') (r' F R F')", note: "3 times"),
                 Algorithm(name: "crossMan90", algorithm: "R U2 (R2' U' R2 U')\n(R2' U2 R)", note: "6 times"),
-                Algorithm(name: "cross", algorithm: "(gR U R') gU (R U' R') U\n(R U2 R')", note: "3 times"),
+                Algorithm(name: "cross", algorithm: "(R U R') U (R U' R') U\n(R U2 R')", note: "3 times"),
                 Algorithm(name: "Tdown", algorithm: "R2 D (R' U2 R) D'\n(R' U2 R')", note: "3 times")
             ]),
             Category(name: "Simple PLL", algorithms: [
                 Algorithm(name: "headlights", algorithm: "x (R2 D2) (R U R') D2\n(R U' R)", note: "3 times"),
                 Algorithm(name: "noHL", algorithm: "F R U' R' U' R U R' F' (R U R' U') (gR' F R F')", note: "2 times"),
-                Algorithm(name: "cwEdges", algorithm: "M2 U' M U2 M' U' M2", note: "3 times"),
-                Algorithm(name: "ccwEdges", algorithm: "M2 U M U2 M' U M2", note: "3 times"),
-                Algorithm(name: "swap180", algorithm: "(M2 U' M2) U2\n(M2 U' M2)", note: "2 times"),
-                Algorithm(name: "swapAdj", algorithm: "M' U' M2 U' M2\nU' M' U2 M2 U", note: "2 times")
+                Algorithm(name: "Ub", algorithm: "M2 U' M U2 M' U' M2", note: "3 times"),
+                Algorithm(name: "Ua", algorithm: "M2 U M U2 M' U M2", note: "3 times"),
+                Algorithm(name: "H", algorithm: "(M2 U' M2) U2\n(M2 U' M2)", note: "2 times"),
+                Algorithm(name: "Z", algorithm: "M' U' M2 U' M2\nU' M' U2 M2 U", note: "2 times")
             ]),
             Category(name: "4X4 Parity", algorithms: [
                 Algorithm(name: "four inline", algorithm: "Rw U2, X, Rw U2, Rw U2,\nRw' U2, Lw U2, Rw' U2,\nRw U2, Rw' U2, Rw'", note: "2 times"), //verified
@@ -72,6 +93,31 @@ struct ContentView: View {
     @State var showListView = false
     @State var selectedCategoryForIndividual: Category?
     @State var showIndividualView = false
+
+    private var hiddenMainButtons: Set<String> {
+        get {
+            guard !mainButtonVisibilityData.isEmpty else { return [] }
+            return Set(mainButtonVisibilityData.split(separator: "|").map(String.init))
+        }
+        nonmutating set {
+            mainButtonVisibilityData = newValue.sorted().joined(separator: "|")
+        }
+    }
+
+    private func isMainButtonVisible(_ name: String) -> Bool {
+        !hiddenMainButtons.contains(name)
+    }
+
+    private func toggleMainButtonVisibility(_ name: String) {
+        var hidden = hiddenMainButtons
+        if hidden.contains(name) {
+            hidden.remove(name)
+        } else {
+            hidden.insert(name)
+        }
+        hiddenMainButtons = hidden
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -79,16 +125,16 @@ struct ContentView: View {
                     .foregroundStyle(.yellow)
                     .ignoresSafeArea()
                 // Watch connected indicator
-                VStack {
-                    HStack {
-                        Spacer()
-                        Text(isConnected ? "✅" : "⚠️")
-                            .font(.footnote)
-                            .padding(.horizontal, 20)
-                            .padding(.top, -10)
-                    }
-                    Spacer()
-                }
+//                VStack {
+//                    HStack {
+//                        Spacer()
+//                        Text(isConnected ? "✅" : "⚠️")
+//                            .font(.footnote)
+//                            .padding(.horizontal, 20)
+//                            .padding(.top, -10)
+//                    }
+//                    Spacer()
+//                }
                 
                 VStack {
                     Text("Rubik's Cube Trainer!")
@@ -108,118 +154,8 @@ struct ContentView: View {
                                     .capsuleButtonStyle()
                             }
                             
-                            //                        NavigationLink(destination: IndividualCategoryView(category: categories.first { $0.name == "Simple OLL" }!)) {
-                            //                            Text("Simple OLL")
-                            //                                .capsuleButtonStyle()
-                            //                        }
-                            //
-                            //                        NavigationLink(destination: IndividualCategoryView(category: categories.first { $0.name == "Simple PLL" }!)) {
-                            //                            Text("Simple PLL")
-                            //                                .capsuleButtonStyle()
-                            //                        }
-                            
-                            let category = Category(name: "F2L", algorithms: F2LAlgorithms.algorithms)
-                                Button(action: {
-                                    selectedCategoryForIndividual = category
-                                    showIndividualView = true
-                                }) {
-                                    Text("\(category.name) (\(category.algorithms.count))")
-                                        .capsuleButtonStyle()
-                                }
-                                .highPriorityGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        showIndividualView = false
-                                        selectedCategoryForList = category
-                                        showListView = true
-                                    }
-                                )
-                            
-                            NavigationLink(destination: AdvancedF2LView()) {
-                                Text("Advanced F2L >")
-                                    .capsuleButtonStyle(color: .red)
-                            }
-                            
-                            if !needsWorkArrayMain.isEmpty {
-                                NavigationLink(
-                                        destination: IndividualCategoryView(
-                                            category: Category(name: "Needs Work", algorithms: needsWorkArrayMain)
-                                        )
-                                    ) {
-                                    Text("Weak Algorithms (\(needsWorkArrayMain.count))")
-                                        .capsuleButtonStyle()
-                                }
-                            }
-                            
-                            NavigationLink(destination: FullOLLView()) {
-                                Text("Full OLL >")
-                                    .capsuleButtonStyle(color: .red)
-                            }
-                            
-                            let fullPLL = Category(name: "Full PLL", algorithms: FullPLLAlgorithms.algorithms)
-                                Button(action: {
-                                    selectedCategoryForIndividual = fullPLL
-                                    showIndividualView = true
-                                }) {
-                                    Text("\(fullPLL.name) (\(fullPLL.algorithms.count))")
-                                        .capsuleButtonStyle()
-                                }
-                                .highPriorityGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        showIndividualView = false
-                                        selectedCategoryForList = fullPLL
-                                        showListView = true
-                                    }
-                                )
-                            
-                            let pllabridged = Category(name: "PLL Rec Abridged", algorithms: PLLRecognitionAbridgedCases.cases)
-                                Button(action: {
-                                    selectedCategoryForIndividual = pllabridged
-                                    showIndividualView = true
-                                }) {
-                                    Text("\(pllabridged.name) (\(pllabridged.algorithms.count))")
-                                        .capsuleButtonStyle()
-                                }
-                                .highPriorityGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        showIndividualView = false
-                                        selectedCategoryForList = pllabridged
-                                        showListView = true
-                                    }
-                                )
-                            
-                            let pllrec = Category(name: "PLL Recognition", algorithms: PLLRecognitionCases.cases)
-                                Button(action: {
-                                    selectedCategoryForIndividual = pllrec
-                                    showIndividualView = true
-                                }) {
-                                    Text("\(pllrec.name) (\(pllrec.algorithms.count))")
-                                        .capsuleButtonStyle()
-                                }
-                                .highPriorityGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        showIndividualView = false
-                                        selectedCategoryForList = pllrec
-                                        showListView = true
-                                    }
-                                )
-                            
-                            let ollrec = Category(name: "OLL Recognition", algorithms: OLLRecognitionCases.cases)
-                                Button(action: {
-                                    selectedCategoryForIndividual = ollrec
-                                    showIndividualView = true
-                                }) {
-                                    Text("\(ollrec.name) (\(ollrec.algorithms.count))")
-                                        .capsuleButtonStyle()
-                                }
-                                .highPriorityGesture(
-                                    LongPressGesture().onEnded { _ in
-                                        showIndividualView = false
-                                        selectedCategoryForList = ollrec
-                                        showListView = true
-                                    }
-                                )
-                            
-                            if let category = categories.first(where: { $0.name == "4X4 Parity" }),
+                            if isMainButtonVisible("Simple OLL"),
+                               let category = categories.first(where: { $0.name == "Simple OLL" }),
                                !category.algorithms.isEmpty {
                                 Button(action: {
                                     selectedCategoryForIndividual = category
@@ -236,31 +172,223 @@ struct ContentView: View {
                                     }
                                 )
                             }
-                            
-                            NavigationLink(destination: MegaminxView()) {
-                                Text("Megaminx >")
-                                    .capsuleButtonStyle()
-                            }
-                            
-                            Button(action: {
-                                exportDocument = RubiksTrainerJSONDocument(export: buildExport())
-                                isExporting = true
-                            }) {
-                                Text("Export Times")
-                                    .capsuleButtonStyle(color: .green)
+
+                            if isMainButtonVisible("Simple PLL"),
+                               let category = categories.first(where: { $0.name == "Simple PLL" }),
+                               !category.algorithms.isEmpty {
+                                Button(action: {
+                                    selectedCategoryForIndividual = category
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(category.name) (\(category.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = category
+                                        showListView = true
+                                    }
+                                )
                             }
 
-                            Button(action: {
-                                isImporting = true
-                            }) {
-                                Text("Import Times")
-                                    .capsuleButtonStyle(color: .green)
+                            if isMainButtonVisible("F2L") {
+                                let category = Category(name: "F2L", algorithms: F2LAlgorithms.algorithms)
+                                Button(action: {
+                                    selectedCategoryForIndividual = category
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(category.name) (\(category.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = category
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("Advanced F2L") {
+                                NavigationLink(destination: AdvancedF2LView()) {
+                                    Text("Advanced F2L >")
+                                        .capsuleButtonStyle(color: .red)
+                                }
                             }
                             
-//                            NavigationLink(destination: RoofpigTestView()) {
-//                                Text("Roofpig Test >")
-//                                    .capsuleButtonStyle(color: .red)
-//                            }
+                            if isMainButtonVisible("Continuous F2L") {
+                                let advancedF2LAlgorithms = AdvancedF2LAlgorithms.categories.flatMap { $0.algorithms }
+                                let continuousF2LAlgorithms = F2LAlgorithms.algorithms + advancedF2LAlgorithms
+                                let contF2L = Category(name: "Continuous F2L", algorithms: continuousF2LAlgorithms)
+                                Button(action: {
+                                    selectedCategoryForIndividual = contF2L
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(contF2L.name) (\(contF2L.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = contF2L
+                                        showListView = true
+                                    }
+                                )
+                            }
+                            
+                            if !needsWorkArrayMain.isEmpty {
+                                NavigationLink(
+                                        destination: IndividualCategoryView(
+                                            category: Category(name: "Needs Work", algorithms: needsWorkArrayMain)
+                                        )
+                                    ) {
+                                    Text("Weak Algorithms (\(needsWorkArrayMain.count))")
+                                        .capsuleButtonStyle()
+                                }
+                            }
+                            
+                            if isMainButtonVisible("Full OLL") {
+                                NavigationLink(destination: FullOLLView()) {
+                                    Text("Full OLL >")
+                                        .capsuleButtonStyle(color: .red)
+                                }
+                            }
+
+                            if isMainButtonVisible("Full PLL") {
+                                let fullPLL = Category(name: "Full PLL", algorithms: FullPLLAlgorithms.algorithms)
+                                Button(action: {
+                                    selectedCategoryForIndividual = fullPLL
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(fullPLL.name) (\(fullPLL.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = fullPLL
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("PLL Rec Abridged") {
+                                let pllabridged = Category(name: "PLL Rec Abridged", algorithms: PLLRecognitionAbridgedCases.cases)
+                                Button(action: {
+                                    selectedCategoryForIndividual = pllabridged
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(pllabridged.name) (\(pllabridged.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = pllabridged
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("PLL Recognition") {
+                                let pllrec = Category(name: "PLL Recognition", algorithms: PLLRecognitionCases.cases)
+                                Button(action: {
+                                    selectedCategoryForIndividual = pllrec
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(pllrec.name) (\(pllrec.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = pllrec
+                                        showListView = true
+                                    }
+                                )
+                            }
+                            
+                            if isMainButtonVisible("OLL Rec Abridged") {
+                                let ollrecabr = Category(name: "OLL Rec Abridged", algorithms: OLLRecognitionCasesAbridged.cases)
+                                Button(action: {
+                                    selectedCategoryForIndividual = ollrecabr
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(ollrecabr.name) (\(ollrecabr.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = ollrecabr
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("OLL Recognition") {
+                                let ollrec = Category(name: "OLL Recognition", algorithms: OLLRecognitionCases.cases)
+                                Button(action: {
+                                    selectedCategoryForIndividual = ollrec
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(ollrec.name) (\(ollrec.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = ollrec
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("4X4 Parity"),
+                               let category = categories.first(where: { $0.name == "4X4 Parity" }),
+                               !category.algorithms.isEmpty {
+                                Button(action: {
+                                    selectedCategoryForIndividual = category
+                                    showIndividualView = true
+                                }) {
+                                    Text("\(category.name) (\(category.algorithms.count))")
+                                        .capsuleButtonStyle()
+                                }
+                                .highPriorityGesture(
+                                    LongPressGesture().onEnded { _ in
+                                        showIndividualView = false
+                                        selectedCategoryForList = category
+                                        showListView = true
+                                    }
+                                )
+                            }
+
+                            if isMainButtonVisible("Megaminx") {
+                                NavigationLink(destination: MegaminxView()) {
+                                    Text("Megaminx >")
+                                        .capsuleButtonStyle()
+                                }
+                            }
+
+                            if isMainButtonVisible("Export Times") {
+                                Button(action: {
+                                    exportDocument = RubiksTrainerJSONDocument(export: buildExport())
+                                    isExporting = true
+                                }) {
+                                    Text("Export Times")
+                                        .capsuleButtonStyle(color: .green)
+                                }
+                            }
+
+                            if isMainButtonVisible("Import Times") {
+                                Button(action: {
+                                    isImporting = true
+                                }) {
+                                    Text("Import Times")
+                                        .capsuleButtonStyle(color: .green)
+                                }
+                            }
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -272,6 +400,111 @@ struct ContentView: View {
                 .ignoresSafeArea()
                 SolveCountButton(editCount: $editCount)
                     .padding(.top, 15)
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        Button {
+                            withAnimation(.spring()) {
+                                showHelpPopup.toggle()
+                            }
+                        } label: {
+                            Image(systemName: "questionmark")
+                                .font(.system(size: 20))
+                                .foregroundStyle(.gray)
+                                .padding(.leading, 12)
+                                .padding(12)
+                        }
+                        .buttonStyle(.plain)
+                        Spacer()
+                        Button {
+                            withAnimation(.spring()) {
+                                showVisibilityEditor.toggle()
+                            }
+                        } label: {
+                            Image(systemName: "list.bullet.circle.fill")
+                                .font(.system(size: 40))
+                                .foregroundStyle(.blue)
+                                .padding(12)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+
+                if showHelpPopup {
+                    Rectangle()
+                        .fill(.clear)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                showHelpPopup = false
+                            }
+                        }
+
+                    VStack {
+                        Spacer()
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Tips")
+                                .font(.headline)
+                                .foregroundStyle(.black)
+
+                            Text("Long press the solve count to bring up the minus button in case you want to decrease the count.")
+                                .foregroundStyle(.black)
+                                .font(.subheadline)
+
+                            Text("Long press a category to bring up the list view.")
+                                .foregroundStyle(.black)
+                                .font(.subheadline)
+                        }
+                        .padding()
+                        .background(.white.opacity(0.94), in: RoundedRectangle(cornerRadius: 18))
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 70)
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+
+                if showVisibilityEditor {
+                    Rectangle()
+                        .fill(.clear)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                showVisibilityEditor = false
+                            }
+                        }
+
+                    VStack {
+                        Spacer()
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Show Buttons")
+                                .font(.headline)
+                                .foregroundStyle(.black)
+
+                            ForEach(hideableMainButtons, id: \.self) { name in
+                                Button {
+                                    toggleMainButtonVisibility(name)
+                                } label: {
+                                    HStack {
+                                        Image(systemName: isMainButtonVisible(name) ? "checkmark.circle.fill" : "circle")
+                                            .foregroundStyle(.black)
+                                        Text(name)
+                                            .foregroundStyle(.black)
+                                        Spacer()
+                                    }
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding()
+                        .background(.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 18))
+                        .padding(.horizontal, 18)
+                        .padding(.bottom, 60)
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
             }
             .fileExporter(
                 isPresented: $isExporting,
@@ -298,7 +531,7 @@ struct ContentView: View {
                     let data = try Data(contentsOf: url)
                     let decoded = try JSONDecoder.rubiks.decode(RubiksTrainerExport.self, from: data)
                     importExport(decoded)
-                    print("✅ Imported \(decoded.solveTimes.count) solves + \(decoded.cfopSolveTimes.count) CFOP entries")
+                    print("✅ Imported \(decoded.solveTimes.count) solves + \(decoded.cfopSolveTimes.count) CFOP entries, solveCount=\(decoded.solveCount), needsWork=\(decoded.needsWork.count)")
                 } catch {
                     print("❌ Import failed: \(error)")
                 }
@@ -349,7 +582,23 @@ struct ContentView: View {
             )
         }
 
-        return RubiksTrainerExport(solveTimes: solveDTOs, cfopSolveTimes: cfopDTOs)
+        let needsWork: [Algorithm]
+        if let data = UserDefaults.standard.data(forKey: "needsWork"),
+           let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
+            needsWork = decoded
+        } else {
+            needsWork = []
+        }
+
+        let hiddenButtons = Array(hiddenMainButtons)
+
+        return RubiksTrainerExport(
+            solveTimes: solveDTOs,
+            cfopSolveTimes: cfopDTOs,
+            solveCount: solveCountModel.count,
+            needsWork: needsWork,
+            hiddenMainButtons: hiddenButtons
+        )
     }
 
     private func importExport(_ export: RubiksTrainerExport) {
@@ -385,6 +634,23 @@ struct ContentView: View {
         } catch {
             print("❌ Save after import failed: \(error)")
         }
+
+        // Restore solve count
+        solveCountModel.count = export.solveCount
+
+        // Restore needs-work array
+        if !export.needsWork.isEmpty,
+           let encoded = try? JSONEncoder().encode(export.needsWork) {
+            UserDefaults.standard.set(encoded, forKey: "needsWork")
+            needsWorkArrayMain = export.needsWork
+            print("✅ Restored \(export.needsWork.count) needs-work algorithms")
+        }
+
+        // Restore main button visibility
+        if !export.hiddenMainButtons.isEmpty {
+            hiddenMainButtons = Set(export.hiddenMainButtons)
+            print("✅ Restored \(export.hiddenMainButtons.count) hidden main buttons")
+        }
     }
 
     private func keyForSolve(time: TimeInterval, memo: String, date: Date) -> String {
@@ -418,10 +684,13 @@ private struct CFOPSolveTimeDTO: Codable, Hashable {
 }
 
 private struct RubiksTrainerExport: Codable {
-    var version: Int = 1
+    var version: Int = 2
     var exportedAt: Date = .now
     var solveTimes: [SolveTimeDTO]
     var cfopSolveTimes: [CFOPSolveTimeDTO]
+    var solveCount: Int = 0
+    var needsWork: [Algorithm] = []
+    var hiddenMainButtons: [String] = []
 }
 
 private struct RubiksTrainerJSONDocument: FileDocument {

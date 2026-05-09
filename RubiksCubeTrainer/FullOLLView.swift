@@ -19,10 +19,10 @@ struct FullOLLView: View {
         Category(name: "Crosses", algorithms: [
             Algorithm(name: "fishRight", algorithm: "(L' U2 L) U (L' U L)", note: "6 times"),
             Algorithm(name: "fishLeft", algorithm: "(R U2 R') U' (R U' R')", note: "6 times"),
-            Algorithm(name: "diagonalLeft", algorithm: "F' (r U R' U') (gr' F R)", note: "3 times"),
-            Algorithm(name: "diagonalLeftMirrored", algorithm: "F (l' U' L U) (gl F' L')", note: "3 times"),
-            Algorithm(name: "Tout90", algorithm: "(gr U R' U') (gr' F R F')", note: "3 times"),
-            Algorithm(name: "Tout90Mirrored", algorithm: "(gl' U' L U) (gl F' L' F)", note: "3 times"),
+            Algorithm(name: "diagonalLeft", algorithm: "F' (r U R' U') (r' F R)", note: "3 times"),
+            Algorithm(name: "diagonalLeftMirrored", algorithm: "F (l' U' L U) (l F' L')", note: "3 times"),
+            Algorithm(name: "Tout90", algorithm: "(r U R' U') (r' F R F')", note: "3 times"),
+            Algorithm(name: "Tout90Mirrored", algorithm: "(l' U' L U) (l F' L' F)", note: "3 times"),
             Algorithm(name: "crossMan90", algorithm: "R U2 (R2' U' R2 U')\n(R2' U2 R)", note: "6 times"),
             Algorithm(name: "crossMan90Mirrored", algorithm: "L' U2 (L2 U L2 U) (L2 U2 L')", note: "6 times"),
             Algorithm(name: "cross", algorithm: "(R U R') U (R U' R') U\n(R U2 R')", note: "3 times"),
@@ -40,7 +40,7 @@ struct FullOLLView: View {
             Algorithm(name: "dots 6", algorithm: "F (R U R' U) y' R' U2 (R' F R F')", note: "4 times"),
             Algorithm(name: "dots 7", algorithm: "(R U R' U) (R' F R F') U2 (R' F R F')", note: "18 times"),
             Algorithm(name: "dots 7 mirrored", algorithm: "(L' U' L U') (L F' L' F) U2 (L F' L' F)", note: "18 times"),
-            Algorithm(name: "dots 8", algorithm: "M U (R U R' U') M2 (U R U' r')", note: "2 times")
+            Algorithm(name: "dots 8", algorithm: "M U (R U R' U') M2 (U R U' r')", note: "4 times")
         ]),
         Category(name: "All Corners", algorithms: [
             Algorithm(name: "all corners 1", algorithm: "(R U R' U') M' (U R U' r')", note: "3 times"),
@@ -74,7 +74,7 @@ struct FullOLLView: View {
         Category(name: "Cs", algorithms: [
             Algorithm(name: "C1", algorithm: "R' U' (R' F R F') U R", note: "6 times"),
             Algorithm(name: "C1 mirrored", algorithm: "L U (L F' L' F) U' L'", note: "6 times"),
-            Algorithm(name: "C2", algorithm: "(R U R' U') x D' R' U R U' D x'", note: "3 times")
+            Algorithm(name: "C2", algorithm: "(R U R' U') x D' R' U R (U' D) x'", note: "3 times")
         ]),
         Category(name: "Ws", algorithms: [
             Algorithm(name: "W1", algorithm: "(R U R' U) (R U' R' U') (R' F R F')", note: "6 times"),

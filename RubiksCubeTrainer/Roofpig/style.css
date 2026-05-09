@@ -3,9 +3,9 @@ body {
 }
 
 .roofpig {
-    width:100%;
+    width:98%;
     height:100%;
-    margin: 4px;
+    margin: 2px;
     float:left;
     background-color: rgb(255, 214, 10);
 }
