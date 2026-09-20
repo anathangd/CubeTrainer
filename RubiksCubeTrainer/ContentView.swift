@@ -33,9 +33,11 @@ struct ContentView: View {
     @State private var needsWorkArrayMain: [Algorithm] = []
     @State private var showVisibilityEditor = false
     @State private var showHelpPopup = false
+    @State private var showLicensesPopup = false
     @AppStorage("mainButtonVisibility") private var mainButtonVisibilityData: String = ""
 
     private let hideableMainButtons: [String] = [
+        "CFOP Step Timer",
         "Simple OLL",
         "Simple PLL",
         "F2L",
@@ -45,7 +47,7 @@ struct ContentView: View {
         "Full PLL",
         "PLL Rec Abridged",
         "PLL Recognition",
-        "OLL Recognition Abridged",
+        "OLL Rec Abridged",
         "OLL Recognition",
         "4X4 Parity",
         "Megaminx",
@@ -137,7 +139,7 @@ struct ContentView: View {
 //                }
                 
                 VStack {
-                    Text("Rubik's Cube Trainer!")
+                    Text("Nathan's Cube Trainer!")
                         .font(.system(size: 30))
                         .fontWeight(.bold)
                         .padding(.top, 65)
@@ -149,9 +151,11 @@ struct ContentView: View {
                                     .capsuleButtonStyle()
                             }
                             
-                            NavigationLink(destination: CFOPStepTimerView()) {
-                                Text("CFOP Step Timer")
-                                    .capsuleButtonStyle()
+                            if isMainButtonVisible("CFOP Step Timer") {
+                                NavigationLink(destination: CFOPStepTimerView()) {
+                                    Text("CFOP Step Timer")
+                                        .capsuleButtonStyle()
+                                }
                             }
                             
                             if isMainButtonVisible("Simple OLL"),
@@ -412,8 +416,9 @@ struct ContentView: View {
                             Image(systemName: "questionmark")
                                 .font(.system(size: 20))
                                 .foregroundStyle(.gray)
+                                .frame(width: 44, height: 44)
+                                .contentShape(Circle())
                                 .padding(.leading, 12)
-                                .padding(12)
                         }
                         .buttonStyle(.plain)
                         Spacer()
@@ -444,7 +449,7 @@ struct ContentView: View {
 
                     VStack {
                         Spacer()
-                        VStack(alignment: .leading, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 20) {
                             Text("Tips")
                                 .font(.headline)
                                 .foregroundStyle(.black)
@@ -456,9 +461,81 @@ struct ContentView: View {
                             Text("Long press a category to bring up the list view.")
                                 .foregroundStyle(.black)
                                 .font(.subheadline)
+                            
+                            Text("Continuous F2L lets you work through every F2L case one by one. You can leave anytime and the app will remember your place.")
+                                .foregroundStyle(.black)
+                                .font(.subheadline)
+                            
+                            Text("Use the menu button on the bottom right to show or hide menu items you are not currently using.")
+                                .foregroundStyle(.black)
+                                .font(.subheadline)
+
+                            Button {
+                                withAnimation(.spring()) {
+                                    showHelpPopup = false
+                                    showLicensesPopup = true
+                                }
+                            } label: {
+                                Text("Open Source Licenses")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundStyle(.blue)
+                            }
+                            .buttonStyle(.plain)
                         }
                         .padding()
                         .background(.white.opacity(0.94), in: RoundedRectangle(cornerRadius: 18))
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 70)
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+
+                if showLicensesPopup {
+                    Rectangle()
+                        .fill(.clear)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                showLicensesPopup = false
+                            }
+                        }
+
+                    VStack {
+                        Spacer()
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Open Source Licenses")
+                                .font(.headline)
+                                .foregroundStyle(.black)
+
+                            Text("Cube training animations are powered by the open-source Roofpig project.")
+                                .foregroundStyle(.black)
+                                .font(.subheadline)
+
+                            Text("Roofpig — MIT License")
+                                .foregroundStyle(.black)
+                                .font(.subheadline.weight(.semibold))
+
+                            ScrollView {
+                                Text("""
+The MIT License (MIT)
+
+Copyright (c) 2014 Lars Petrus
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+""")
+                                    .foregroundStyle(.black)
+                                    .font(.caption)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .frame(maxHeight: 220)
+                        }
+                        .padding()
+                        .background(.white.opacity(0.96), in: RoundedRectangle(cornerRadius: 18))
                         .padding(.horizontal, 20)
                         .padding(.bottom, 70)
                     }

@@ -1,0 +1,5 @@
+Rubik’s Cube Trainer
+
+PLL rec wrong images sometimes
+Need a timing function, it needs to be instant, 
+if it takes longer to recognize it than solve it we’ve got a problem!

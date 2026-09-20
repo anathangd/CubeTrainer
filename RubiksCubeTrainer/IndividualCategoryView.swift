@@ -347,11 +347,13 @@ struct IndividualCategoryView: View {
         var name = baseName
         name.removeLast()
 
-        if eightVariantImages.contains(name) {
-            imageVariant = Int.random(in: 1...8)
+        if eightVariantImages.contains(name) && baseName.hasSuffix("5") {
+            imageVariant = Int.random(in: 5...8)
         } else {
             imageVariant = Int.random(in: 1...4)
         }
+
+        print("refreshImageVariant: baseName=\(baseName), imageVariant=\(imageVariant)")
     }
     
     private func saveNeedsWork() {

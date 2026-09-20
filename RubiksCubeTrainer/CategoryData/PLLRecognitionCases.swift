@@ -12,15 +12,15 @@ struct PLLRecognitionCases {
         // EPLL
         // Category 1: One 3x1 Block
         // When the block is on the left:
-        Algorithm(name: "one3x1leftopp1", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftopp2", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftopp3", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftopp4", algorithm: "(U) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftopp1", algorithm: "(U2) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftopp2", algorithm: "(U2) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftopp3", algorithm: "(U2) It’s Ub when an opposite edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftopp4", algorithm: "(U2) It’s Ub when an opposite edge color is on the right", note: ""),
         
-        Algorithm(name: "one3x1leftadj1", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftadj2", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftadj3", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
-        Algorithm(name: "one3x1leftadj4", algorithm: "(U) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj1", algorithm: "(U2) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj2", algorithm: "(U2) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj3", algorithm: "(U2) It’s Ua when an adjacent edge color is on the right", note: ""),
+        Algorithm(name: "one3x1leftadj4", algorithm: "(U2) It’s Ua when an adjacent edge color is on the right", note: ""),
         // When the block is on the right:
         Algorithm(name: "one3x1rightopp1", algorithm: "(U') It’s Ua when an opposite edge color is on the left", note: ""),
         Algorithm(name: "one3x1rightopp2", algorithm: "(U') It’s Ua when an opposite edge color is on the left", note: ""),
@@ -50,10 +50,10 @@ struct PLLRecognitionCases {
         
         // Category 3: No 3x1 Blocks & No Opposite Edges
         // When there are no opposite edges:
-        Algorithm(name: "no3x1nooppcheckerleft1", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
-        Algorithm(name: "no3x1nooppcheckerleft2", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
-        Algorithm(name: "no3x1nooppcheckerleft3", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
-        Algorithm(name: "no3x1nooppcheckerleft4", algorithm: "(U) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft1", algorithm: "(No rotation) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft2", algorithm: "(No rotation) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft3", algorithm: "(No rotation) It’s Ua when a checker pattern is only on the left", note: ""),
+        Algorithm(name: "no3x1nooppcheckerleft4", algorithm: "(No rotation) It’s Ua when a checker pattern is only on the left", note: ""),
         
         Algorithm(name: "no3x1nooppcheckerright1", algorithm: "(No rotation) It’s Ub when a checker pattern is only on the right", note: ""),
         Algorithm(name: "no3x1nooppcheckerright2", algorithm: "(No rotation) It’s Ub when a checker pattern is only on the right", note: ""),
