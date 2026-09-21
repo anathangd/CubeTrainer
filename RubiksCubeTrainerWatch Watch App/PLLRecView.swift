@@ -173,29 +173,21 @@ struct PLLRecView: View {
     }
     
     private func refreshImageVariantForCurrentCard() {
-        guard let originalName = active.first?.name,
-              let lastChar = originalName.last,
-              let lastDigit = Int(String(lastChar)) else {
+        guard let baseName = active.first?.name, !baseName.isEmpty else {
             imageVariant = 1
             return
         }
 
-        var baseName = originalName
-        baseName.removeLast()
+        var name = baseName
+        name.removeLast()
 
-        if eightVariantImages.contains(baseName) {
-            if (1...4).contains(lastDigit) {
-                imageVariant = Int.random(in: 1...4)
-            } else if (5...8).contains(lastDigit) {
-                imageVariant = Int.random(in: 5...8)
-            } else {
-                imageVariant = lastDigit
-            }
+        if eightVariantImages.contains(name) && baseName.hasSuffix("5") {
+            imageVariant = Int.random(in: 5...8)
         } else {
             imageVariant = Int.random(in: 1...4)
         }
 
-        print("PLLRec current card:", originalName, "-> imageVariant:", imageVariant, "-> current image:", currentImageName)
+        print("PLLRec current card:", baseName, "-> imageVariant:", imageVariant, "-> current image:", currentImageName)
     }
     
     private func next() {
