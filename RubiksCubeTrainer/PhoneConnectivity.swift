@@ -74,8 +74,11 @@ class PhoneConnectivity: NSObject, WCSessionDelegate, ObservableObject {
         DispatchQueue.main.async {
             if let newCount = message["solveCount"] as? Int {
                 print("📥 Received full solveCount from watch: \(newCount)")
-                self.solveCountModel?.count = newCount
-                UserDefaults.standard.set(newCount, forKey: "solveCount")
+                // Never let a stale/racing sync roll the count backwards.
+                if let model = self.solveCountModel {
+                    model.count = max(model.count, newCount)
+                    UserDefaults.standard.set(model.count, forKey: "solveCount")
+                }
             } else if let _ = message["requestSolveCount"] as? Bool {
                 print("📥 Received requestSolveCount")
                 let currentCount = self.solveCountModel?.count ?? 0
@@ -95,10 +98,15 @@ class PhoneConnectivity: NSObject, WCSessionDelegate, ObservableObject {
                 self.pushSolveCountToWatch(currentCount)
                 replyHandler(["solveCount": currentCount])
             } else if let newCount = message["solveCount"] as? Int {
-                self.solveCountModel?.count = newCount
-                UserDefaults.standard.set(newCount, forKey: "solveCount")
-                self.pushSolveCountToWatch(newCount)
-                replyHandler(["solveCount": newCount])
+                // Never let a stale/racing sync roll the count backwards.
+                if let model = self.solveCountModel {
+                    model.count = max(model.count, newCount)
+                    UserDefaults.standard.set(model.count, forKey: "solveCount")
+                    self.pushSolveCountToWatch(model.count)
+                    replyHandler(["solveCount": model.count])
+                } else {
+                    replyHandler(["solveCount": newCount])
+                }
             } else {
                 replyHandler([:])
             }

@@ -41,7 +41,8 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         DispatchQueue.main.async {
             if let count = applicationContext["solveCount"] as? Int {
-                self.solveCount = count
+                // Never let a stale/racing sync roll the count backwards.
+                self.solveCount = max(self.solveCount, count)
                 UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
                 print("didReceiveApplicationContext received, solveCount updated to \(self.solveCount)")
             } else {
@@ -56,10 +57,11 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
         var messageToSend = ""
         DispatchQueue.main.async {
             if let count = message["solveCount"] as? Int {
-                self.solveCount = count
+                // Never let a stale/racing sync roll the count backwards.
+                self.solveCount = max(self.solveCount, count)
                 UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
                 print("📥 Watch got count \(count)")
-                messageToSend = "Received count: \(count)"
+                messageToSend = "Received count: \(self.solveCount)"
             }
             replyHandler(["received message": messageToSend])
         }
@@ -72,9 +74,10 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
                 UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
                 print("didReceiveUserInfo received, increment: \(increment), new solveCount: \(self.solveCount)")
             } else if let count = userInfo["solveCount"] as? Int {
-                self.solveCount = count
+                // Never let a stale/racing sync roll the count backwards.
+                self.solveCount = max(self.solveCount, count)
                 UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
-                print("📥 Received full solveCount: \(count)")
+                print("📥 Received full solveCount: \(self.solveCount)")
             } else if let _ = userInfo["requestSolveCount"] as? Bool {
                 print("didReceiveUserInfo received requestSolveCount")
             } else {
@@ -94,9 +97,10 @@ class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
             WCSession.default.sendMessage(["requestSolveCount": true]) { response in
                 if let count = response["solveCount"] as? Int {
                     DispatchQueue.main.async {
-                        self.solveCount = count
-                        UserDefaults.standard.set(count, forKey: "solveCount")
-                        print("📥 Watch got solveCount reply: \(count)")
+                        // Never let a stale/racing sync roll the count backwards.
+                        self.solveCount = max(self.solveCount, count)
+                        UserDefaults.standard.set(self.solveCount, forKey: "solveCount")
+                        print("📥 Watch got solveCount reply: \(count), merged to \(self.solveCount)")
                     }
                 }
             } errorHandler: { error in
