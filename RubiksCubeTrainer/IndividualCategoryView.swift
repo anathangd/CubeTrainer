@@ -20,6 +20,11 @@ struct IndividualCategoryView: View {
     @State private var mirroring: Bool = false
     @State private var rotating: Bool = false
     @State private var imageVariant: Int = Int.random(in: 1...4)
+    @State private var recCountdownDuration: TimeInterval = 1.0
+    @State private var countdownRemaining: TimeInterval = 1.0
+    @State private var countdownRunning = false
+    @State private var countdownStarted = false
+    @State private var countdownTimer: Timer? = nil
     private let eightVariantImages: Set<String> = [
         "3colorcheckermiddle",
         "noblocksnochecker",
@@ -34,6 +39,11 @@ struct IndividualCategoryView: View {
            let decoded = try? JSONDecoder().decode([Algorithm].self, from: data) {
             _needsWorkArray = State(initialValue: decoded)
         }
+        let savedDuration = UserDefaults.standard.double(forKey: "RecCountdownDuration_\(category.name)")
+        if savedDuration >= 0.5 && savedDuration <= 5 {
+            _recCountdownDuration = State(initialValue: savedDuration)
+            _countdownRemaining = State(initialValue: savedDuration)
+        }
     }
     
     @State private var initialized = false
@@ -42,8 +52,16 @@ struct IndividualCategoryView: View {
         category.name == "PLL Rec Abridged"
     }
 
+    private var hasRecCountdown: Bool {
+        category.name == "PLL Rec Abridged"
+    }
+
     private var isContinuousF2L: Bool {
         category.name == "Continuous F2L"
+    }
+
+    private var recCountdownDurationKey: String {
+        "RecCountdownDuration_\(category.name)"
     }
 
     private var continuousF2LIndexKey: String {
@@ -231,6 +249,53 @@ struct IndividualCategoryView: View {
                                     .padding(20)
                             }
                         } // correct and incorrect buttons
+                        // countdown interval slider
+                        if hasRecCountdown {
+                            HStack(spacing: 8) {
+                                Image(systemName: "hare.fill")
+                                    .foregroundStyle(.black.opacity(0.6))
+                                Slider(value: $recCountdownDuration, in: 0.5...5, step: 0.2) { _ in
+                                    adjustCountdownForNewDuration()
+                                }
+                                .tint(.blue)
+                                Image(systemName: "tortoise.fill")
+                                    .foregroundStyle(.black.opacity(0.6))
+                            }
+                            .padding(.horizontal, 24)
+                            .padding(.bottom, 8)
+                            Text(String(format: "%.1fs per card", recCountdownDuration))
+                                .font(.caption2)
+                                .foregroundStyle(.black.opacity(0.6))
+                        }
+                    }
+                }
+
+                // countdown overlay (top right)
+                if hasRecCountdown && !algorithms.isEmpty {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            VStack(spacing: 4) {
+                                Button {
+                                    toggleCountdown()
+                                } label: {
+                                    Image(systemName: countdownRunning ? "pause.fill" : "play.fill")
+                                        .font(.system(size: 18, weight: .bold))
+                                        .foregroundStyle(.white)
+                                        .frame(width: 36, height: 36)
+                                        .background(.black.opacity(0.6), in: Circle())
+                                }
+                                .buttonStyle(.plain)
+                                if countdownStarted {
+                                    Text(String(format: "%.1f", max(countdownRemaining, 0)))
+                                        .font(.system(size: 16))
+                                        .monospacedDigit()
+                                        .foregroundStyle(.black)
+                                }
+                            }
+                            .padding(.trailing, 12)
+                        }
+                        Spacer()
                     }
                 }
             }
@@ -262,6 +327,9 @@ struct IndividualCategoryView: View {
                     initialized = true
                 }
             }
+            .onDisappear {
+                countdownTimer?.invalidate()
+            }
         }
     }
     
@@ -274,6 +342,14 @@ struct IndividualCategoryView: View {
                 needsWorkArray.remove(at: index)
                 saveNeedsWork()
                 print("needsWork array count: \(needsWorkArray.count)")
+            }
+        }
+        // Don't stop the countdown on correct: refill the clock for the next
+        // card and keep counting down (stays paused if the user paused it)
+        if countdownStarted {
+            countdownRemaining = recCountdownDuration
+            if countdownRunning {
+                startCountdown()
             }
         }
         showAll = false
@@ -298,8 +374,10 @@ struct IndividualCategoryView: View {
         refreshImageVariant()
     }
     
-    private func markIncorrect() {
-        if !algorithms[currentIndex].seen {
+    private func markIncorrect(auto: Bool = false) {
+        // Auto-marked (countdown expired) cases are moved to the back of the
+        // stack but are NOT added to the Weak Algorithms array and not flagged seen
+        if !auto && !algorithms[currentIndex].seen {
             algorithms[currentIndex].seen = true
             // Only append if it's not already in needsWorkArray
             if !needsWorkArray.contains(where: { $0.name == algorithms[currentIndex].name }) {
@@ -308,6 +386,10 @@ struct IndividualCategoryView: View {
                 saveNeedsWork()
                 print("needsWork array count: \(needsWorkArray.count)")
             }
+        }
+        // Manual incorrect stops the countdown; auto-mark keeps it rolling
+        if !auto {
+            resetCountdown()
         }
         showAll = false
         showAnswerImage = false
@@ -356,6 +438,61 @@ struct IndividualCategoryView: View {
         print("refreshImageVariant: baseName=\(baseName), imageVariant=\(imageVariant)")
     }
     
+    private func toggleCountdown() {
+        if countdownRunning {
+            pauseCountdown()
+        } else {
+            startCountdown()
+        }
+    }
+
+    // When the duration changes, scale the remaining time so the new interval
+    // takes effect immediately without disturbing running/paused state
+    private func adjustCountdownForNewDuration() {
+        UserDefaults.standard.set(recCountdownDuration, forKey: recCountdownDurationKey)
+        if countdownStarted {
+            countdownRemaining = min(countdownRemaining, recCountdownDuration)
+        } else {
+            countdownRemaining = recCountdownDuration
+        }
+    }
+
+    private func startCountdown() {
+        countdownTimer?.invalidate()
+        countdownRunning = true
+        countdownStarted = true
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            countdownTick()
+        }
+    }
+
+    private func pauseCountdown() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        countdownRunning = false
+    }
+
+    private func resetCountdown() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        countdownRunning = false
+        countdownStarted = false
+        countdownRemaining = recCountdownDuration
+    }
+
+    private func countdownTick() {
+        guard !algorithms.isEmpty else {
+            resetCountdown()
+            return
+        }
+        countdownRemaining -= 0.1
+        if countdownRemaining <= 0 {
+            // Refill the clock and keep counting down after auto-marking
+            countdownRemaining = recCountdownDuration
+            markIncorrect(auto: true)
+        }
+    }
+
     private func saveNeedsWork() {
         if let encoded = try? JSONEncoder().encode(needsWorkArray) {
             UserDefaults.standard.set(encoded, forKey: "needsWork")
