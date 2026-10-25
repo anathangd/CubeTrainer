@@ -8,6 +8,41 @@
     <body>
         <script src="jquery.min.js"></script>
         <script src="roofpig.js"></script>
+        <script>
+            (function () {
+                var originalAlgChanged = Dom.prototype.alg_changed;
+                Dom.prototype.alg_changed = function (playing, atStart, atEnd) {
+                    var result = originalAlgChanged.apply(this, arguments);
+                    if (playing) {
+                        this._show(this.reset, true);
+                    } else if (atEnd && !atStart) {
+                        this._show(this.play, true);
+                    }
+                    return result;
+                };
+
+                var originalButtonClick = CubeAnimation.prototype.button_click;
+                CubeAnimation.prototype.button_click = function (button) {
+                    var replay = button === "play" && this.alg.at_end();
+                    if (button === "reset" || replay) {
+                        this.alg.stop();
+                        var changer = this.changers.pieces;
+                        if (changer) {
+                            if (changer.move_changer) {
+                                changer.move_changer.finish();
+                            } else {
+                                changer.finish();
+                            }
+                        }
+                        this.changers.pieces = null;
+                        if (replay) {
+                            this.alg.to_start(this.world3d);
+                        }
+                    }
+                    return originalButtonClick.apply(this, arguments);
+                };
+            })();
+        </script>
         <div class="roofpig" data-config="alg={{ALG}} | colored={{COLORED}} | hover=none | setupmoves={{SETUP}}"></div>
     </body>
 </html>
