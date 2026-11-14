@@ -158,6 +158,17 @@ struct ContentView: View {
                                 }
                             }
                             
+                            if !needsWorkArrayMain.isEmpty {
+                                NavigationLink(
+                                        destination: IndividualCategoryView(
+                                            category: Category(name: "Needs Work", algorithms: needsWorkArrayMain)
+                                        )
+                                    ) {
+                                    Text("Weak Algorithms (\(needsWorkArrayMain.count))")
+                                        .capsuleButtonStyle()
+                                }
+                            }
+                            
                             if isMainButtonVisible("Simple OLL"),
                                let category = categories.first(where: { $0.name == "Simple OLL" }),
                                !category.algorithms.isEmpty {
@@ -239,17 +250,6 @@ struct ContentView: View {
                                         showListView = true
                                     }
                                 )
-                            }
-                            
-                            if !needsWorkArrayMain.isEmpty {
-                                NavigationLink(
-                                        destination: IndividualCategoryView(
-                                            category: Category(name: "Needs Work", algorithms: needsWorkArrayMain)
-                                        )
-                                    ) {
-                                    Text("Weak Algorithms (\(needsWorkArrayMain.count))")
-                                        .capsuleButtonStyle()
-                                }
                             }
                             
                             if isMainButtonVisible("Full OLL") {

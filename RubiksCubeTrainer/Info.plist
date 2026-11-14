@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Record solves to review the video and measure CFOP step times.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Include audio in solve recordings.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Analyze solve recordings to find spoken start and done markers.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save exported solve recordings to your photo library.</string>
+</dict>
 </plist>

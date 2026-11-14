@@ -34,6 +34,7 @@ struct CFOPStepTimerView: View {
     @State var readyToSolve = false
     @State var listView = false
     @State var saved = false
+    @State private var showingSolveVideo = false
     
     var crossPersonalBest: Double {
         solves.map { $0.crossSolveTime }.min() ?? Double.greatestFiniteMagnitude
@@ -205,7 +206,7 @@ struct CFOPStepTimerView: View {
             } // thumb buttons
             .padding(.top, 250)
             
-            VStack(spacing: 20) {
+            let timerContent = VStack(spacing: 20) {
                 if readyToSolve {
                     Text("Ready")
                         .font(.largeTitle)
@@ -371,6 +372,10 @@ struct CFOPStepTimerView: View {
                         currentTotalSolveTime = nil
                     })
                     
+                    CapsuleButton(title: "Record Solve", action: {
+                        showingSolveVideo = true
+                    })
+
                     if !finished {
                         CapsuleButton(title: "Past Solves", action: {
                             listView = true
@@ -403,6 +408,16 @@ struct CFOPStepTimerView: View {
                 }
             }
             .padding()
+
+            if finished {
+                ScrollView {
+                    timerContent
+                }
+                .scrollBounceBehavior(.basedOnSize)
+            } else {
+                timerContent
+                    .allowsHitTesting(!isInspecting)
+            }
             
             if listView {
                 VStack(spacing: 0) {
@@ -550,6 +565,43 @@ struct CFOPStepTimerView: View {
             }
         }
         .confettiCannon(trigger: $confettiCounter, confettiSize: 14, radius: 450, repetitions: 4, repetitionInterval: 0.3)
+        .fullScreenCover(isPresented: $showingSolveVideo) {
+            SolveVideoView(onUseTimes: applyVideoTimes)
+        }
+    }
+
+    private func applyVideoTimes(_ durations: [TimeInterval]) {
+        guard durations.count == 4 else { return }
+        timer?.invalidate()
+        timer = nil
+        startTime = nil
+        isInspecting = false
+        isSolving = false
+        readyToSolve = false
+        thumbLeft = false
+        thumbRight = false
+        cross = false
+        f2L = false
+        oll = false
+        pll = false
+        currentCrossSolveTime = durations[0]
+        currentF2LSolveTime = durations[1]
+        currentOLLSolveTime = durations[2]
+        currentPLLSolveTime = durations[3]
+        currentTotalSolveTime = durations.reduce(0, +)
+        solveTime = durations.reduce(0, +)
+        isNewCrossPBAttached = false
+        isNewF2LPBAttached = false
+        isNewOLLPBAttached = false
+        isNewPLLPBAttached = false
+        isNewTotalPBAttached = false
+        worldRecord = solveTime <= worldRecordTime
+        if worldRecord { confettiCounter += 1 }
+        memo = ""
+        scramble = ""
+        saved = false
+        finished = true
+        solveCountModel.count += 1
     }
     
     func startInspection() {
