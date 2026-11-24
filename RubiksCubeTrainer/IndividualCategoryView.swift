@@ -53,7 +53,8 @@ struct IndividualCategoryView: View {
     }
 
     private var hasRecCountdown: Bool {
-        category.name == "PLL Rec Abridged"
+        category.name == "PLL Rec Abridged" ||
+        category.name == "OLL Rec Abridged"
     }
 
     private var isContinuousF2L: Bool {

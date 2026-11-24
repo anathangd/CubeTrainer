@@ -121,7 +121,7 @@ struct CFOPStepTimerView: View {
     @State private var scramble = ""
     @EnvironmentObject var solveCountModel: SolveCountModel
     @State var editCount = false
-    let worldRecordTime = 2.76
+    let worldRecordTime = 2.51
     @State var worldRecord = false
     
     var scrambleLines: [[String]] {

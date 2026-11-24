@@ -51,7 +51,7 @@ struct TimerView: View {
     @State private var scramble = ""
     @EnvironmentObject var solveCountModel: SolveCountModel
     @State var editCount = false
-    let worldRecordTime = 2.76 // World record as of 2/9/2026
+    let worldRecordTime = 2.51 // World record
     @State var worldRecord = false
     
     var scrambleLines: [[String]] {

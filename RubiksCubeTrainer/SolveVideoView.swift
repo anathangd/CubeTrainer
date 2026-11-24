@@ -111,6 +111,37 @@ private struct SolveCameraView: UIViewControllerRepresentable {
         picker.cameraCaptureMode = .video
         picker.videoQuality = .typeHigh
         picker.delegate = context.coordinator
+
+        let overlay = UIView(frame: picker.view.bounds)
+        overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        overlay.isUserInteractionEnabled = false
+
+        let banner = UIView()
+        banner.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+        banner.layer.cornerRadius = 8
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        overlay.addSubview(banner)
+
+        let instructions = UILabel()
+        instructions.text = "Say 'start' when you begin, then 'done' after each phase."
+        instructions.textColor = .white
+        instructions.font = .preferredFont(forTextStyle: .subheadline)
+        instructions.adjustsFontForContentSizeCategory = true
+        instructions.textAlignment = .center
+        instructions.numberOfLines = 0
+        instructions.translatesAutoresizingMaskIntoConstraints = false
+        banner.addSubview(instructions)
+
+        NSLayoutConstraint.activate([
+            banner.topAnchor.constraint(equalTo: overlay.safeAreaLayoutGuide.topAnchor, constant: 64),
+            banner.centerXAnchor.constraint(equalTo: overlay.centerXAnchor),
+            banner.widthAnchor.constraint(lessThanOrEqualTo: overlay.widthAnchor, constant: -32),
+            instructions.topAnchor.constraint(equalTo: banner.topAnchor, constant: 8),
+            instructions.bottomAnchor.constraint(equalTo: banner.bottomAnchor, constant: -8),
+            instructions.leadingAnchor.constraint(equalTo: banner.leadingAnchor, constant: 12),
+            instructions.trailingAnchor.constraint(equalTo: banner.trailingAnchor, constant: -12)
+        ])
+        picker.cameraOverlayView = overlay
         return picker
     }
 
@@ -146,7 +177,6 @@ private struct SolveVideoReviewView: View {
     @State private var loadError: String?
     @State private var isRecognizingAudio = false
     @State private var speechRecognitionMessage: String?
-    @State private var canRetryOnDevice = false
     @State private var showingAppleRecognitionConsent = false
     @AppStorage("allowAppleSpeechRecognitionForSolveVideos") private var allowsAppleSpeechRecognition = false
     private let playbackUpdates = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
@@ -236,7 +266,7 @@ private struct SolveVideoReviewView: View {
 
                 Button {
                     if allowsAppleSpeechRecognition {
-                        Task { await autoMarkFromAudio(requiresOnDeviceRecognition: false) }
+                        Task { await autoMarkFromAudio() }
                     } else {
                         showingAppleRecognitionConsent = true
                     }
@@ -258,7 +288,7 @@ private struct SolveVideoReviewView: View {
                 ) {
                     Button("Continue") {
                         allowsAppleSpeechRecognition = true
-                        Task { await autoMarkFromAudio(requiresOnDeviceRecognition: false) }
+                        Task { await autoMarkFromAudio() }
                     }
                     Button("Cancel", role: .cancel) {}
                 } message: {
@@ -270,13 +300,6 @@ private struct SolveVideoReviewView: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                }
-
-                if canRetryOnDevice {
-                    Button("Retry On-Device Instead") {
-                        Task { await autoMarkFromAudio(requiresOnDeviceRecognition: true) }
-                    }
-                    .buttonStyle(.bordered)
                 }
 
                 if let nextLabel = timeline.nextLabel {
@@ -417,12 +440,11 @@ private struct SolveVideoReviewView: View {
     }
 
     @MainActor
-    private func autoMarkFromAudio(requiresOnDeviceRecognition: Bool) async {
+    private func autoMarkFromAudio() async {
         player.pause()
         isPlaying = false
         isRecognizingAudio = true
         speechRecognitionMessage = nil
-        canRetryOnDevice = false
         defer { isRecognizingAudio = false }
 
         let authorization = await SolveVideoSpeechMarkerRecognizer.requestAuthorization()
@@ -432,18 +454,13 @@ private struct SolveVideoReviewView: View {
         }
 
         do {
-            let result = try await SolveVideoSpeechMarkerRecognizer.recognizeMarkers(
-                in: url,
-                requiresOnDeviceRecognition: requiresOnDeviceRecognition
-            )
+            let result = try await SolveVideoSpeechMarkerRecognizer.recognizeMarkers(in: url)
             guard !result.transcript.isEmpty else {
                 speechRecognitionMessage = "No speech was recognized. Check that the recording has audible microphone audio, then try again."
-                canRetryOnDevice = !result.usedOnDeviceRecognition
                 return
             }
             guard result.timestamps.count == SolveVideoTimeline.labels.count else {
                 speechRecognitionMessage = "Heard: \(result.transcript). Found \(result.timestamps.count) of 5 cues; say “start” once, then “done” after each phase. Add the missing timestamps manually."
-                canRetryOnDevice = !result.usedOnDeviceRecognition
                 return
             }
             guard timeline.setTimestamps(result.timestamps, duration: duration) else {

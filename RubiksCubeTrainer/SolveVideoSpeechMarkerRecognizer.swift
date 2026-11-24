@@ -5,7 +5,6 @@ struct SolveVideoSpeechMarkerRecognizer {
     struct RecognitionResult {
         let transcript: String
         let timestamps: [TimeInterval]
-        let usedOnDeviceRecognition: Bool
     }
 
     struct Word {
@@ -41,18 +40,13 @@ struct SolveVideoSpeechMarkerRecognizer {
         }
     }
 
-    static func recognizeMarkers(
-        in videoURL: URL,
-        requiresOnDeviceRecognition: Bool? = nil
-    ) async throws -> RecognitionResult {
+    static func recognizeMarkers(in videoURL: URL) async throws -> RecognitionResult {
         guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
             throw RecognitionError.notAuthorized
         }
         guard let recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US")), recognizer.isAvailable else {
             throw RecognitionError.recognizerUnavailable
         }
-        let useOnDeviceRecognition = requiresOnDeviceRecognition ?? recognizer.supportsOnDeviceRecognition
-
         let audioURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("SolveAudio-\(UUID().uuidString)")
             .appendingPathExtension("m4a")
@@ -65,7 +59,7 @@ struct SolveVideoSpeechMarkerRecognizer {
         request.contextualStrings = [
             "start", "start solve", "done", "cross done", "F2L done", "OLL done", "PLL done"
         ]
-        request.requiresOnDeviceRecognition = useOnDeviceRecognition
+        request.requiresOnDeviceRecognition = false
 
         let recognition: (String, [Word]) = try await withCheckedThrowingContinuation {
             (continuation: CheckedContinuation<(String, [Word]), Error>) in
@@ -85,8 +79,7 @@ struct SolveVideoSpeechMarkerRecognizer {
 
         return RecognitionResult(
             transcript: recognition.0,
-            timestamps: proposedTimestamps(from: recognition.1),
-            usedOnDeviceRecognition: useOnDeviceRecognition
+            timestamps: proposedTimestamps(from: recognition.1)
         )
     }
 
